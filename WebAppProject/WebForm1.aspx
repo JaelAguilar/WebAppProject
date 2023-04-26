@@ -9,10 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <h1>Importar datos de Excel a la página web</h1>
-    <input type="file" id="inputFile" />
-    <button onclick="importExcelData()">Importar archivo de Excel</button>
-        <asp:Button ID="importExcel" runat="server" Text="Import" />
-        <asp:Button ID="importExcel2" runat="server" Text="ImportTest2" />
+<asp:Button ID="importExcel2" runat="server" Text="ImportTest2" />
     </form>
 </body>
 </html>
