@@ -1,6 +1,10 @@
 ﻿Imports System.Data.OleDb
 Imports System.Data.SqlClient
+Imports System.IO
 Imports System.Threading
+Imports System.Windows.Forms
+Imports ExcelDataReader
+Imports ExcelDataReader.DataSet
 
 Public Class WebForm1
     Inherits System.Web.UI.Page
@@ -69,5 +73,36 @@ Public Class WebForm1
 
 
 
+    End Sub
+
+    Sub openEscelFile()
+
+
+    End Sub
+
+
+    Protected Sub importExcel2_Click(sender As Object, e As EventArgs) Handles importExcel2.Click
+        Dim thread As New Thread(
+            Sub()
+                Dim fileDial As New OpenFileDialog With {
+            .Filter = "Excel Files|*.xls; *.xlsx; *.xlsm"
+        }
+                If fileDial.ShowDialog() = DialogResult.Cancel Then
+                    Debug.Write("Failed retrieving the file")
+                    Return
+                End If
+                Debug.Write("Retrieved file")
+                Dim stream2 As New FileStream(fileDial.FileName, FileMode.Open)
+                Dim xslReader As IExcelDataReader
+                xslReader = ExcelReaderFactory.CreateOpenXmlReader(stream2)
+                Dim result As DataSet
+                result = xslReader.AsDataSet()
+
+                Dim table
+                table = result.Tables
+            End Sub
+            )
+        thread.SetApartmentState(ApartmentState.STA)
+        thread.Start()
     End Sub
 End Class
