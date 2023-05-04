@@ -58,7 +58,7 @@ Public Class WebForm1
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
     End Sub
 
-    Protected Sub importExcel2_Click(sender As Object, e As EventArgs) Handles importExcel2.Click
+    Protected Sub importExcel_Click(sender As Object, e As EventArgs) Handles importExcel.Click
         Dim thread As New Thread(
             Sub()
                 Dim fileDial As New OpenFileDialog With {
