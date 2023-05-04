@@ -98,6 +98,7 @@ Public Class WebForm1
     Protected Sub generateReport_Click(sender As Object, e As EventArgs) Handles generateReport.Click
         Dim pdf As New PdfDocument
 
+        'Generate the pdf
         pdf.Info.Title = "My First PDF"
         pdf.Version = 14
 
@@ -109,10 +110,25 @@ Public Class WebForm1
 
         graph.DrawString("Hello, This is my first PDF document", font, XBrushes.Black, New XRect(0, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.Center)
 
-        Dim pdfFilename As String = "firstpage.pdf"
+        ' Saving the pdf
+        Dim saveFileDialog As New SaveFileDialog With {
+            .Filter = "PDF document (*.pdf)|*.pdf",
+            .Title = "Guardar el reporte"
+        }
+        Dim thread As New Thread(
+            Sub()
+                Dim result = saveFileDialog.ShowDialog()
+                Dim pdfFilename As String = saveFileDialog.FileName
+                If result = DialogResult.OK Then
+                    pdf.Save(pdfFilename)
+                    Process.Start(pdfFilename)
+                Else
+                    MessageBox.Show("Hubo un error, inténtelo de nuevo")
+                End If
+            End Sub
+            )
+        thread.SetApartmentState(ApartmentState.STA)
+        thread.Start()
 
-        pdf.Save("C:\Users\admin\Downloads\" + pdfFilename)
-
-        Process.Start("C:\Users\admin\Downloads\" + pdfFilename)
     End Sub
 End Class
