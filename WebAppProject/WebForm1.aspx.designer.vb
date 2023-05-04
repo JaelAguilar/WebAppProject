@@ -30,4 +30,13 @@ Partial Public Class WebForm1
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents importExcel2 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''generateReport control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents generateReport As Global.System.Web.UI.WebControls.Button
 End Class

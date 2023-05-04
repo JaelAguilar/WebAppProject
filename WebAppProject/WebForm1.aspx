@@ -10,6 +10,7 @@
     <form id="form1" runat="server">
         <h1>Importar datos de Excel a la página web</h1>
 <asp:Button ID="importExcel2" runat="server" Text="ImportTest2" />
+        <asp:Button ID="generateReport" runat="server" Text="Ver Reporte" />
     </form>
 </body>
 </html>
