@@ -128,7 +128,7 @@
     </Compile>
     <Compile Include="WebForm1.aspx.vb">
       <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
