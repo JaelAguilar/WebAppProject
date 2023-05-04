@@ -117,9 +117,8 @@ Public Class WebForm1
         }
         Dim thread As New Thread(
             Sub()
-                Dim result = saveFileDialog.ShowDialog()
-                Dim pdfFilename As String = saveFileDialog.FileName
-                If result = DialogResult.OK Then
+                If saveFileDialog.ShowDialog() = DialogResult.OK Then
+                    Dim pdfFilename As String = saveFileDialog.FileName
                     pdf.Save(pdfFilename)
                     Process.Start(pdfFilename)
                 Else
