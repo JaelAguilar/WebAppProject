@@ -2,6 +2,9 @@
 Imports System.Threading
 Imports System.IO
 Imports System.Windows.Forms
+Imports PdfSharp
+Imports PdfSharp.Drawing
+Imports PdfSharp.Pdf
 Imports ExcelDataReader
 
 
