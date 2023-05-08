@@ -129,4 +129,44 @@ Public Class WebForm1
 
         Process.Start("C:\Users\admin\Downloads\" + pdfFilename)
     End Sub
+
+    Private Function ExportPDF()
+
+    End Function
+
+    Protected Sub generateReport_Click(sender As Object, e As EventArgs) Handles generateReport.Click
+        Dim pdf As New PdfDocument
+
+        'Generate the pdf
+        pdf.Info.Title = "My First PDF"
+        pdf.Version = 14
+
+        Dim pdfPage As PdfPage = pdf.AddPage
+
+        Dim graph As XGraphics = XGraphics.FromPdfPage(pdfPage)
+
+        Dim font As New XFont("Verdana", 20, XFontStyle.Bold)
+
+        graph.DrawString("Hello, This is my first PDF document", font, XBrushes.Black, New XRect(0, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.Center)
+
+        ' Saving the pdf
+        Dim saveFileDialog As New SaveFileDialog With {
+            .Filter = "PDF document (*.pdf)|*.pdf",
+            .Title = "Guardar el reporte"
+        }
+        Dim thread As New Thread(
+            Sub()
+                If saveFileDialog.ShowDialog() = DialogResult.OK Then
+                    Dim pdfFilename As String = saveFileDialog.FileName
+                    pdf.Save(pdfFilename)
+                    Process.Start(pdfFilename)
+                Else
+                    MessageBox.Show("Hubo un error, inténtelo de nuevo")
+                End If
+            End Sub
+            )
+        thread.SetApartmentState(ApartmentState.STA)
+        thread.Start()
+
+    End Sub
 End Class
