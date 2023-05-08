@@ -15,7 +15,7 @@
             <asp:ListItem></asp:ListItem>
         </asp:DropDownList>
 <asp:Button ID="importExcel" runat="server" Text="Import" />
-        <asp:Button ID="generateReport" runat="server" Text="Generar PDF" />
+        <asp:Button ID="generateReport" runat="server" Text="Generar Reporte" />
     </form>
 </body>
 </html>

@@ -103,33 +103,6 @@ Public Class WebForm1
                 End With
         End Select
     End Function
-
-
-    Private Function ExportPDF()
-
-    End Function
-
-    Protected Sub generateReport_Click(sender As Object, e As EventArgs) Handles generateReport.Click
-        Dim pdf As New PdfDocument
-
-        pdf.Info.Title = "My First PDF"
-        pdf.Version = 14
-
-        Dim pdfPage As PdfPage = pdf.AddPage
-
-        Dim graph As XGraphics = XGraphics.FromPdfPage(pdfPage)
-
-        Dim font As New XFont("Verdana", 20, XFontStyle.Bold)
-
-        graph.DrawString("Hello, This is my first PDF document", font, XBrushes.Black, New XRect(0, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.Center)
-
-        Dim pdfFilename As String = "firstpage.pdf"
-
-        pdf.Save("C:\Users\admin\Downloads\" + pdfFilename)
-
-        Process.Start("C:\Users\admin\Downloads\" + pdfFilename)
-    End Sub
-
     Private Function ExportPDF()
 
     End Function
