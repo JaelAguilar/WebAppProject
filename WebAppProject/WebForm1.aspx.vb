@@ -16,7 +16,7 @@ Public Class WebForm1
 
     <Obsolete>
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Dim pdfDoc = createPDF()
+        Dim pdfDoc = CreatePDF()
         Dim renderer As New PdfDocumentRenderer(True, PdfFontEmbedding.Always) With {
             .Document = pdfDoc
         }
@@ -118,7 +118,7 @@ Public Class WebForm1
     End Function
 
     Protected Sub generateReport_Click(sender As Object, e As EventArgs) Handles generateReport.Click
-        Dim pdfDoc = createPDF()
+        Dim pdfDoc = CreatePDF()
         Dim renderer As New PdfDocumentRenderer(True) With {
             .Document = pdfDoc
         }
@@ -145,20 +145,30 @@ Public Class WebForm1
 
     End Sub
 
-    Protected Function createPDF() As Document
+    Protected Function CreatePDF() As Document
 
         Dim doc As New Document()
         'Defining styles
         Dim styles As Style = doc.Styles.Item(StyleNames.Normal)
         styles.Font.Name = "Segoe UI"
+
+
         styles = doc.Styles("Heading1")
         styles.Font.Name = "Helvetica"
         styles.Font.Size = 18
         styles.Font.Bold = True
         styles.Font.Color = Colors.White
+        styles.ParagraphFormat.SpaceBefore = 20
+        styles.ParagraphFormat.Alignment = ParagraphAlignment.Center
 
         styles = doc.Styles("Heading2")
-        styles.Font.Size = 14
+        styles.Font.Name = "Segoe UI"
+        styles.Font.Size = 12
+        styles.Font.Color = Colors.Black
+        styles.ParagraphFormat.SpaceBefore = 15
+        styles.ParagraphFormat.Alignment = ParagraphAlignment.Center
+
+
 
 
         Dim page = doc.AddSection()
@@ -172,21 +182,21 @@ Public Class WebForm1
 
         Dim headerRow = headerTable.AddRow()
         headerRow.Shading.Color = Colors.LightGray
-        headerRow.Cells(0).AddParagraph("Gobierno Municipal de San Nicolás de los Garza, N.L." & Environment.NewLine & " Adminsitración 2018 - 2021" & Environment.NewLine & "PROGRAMA DE ENTREGA-RECEPCIÓN PARA LA" & Environment.NewLine & "ADMINSITRACIÓN PÚBLICA MUNICIPAL" & Environment.NewLine & "RECURSOS FINANCIEROS" & Environment.NewLine & "ANEXO A.1")
+        headerRow.Cells(0).AddParagraph("GOBIERNO MUNICPAL DE SAN NICOLÁS DE LOS GARZA" & Environment.NewLine & " Adminsitración 2021 - 2024" & Environment.NewLine & "PROGRAMA DE ENTREGA-RECEPCIÓN PARA LA" & Environment.NewLine & "ADMINSITRACIÓN PÚBLICA MUNICIPAL" & Environment.NewLine & "RECURSOS FINANCIEROS" & Environment.NewLine & "ANEXO A.1")
         headerRow.Cells(1).Shading.Color = Colors.White
-        headerRow.Cells(2).AddParagraph("Secretaría de " & Environment.NewLine & "Dirección De")
+        headerRow.Cells(2).AddParagraph("SECRETARÍA DE " & Environment.NewLine & "DIRECCIÓN DE")
         doc.LastSection.Add(headerTable)
 
-
+        'Headings
         Dim paragraph = doc.LastSection.AddParagraph("PRESUPUESTO GLOBAL 2023", "Heading1")
         paragraph.Format.Borders.Width = 2.5
         paragraph.Format.Borders.Color = Colors.Black
         paragraph.Format.Borders.Distance = 3
         paragraph.Format.Shading.Color = Colors.LightGray
-        paragraph.Format.Alignment = DocumentObjectModel.TabAlignment.Center
 
-        paragraph = doc.LastSection.AddParagraph("SE ANEZA INFORMACIÓN" & Environment.NewLine & "PRESUPUESTO DE INGRESOS Y EGRESOS GLOBALES" & Environment.NewLine & "(MILES DE PESOS)")
-        paragraph.Format.Alignment = DocumentObjectModel.TabAlignment.Center
+        doc.LastSection.AddParagraph("SE ANEXA INFORMACIÓN" & Environment.NewLine & "PRESUPUESTO DE INGRESOS Y EGRESOS GLOBALES" & Environment.NewLine & "(MILES DE PESOS)", "Heading2")
+
+
         Return doc
     End Function
 
