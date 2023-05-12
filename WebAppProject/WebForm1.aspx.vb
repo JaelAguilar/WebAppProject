@@ -203,20 +203,20 @@ Public Class WebForm1
         doc.LastSection.AddParagraph("SE ANEXA INFORMACIÓN" & Environment.NewLine & "PRESUPUESTO DE INGRESOS Y EGRESOS GLOBALES" & Environment.NewLine & "(MILES DE PESOS)" & Environment.NewLine, "Heading2")
 
         'Create first table
-        Dim table1 As New Table()
-        table1.Borders.Width = 0.75
-        table1.AddColumn(Unit.FromInch(4))
-        table1.AddColumn(Unit.FromInch(0.4))
-        table1.AddColumn(Unit.FromInch(2))
+        Dim currentTable As New Table()
+        currentTable.Borders.Width = 0.75
+        currentTable.AddColumn(Unit.FromInch(4))
+        currentTable.AddColumn(Unit.FromInch(0.4))
+        currentTable.AddColumn(Unit.FromInch(2))
 
-        Dim tRow = table1.AddRow()
+        Dim tRow = currentTable.AddRow()
         tRow(0).AddParagraph("INGRESOS")
         tRow(0).MergeRight = 2
         tRow.Format.Font.Bold = True
         tRow.Format.Alignment = ParagraphAlignment.Center
 
 
-        tRow = table1.AddRow()
+        tRow = currentTable.AddRow()
         tRow(0).AddParagraph("CONCEPTO")
         tRow(1).AddParagraph("IMPORTE")
         tRow(1).MergeRight = 1
@@ -224,28 +224,99 @@ Public Class WebForm1
         tRow.Format.Alignment = ParagraphAlignment.Center
 
 
-        tRow = table1.AddRow()
+        tRow = currentTable.AddRow()
         tRow(0).AddParagraph("PRESUPUESTO ESTIMADO")
         tRow(1).AddParagraph("$")
         tRow(2).AddParagraph(r(0))
-        tRow = table1.AddRow()
-        tRow(0).AddParagraph("PRESUPUESTO ESTIMADO")
+        tRow = currentTable.AddRow()
+        tRow(0).AddParagraph("PRESUPUESTO MODIFICADO")
         tRow(1).AddParagraph("$")
         tRow(2).AddParagraph(r(1))
-        tRow = table1.AddRow()
-        tRow(0).AddParagraph("PRESUPUESTO ESTIMADO")
+        tRow = currentTable.AddRow()
+        tRow(0).AddParagraph("PRESUPUESTO DEVENGADO")
         tRow(1).AddParagraph("$")
         tRow(2).AddParagraph(r(2))
-        tRow = table1.AddRow()
-        tRow(0).AddParagraph("PRESUPUESTO ESTIMADO")
+        tRow = currentTable.AddRow()
+        tRow(0).AddParagraph("PRESUPUESTO RECAUDADO")
         tRow(1).AddParagraph("$")
         tRow(2).AddParagraph(r(3))
 
 
-        doc.LastSection.Add(table1)
+        doc.LastSection.Add(currentTable)
 
 
+        'Create second table
+        currentTable = New Table()
+        currentTable.Borders.Width = 0.75
+        currentTable.AddColumn(Unit.FromInch(4))
+        currentTable.AddColumn(Unit.FromInch(0.4))
+        currentTable.AddColumn(Unit.FromInch(2))
 
+        tRow = currentTable.AddRow()
+        tRow(0).AddParagraph("EGRESOS")
+        tRow(0).MergeRight = 2
+        tRow.Format.Font.Bold = True
+        tRow.Format.Alignment = ParagraphAlignment.Center
+
+
+        tRow = currentTable.AddRow()
+        tRow(0).AddParagraph("CONCEPTO")
+        tRow(1).AddParagraph("IMPORTE")
+        tRow(1).MergeRight = 1
+        tRow.Format.Font.Bold = True
+        tRow.Format.Alignment = ParagraphAlignment.Center
+
+
+        tRow = currentTable.AddRow()
+        tRow(0).AddParagraph("PRESUPUESTO ORIGINAL APROBADO")
+        tRow(1).AddParagraph("$")
+        tRow(2).AddParagraph(r(4))
+        tRow = currentTable.AddRow()
+        tRow(0).AddParagraph("1ER. AMPLIACIÓN PRESUPUESTAL (SE ANEXA DOC.)")
+        tRow(1).AddParagraph("$")
+        tRow(2).AddParagraph(r(5))
+        tRow = currentTable.AddRow()
+        tRow(0).AddParagraph("2DA. AMPLIACIÓN PRESUPUESTAL (SE ANEXA DOC.)")
+        tRow(1).AddParagraph("$")
+        tRow(2).AddParagraph(r(6))
+        tRow = currentTable.AddRow()
+        tRow(0).AddParagraph("3ER. AMPLIACIÓN PRESUPUESTAL (SE ANEXA DOC.)")
+        tRow(1).AddParagraph("$")
+        tRow(2).AddParagraph(r(7))
+        tRow = currentTable.AddRow()
+        tRow(0).AddParagraph("TOTAL AMPLIACIONES (2 + 3 + 4)")
+        tRow(1).AddParagraph("$")
+        tRow(2).AddParagraph(r(8))
+        tRow = currentTable.AddRow()
+        tRow(0).AddParagraph("PRESUPUESTO MODIFICADO (SE ANEXA DOC.)")
+        tRow(1).AddParagraph("$")
+        tRow(2).AddParagraph(r(9))
+        tRow = currentTable.AddRow()
+        tRow(0).AddParagraph("PRESUPUESTO COMPROMETIDO (SE ANEXA DOC.)")
+        tRow(1).AddParagraph("$")
+        tRow(2).AddParagraph(r(10))
+        tRow = currentTable.AddRow()
+        tRow(0).AddParagraph("PRESUPUESTO DEVENGADO (SE ANEXA DOC.)")
+        tRow(1).AddParagraph("$")
+        tRow(2).AddParagraph(r(11))
+        tRow = currentTable.AddRow()
+        tRow(0).AddParagraph("PRESUPUESTO EJERCIDO (SE ANEXA DOC.)")
+        tRow(1).AddParagraph("$")
+        tRow(2).AddParagraph(r(12))
+        tRow = currentTable.AddRow()
+        tRow(0).AddParagraph("PRESUPUESTO EROGADO (SE ANEXA DOC.)")
+        tRow(1).AddParagraph("$")
+        tRow(2).AddParagraph(r(13))
+        tRow = currentTable.AddRow()
+        tRow(0).AddParagraph("PRESUPUESTO CONSUMIDO (SE ANEXA DOC.) (7+8+9+10)")
+        tRow(1).AddParagraph("$")
+        tRow(2).AddParagraph(r(14))
+        tRow = currentTable.AddRow()
+        tRow(0).AddParagraph("PRESUPUESTO POR EJERCER OFICIAL (SE ANEXA DOC.) (6 -11)")
+        tRow(1).AddParagraph("$")
+        tRow(2).AddParagraph(r(15))
+
+        doc.LastSection.Add(currentTable)
 
         Return doc
     End Function
