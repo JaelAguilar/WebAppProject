@@ -14,9 +14,12 @@ Imports MigraDoc.DocumentObjectModel.Tables
 Public Class WebForm1
     Inherits Page
 
+    Private r As New List(Of Integer)({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16})
+
     <Obsolete>
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Dim pdfDoc = CreatePDF()
+
+        Dim pdfDoc = CreatePDF(r)
         Dim renderer As New PdfDocumentRenderer(True, PdfFontEmbedding.Always) With {
             .Document = pdfDoc
         }
@@ -118,7 +121,8 @@ Public Class WebForm1
     End Function
 
     Protected Sub generateReport_Click(sender As Object, e As EventArgs) Handles generateReport.Click
-        Dim pdfDoc = CreatePDF()
+
+        Dim pdfDoc = CreatePDF(r)
         Dim renderer As New PdfDocumentRenderer(True) With {
             .Document = pdfDoc
         }
@@ -145,7 +149,7 @@ Public Class WebForm1
 
     End Sub
 
-    Protected Function CreatePDF() As Document
+    Protected Function CreatePDF(r As List(Of Integer)) As Document
 
         Dim doc As New Document()
         'Defining styles
@@ -182,9 +186,11 @@ Public Class WebForm1
 
         Dim headerRow = headerTable.AddRow()
         headerRow.Shading.Color = Colors.LightGray
-        headerRow.Cells(0).AddParagraph("GOBIERNO MUNICPAL DE SAN NICOLÁS DE LOS GARZA" & Environment.NewLine & " Adminsitración 2021 - 2024" & Environment.NewLine & "PROGRAMA DE ENTREGA-RECEPCIÓN PARA LA" & Environment.NewLine & "ADMINSITRACIÓN PÚBLICA MUNICIPAL" & Environment.NewLine & "RECURSOS FINANCIEROS" & Environment.NewLine & "ANEXO A.1")
+        headerRow.Cells(0).AddParagraph("GOBIERNO MUNICPAL DE SAN NICOLÁS DE LOS GARZA" & Environment.NewLine & " ADMINISTRACIÓN 2021 - 2024" & Environment.NewLine & "PROGRAMA DE ENTREGA-RECEPCIÓN PARA LA ADMINSITRACIÓN PÚBLICA MUNICIPAL" & Environment.NewLine & "RECURSOS FINANCIEROS" & Environment.NewLine & "ANEXO A.1")
+        headerRow.Cells(0).Format.Alignment = ParagraphAlignment.Center
         headerRow.Cells(1).Shading.Color = Colors.White
         headerRow.Cells(2).AddParagraph("SECRETARÍA DE " & Environment.NewLine & "DIRECCIÓN DE")
+
         doc.LastSection.Add(headerTable)
 
         'Headings
@@ -192,9 +198,53 @@ Public Class WebForm1
         paragraph.Format.Borders.Width = 2.5
         paragraph.Format.Borders.Color = Colors.Black
         paragraph.Format.Borders.Distance = 3
-        paragraph.Format.Shading.Color = Colors.LightGray
+        paragraph.Format.Shading.Color = Colors.Gray
 
-        doc.LastSection.AddParagraph("SE ANEXA INFORMACIÓN" & Environment.NewLine & "PRESUPUESTO DE INGRESOS Y EGRESOS GLOBALES" & Environment.NewLine & "(MILES DE PESOS)", "Heading2")
+        doc.LastSection.AddParagraph("SE ANEXA INFORMACIÓN" & Environment.NewLine & "PRESUPUESTO DE INGRESOS Y EGRESOS GLOBALES" & Environment.NewLine & "(MILES DE PESOS)" & Environment.NewLine, "Heading2")
+
+        'Create first table
+        Dim table1 As New Table()
+        table1.Borders.Width = 0.75
+        table1.AddColumn(Unit.FromInch(4))
+        table1.AddColumn(Unit.FromInch(0.4))
+        table1.AddColumn(Unit.FromInch(2))
+
+        Dim tRow = table1.AddRow()
+        tRow(0).AddParagraph("INGRESOS")
+        tRow(0).MergeRight = 2
+        tRow.Format.Font.Bold = True
+        tRow.Format.Alignment = ParagraphAlignment.Center
+
+
+        tRow = table1.AddRow()
+        tRow(0).AddParagraph("CONCEPTO")
+        tRow(1).AddParagraph("IMPORTE")
+        tRow(1).MergeRight = 1
+        tRow.Format.Font.Bold = True
+        tRow.Format.Alignment = ParagraphAlignment.Center
+
+
+        tRow = table1.AddRow()
+        tRow(0).AddParagraph("PRESUPUESTO ESTIMADO")
+        tRow(1).AddParagraph("$")
+        tRow(2).AddParagraph(r(0))
+        tRow = table1.AddRow()
+        tRow(0).AddParagraph("PRESUPUESTO ESTIMADO")
+        tRow(1).AddParagraph("$")
+        tRow(2).AddParagraph(r(1))
+        tRow = table1.AddRow()
+        tRow(0).AddParagraph("PRESUPUESTO ESTIMADO")
+        tRow(1).AddParagraph("$")
+        tRow(2).AddParagraph(r(2))
+        tRow = table1.AddRow()
+        tRow(0).AddParagraph("PRESUPUESTO ESTIMADO")
+        tRow(1).AddParagraph("$")
+        tRow(2).AddParagraph(r(3))
+
+
+        doc.LastSection.Add(table1)
+
+
 
 
         Return doc
