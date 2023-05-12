@@ -6,14 +6,24 @@ Imports PdfSharp
 Imports PdfSharp.Drawing
 Imports PdfSharp.Pdf
 Imports ExcelDataReader
-
-
-
+Imports MigraDoc
+Imports MigraDoc.DocumentObjectModel
+Imports MigraDoc.Rendering
+Imports MigraDoc.DocumentObjectModel.Tables
 
 Public Class WebForm1
     Inherits Page
 
+    <Obsolete>
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Dim pdfDoc = createPDF()
+        Dim renderer As New PdfDocumentRenderer(True, PdfFontEmbedding.Always) With {
+            .Document = pdfDoc
+        }
+        renderer.RenderDocument()
+        Dim loc = "C:\Users\admin\Downloads\test.pdf"
+        renderer.PdfDocument.Save(loc)
+        Process.Start(loc)
     End Sub
 
     Protected Sub importExcel_Click(sender As Object, e As EventArgs) Handles importExcel.Click
@@ -108,19 +118,11 @@ Public Class WebForm1
     End Function
 
     Protected Sub generateReport_Click(sender As Object, e As EventArgs) Handles generateReport.Click
-        Dim pdf As New PdfDocument
-
-        'Generate the pdf
-        pdf.Info.Title = "My First PDF"
-        pdf.Version = 14
-
-        Dim pdfPage As PdfPage = pdf.AddPage
-
-        Dim graph As XGraphics = XGraphics.FromPdfPage(pdfPage)
-
-        Dim font As New XFont("Verdana", 20, XFontStyle.Bold)
-
-        graph.DrawString("Hello, This is my first PDF document", font, XBrushes.Black, New XRect(0, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.Center)
+        Dim pdfDoc = createPDF()
+        Dim renderer As New PdfDocumentRenderer(True) With {
+            .Document = pdfDoc
+        }
+        renderer.RenderDocument()
 
         ' Saving the pdf
         Dim saveFileDialog As New SaveFileDialog With {
@@ -131,7 +133,7 @@ Public Class WebForm1
             Sub()
                 If saveFileDialog.ShowDialog() = DialogResult.OK Then
                     Dim pdfFilename As String = saveFileDialog.FileName
-                    pdf.Save(pdfFilename)
+                    renderer.Save(pdfFilename)
                     Process.Start(pdfFilename)
                 Else
                     MessageBox.Show("Hubo un error, inténtelo de nuevo")
@@ -142,4 +144,50 @@ Public Class WebForm1
         thread.Start()
 
     End Sub
+
+    Protected Function createPDF() As Document
+
+        Dim doc As New Document()
+        'Defining styles
+        Dim styles As Style = doc.Styles.Item(StyleNames.Normal)
+        styles.Font.Name = "Segoe UI"
+        styles = doc.Styles("Heading1")
+        styles.Font.Name = "Helvetica"
+        styles.Font.Size = 18
+        styles.Font.Bold = True
+        styles.Font.Color = Colors.White
+
+        styles = doc.Styles("Heading2")
+        styles.Font.Size = 14
+
+
+        Dim page = doc.AddSection()
+
+        'Header
+        Dim headerTable As New Table()
+        headerTable.Borders.Width = 0.75
+        headerTable.AddColumn(Unit.FromInch(3))
+        headerTable.AddColumn(Unit.FromInch(1.4))
+        headerTable.AddColumn(Unit.FromInch(2))
+
+        Dim headerRow = headerTable.AddRow()
+        headerRow.Shading.Color = Colors.LightGray
+        headerRow.Cells(0).AddParagraph("Gobierno Municipal de San Nicolás de los Garza, N.L." & Environment.NewLine & " Adminsitración 2018 - 2021" & Environment.NewLine & "PROGRAMA DE ENTREGA-RECEPCIÓN PARA LA" & Environment.NewLine & "ADMINSITRACIÓN PÚBLICA MUNICIPAL" & Environment.NewLine & "RECURSOS FINANCIEROS" & Environment.NewLine & "ANEXO A.1")
+        headerRow.Cells(1).Shading.Color = Colors.White
+        headerRow.Cells(2).AddParagraph("Secretaría de " & Environment.NewLine & "Dirección De")
+        doc.LastSection.Add(headerTable)
+
+
+        Dim paragraph = doc.LastSection.AddParagraph("PRESUPUESTO GLOBAL 2023", "Heading1")
+        paragraph.Format.Borders.Width = 2.5
+        paragraph.Format.Borders.Color = Colors.Black
+        paragraph.Format.Borders.Distance = 3
+        paragraph.Format.Shading.Color = Colors.LightGray
+        paragraph.Format.Alignment = DocumentObjectModel.TabAlignment.Center
+
+        paragraph = doc.LastSection.AddParagraph("SE ANEZA INFORMACIÓN" & Environment.NewLine & "PRESUPUESTO DE INGRESOS Y EGRESOS GLOBALES" & Environment.NewLine & "(MILES DE PESOS)")
+        paragraph.Format.Alignment = DocumentObjectModel.TabAlignment.Center
+        Return doc
+    End Function
+
 End Class
