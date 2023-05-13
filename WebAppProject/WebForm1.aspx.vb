@@ -193,6 +193,7 @@ Public Class WebForm1
         headerRow.Cells(0).AddParagraph("GOBIERNO MUNICPAL DE SAN NICOLÁS DE LOS GARZA" & Environment.NewLine & " ADMINISTRACIÓN 2021 - 2024" & Environment.NewLine & "PROGRAMA DE ENTREGA-RECEPCIÓN PARA LA ADMINSITRACIÓN PÚBLICA MUNICIPAL" & Environment.NewLine & "RECURSOS FINANCIEROS" & Environment.NewLine & "ANEXO A.1")
         headerRow.Cells(0).Format.Alignment = ParagraphAlignment.Center
         headerRow.Cells(1).Shading.Color = Colors.White
+        headerRow.Cells(1).Format.Alignment = ParagraphAlignment.Center
         headerRow.Cells(2).AddParagraph("SECRETARÍA " & r(0) & Environment.NewLine & "DIRECCIÓN " & r(1))
 
         doc.LastSection.Add(headerTable)
