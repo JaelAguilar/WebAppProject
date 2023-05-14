@@ -144,7 +144,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo_NuevoLeon.png" />
-    <Content Include="Logo_NuevoLeon.svg" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
