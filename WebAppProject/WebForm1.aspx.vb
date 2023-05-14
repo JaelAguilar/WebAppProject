@@ -176,11 +176,14 @@ Public Class WebForm1
 
 
         Dim page = doc.AddSection()
+        page.PageSetup.LeftMargin = Unit.FromInch(0.5)
+        page.PageSetup.RightMargin = Unit.FromInch(0.5)
+        page.PageSetup.TopMargin = Unit.FromInch(0.5)
 
         'Header
         Dim headerTable As New Table()
         headerTable.Borders.Width = 0.75
-        headerTable.AddColumn(Unit.FromInch(3))
+        headerTable.AddColumn(Unit.FromInch(4))
         headerTable.AddColumn(Unit.FromInch(1.4))
         headerTable.AddColumn(Unit.FromInch(2))
         headerTable.TopPadding = 4
@@ -195,8 +198,8 @@ Public Class WebForm1
         headerRow.Cells(1).Shading.Color = Colors.White
         headerRow.Cells(1).Format.Alignment = ParagraphAlignment.Center
         Dim NLlogo = headerRow.Cells(1).AddParagraph.AddImage(AppDomain.CurrentDomain.BaseDirectory & "bin\Logo_NuevoLeon.png")
-        NLlogo.Width = 72
-        NLlogo.Height = 90
+        NLlogo.Width = 64
+        NLlogo.Height = 80
         'NLlogo.
         headerRow.Cells(2).AddParagraph("SECRETARÍA " & r(0) & Environment.NewLine & "DIRECCIÓN " & r(1))
 
@@ -222,7 +225,7 @@ Public Class WebForm1
         currentTable.LeftPadding = 4
 
         'Creating columns
-        currentTable.AddColumn(Unit.FromInch(4))
+        currentTable.AddColumn(Unit.FromInch(5))
         currentTable.AddColumn(Unit.FromInch(0.4))
         currentTable.AddColumn(Unit.FromInch(2))
         currentTable.Columns(1).Format.Alignment = ParagraphAlignment.Center 'The $ symbol is in the center
@@ -272,7 +275,7 @@ Public Class WebForm1
         currentTable.TopPadding = 4
         currentTable.BottomPadding = 4
         currentTable.LeftPadding = 4
-        currentTable.AddColumn(Unit.FromInch(4))
+        currentTable.AddColumn(Unit.FromInch(5))
         currentTable.AddColumn(Unit.FromInch(0.4))
         currentTable.AddColumn(Unit.FromInch(2))
         currentTable.Columns(1).Format.Alignment = ParagraphAlignment.Center
