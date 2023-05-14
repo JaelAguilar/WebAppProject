@@ -10,6 +10,7 @@ Imports MigraDoc
 Imports MigraDoc.DocumentObjectModel
 Imports MigraDoc.Rendering
 Imports MigraDoc.DocumentObjectModel.Tables
+Imports Microsoft
 
 Public Class WebForm1
     Inherits Page
@@ -18,11 +19,10 @@ Public Class WebForm1
 
     <Obsolete>
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
         Dim pdfDoc = CreatePDF(r)
         Dim renderer As New PdfDocumentRenderer(True, PdfFontEmbedding.Always) With {
-            .Document = pdfDoc
-        }
+.Document = pdfDoc
+}
         renderer.RenderDocument()
         Dim loc = "C:\Users\admin\Downloads\test.pdf"
         renderer.PdfDocument.Save(loc)
@@ -194,6 +194,10 @@ Public Class WebForm1
         headerRow.Cells(0).Format.Alignment = ParagraphAlignment.Center
         headerRow.Cells(1).Shading.Color = Colors.White
         headerRow.Cells(1).Format.Alignment = ParagraphAlignment.Center
+        Dim NLlogo = headerRow.Cells(1).AddParagraph.AddImage(AppDomain.CurrentDomain.BaseDirectory & "bin\Logo_NuevoLeon.png")
+        NLlogo.Width = 72
+        NLlogo.Height = 90
+        'NLlogo.
         headerRow.Cells(2).AddParagraph("SECRETARÍA " & r(0) & Environment.NewLine & "DIRECCIÓN " & r(1))
 
         doc.LastSection.Add(headerTable)
