@@ -19,7 +19,7 @@ Public Class WebForm1
 
     <Obsolete>
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Dim pdfDoc = CreatePDF(r)
+        Dim pdfDoc = CreatePDF(r, "A.5")
         Dim renderer As New PdfDocumentRenderer(True, PdfFontEmbedding.Always) With {
 .Document = pdfDoc
 }
@@ -121,8 +121,7 @@ Public Class WebForm1
     End Function
 
     Protected Sub generateReport_Click(sender As Object, e As EventArgs) Handles generateReport.Click
-
-        Dim pdfDoc = CreatePDF(r)
+        Dim pdfDoc = CreatePDF(r, DropDownList1.SelectedValue)
         Dim renderer As New PdfDocumentRenderer(True) With {
             .Document = pdfDoc
         }
