@@ -167,7 +167,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="reportGeneration.vb" />
+    <Compile Include="ReportGeneration.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="WebForm1.aspx.designer.vb">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
