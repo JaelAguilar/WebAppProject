@@ -23,13 +23,13 @@ Partial Public Class WebForm1
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''DropDownList1 control.
+    '''importTableSelector control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents DropDownList1 As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents importTableSelector As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''importExcel control.
@@ -39,6 +39,42 @@ Partial Public Class WebForm1
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents importExcel As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''exportTableSelector control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents exportTableSelector As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''ListBox1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ListBox1 As Global.System.Web.UI.WebControls.ListBox
+
+    '''<summary>
+    '''exportSecretarySelector control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents exportSecretarySelector As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''exportDirectorySelector control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents exportDirectorySelector As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''generateReport control.
