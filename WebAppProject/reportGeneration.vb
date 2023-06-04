@@ -85,11 +85,10 @@ Partial Public Class WebForm1
         'dbTest.Rows.Add("s2", "d2", "ipe2", "ipm2", "ipd2", "ipr2", "epoa2", "e1mp2", "e2mp2", "e3mp2", "eta2", "epm2", "epc2", "epd2", "epej2", "eper2", "epco2", "eppe2", "fc2", "e2", "r2", "a2")
         Dim direccion = "D1"
         Dim secretaria = "S1"
+        page.AddParagraph("Secretaría " & secretaria & ", Dirección " & direccion)
 
         Select Case databaseName
             Case "A.1"
-                page.AddParagraph("Secretaría " & secretaria & ", Dirección " & direccion)
-
                 'Headings
                 paragraph = page.AddParagraph("PRESUPUESTO GLOBAL 2023", "Heading1")
                 paragraph.Format.Borders.Width = 2.5
@@ -230,14 +229,402 @@ Partial Public Class WebForm1
                 tRow(1).AddParagraph("$")
                 tRow(2).AddParagraph(dt(0)(17))
                 page.Add(currentTable)
+
+
             Case "A.1.1"
+                'Headings
+                paragraph = page.AddParagraph("PRESUPUESTO GLOBAL 2023", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph("SE ANEXA INFORMACIÓN" & Environment.NewLine & "PRESUPUESTO DE INGRESOS Y EGRESOS GLOBALES" & Environment.NewLine & "(MILES DE PESOS)" & Environment.NewLine, "Heading2")
+                page.AddParagraph(" ")
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(5))
+                currentTable.AddColumn(Unit.FromInch(0.4))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.Columns(1).Format.Alignment =
+        ParagraphAlignment.Center 'The $ symbol is in the center
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("INGRESOS")
+                tRow(0).MergeRight = 2
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                '2nd Headings row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("CONCEPTO")
+                tRow(1).AddParagraph("IMPORTE")
+                tRow(1).MergeRight = 1
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                'Data
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("IMPUESTOS")
+                tRow(1).AddParagraph("$")
+                tRow(2).AddParagraph(dt(0)(2))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("CUOTAS Y APORTACIONES DE SEGURIDAD SOCIAL")
+                tRow(1).AddParagraph("$")
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("CONTRIBUCIONES DE MEJORAS")
+                tRow(1).AddParagraph("$")
+                tRow(2).AddParagraph(dt(0)(4))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("DERECHOS")
+                tRow(1).AddParagraph("$")
+                tRow(2).AddParagraph(dt(0)(5))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("PRODUCTOS")
+                tRow(1).AddParagraph("$")
+                tRow(2).AddParagraph(dt(0)(5))
+                tRow = currentTable.AddRow
+                tRow(0).AddParagraph("APROVECHAMIENTOS")
+                tRow(1).AddParagraph("$")
+                tRow(2).AddParagraph(dt(0)(5))
+                tRow = currentTable.AddRow
+                tRow(0).AddParagraph("INGRESOS PARA VENTAS DE BIENES Y SERVICIOS")
+                tRow(1).AddParagraph("$")
+                tRow(2).AddParagraph(dt(0)(5))
+                tRow = currentTable.AddRow
+                tRow(0).AddParagraph("PARTICIPACIONES Y APORTACIONES")
+                tRow(1).AddParagraph("$")
+                tRow(2).AddParagraph(dt(0)(5))
+                tRow = currentTable.AddRow
+                tRow(0).AddParagraph("TRANSFERENCIAS, ASIGNACIONES, SUBSIDIOS Y OTRAS AYUDAS")
+                tRow(1).AddParagraph("$")
+                tRow(2).AddParagraph(dt(0)(5))
+                tRow = currentTable.AddRow
+                tRow(0).AddParagraph("INGRESOS DERIVADOS DE FINANCIAMIENTO")
+                tRow(1).AddParagraph("$")
+                tRow(2).AddParagraph(dt(0)(5))
+                page.Add(currentTable)
+                'Empty space
+                page.AddParagraph(" " & Environment.NewLine & " ")
+
+            Case "A.1.2"
+                paragraph = page.AddParagraph("PRESUPUESTO GLOBAL 2023", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph("SE ANEXA INFORMACIÓN" & Environment.NewLine & "PRESUPUESTO DE EGRESOS AUTORIZADO GLOBAL POR CAPITULOS" & Environment.NewLine & "(MILES DE PESOS)" & Environment.NewLine, "Heading2")
+                page.AddParagraph(" ")
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(5))
+                currentTable.AddColumn(Unit.FromInch(0.4))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.Columns(1).Format.Alignment =
+        ParagraphAlignment.Center 'The $ symbol is in the center
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("INGRESOS")
+                tRow(0).MergeRight = 2
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                '2nd Headings row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("CONCEPTO")
+                tRow(1).AddParagraph("IMPORTE")
+                tRow(1).MergeRight = 1
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                'Data
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("SERVICIOS PERSONALES")
+                tRow(1).AddParagraph("$")
+                tRow(2).AddParagraph(dt(0)(2))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("MATERIALES Y SUMINISTROS")
+                tRow(1).AddParagraph("$")
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("TRANSFERENCIAS, ASIGNACIONES, SUBSIDIOS Y OTRAS AYUDAS")
+                tRow(1).AddParagraph("$")
+                tRow(2).AddParagraph(dt(0)(4))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("BIENES MUEBLES, INMUEBLES E INTANGIBLES")
+                tRow(1).AddParagraph("$")
+                tRow(2).AddParagraph(dt(0)(5))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("INVERSION PÚBLICA")
+                tRow(1).AddParagraph("$")
+                tRow(2).AddParagraph(dt(0)(5))
+                tRow = currentTable.AddRow
+                tRow(0).AddParagraph("INVERSIONES FINANCIERAS Y OTRAS PROVISIONES")
+                tRow(1).AddParagraph("$")
+                tRow(2).AddParagraph(dt(0)(5))
+                tRow = currentTable.AddRow
+                tRow(0).AddParagraph("INGRESOS PARA VENTAS DE BIENES Y SERVICIOS")
+                tRow(1).AddParagraph("$")
+                tRow(2).AddParagraph(dt(0)(5))
+                tRow = currentTable.AddRow
+                tRow(0).AddParagraph("PARTICIPACIONES Y APORTACIONES")
+                tRow(1).AddParagraph("$")
+                tRow(2).AddParagraph(dt(0)(5))
+                tRow = currentTable.AddRow
+                tRow(0).AddParagraph("DEUDA PÚBLICA")
+                tRow(1).AddParagraph("$")
+                tRow(2).AddParagraph(dt(0)(5))
+                page.Add(currentTable)
+
+            Case "A.1.3"
+                paragraph = page.AddParagraph("PRESUPUESTO GLOBAL 2023", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+
+                page.AddParagraph("SE ANEXA INFORMACIÓN" & Environment.NewLine & "PRESUPUESTO DE EGRESOS AUTORIZADO GLOBAL POR CAPITULOS" & Environment.NewLine & "(MILES DE PESOS)" & Environment.NewLine, "Heading2")
+                page.AddParagraph(" ")
+
+                ' Create first table
+                currentTable = New Table()
+
+                ' Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                ' Creating columns
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(1))
+
+                ' Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("Clave")
+                tRow(1).AddParagraph("Nombre")
+                tRow(2).AddParagraph("Presupuesto Autorizado")
+                tRow(3).AddParagraph("%")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                ' Data rows
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("301")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(6))
+
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("302")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(7))
+
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("303")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(8))
+
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("304")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(9))
+
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("305")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(10))
+
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("306")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(11))
+
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("307")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(12))
+
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("308")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(13))
+
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("309")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(15))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("310")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(16))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("311")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(17))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("312")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(14))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("313")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(14))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("314")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(14))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("315")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(14))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("316")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(14))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("317")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(14))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("318")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(14))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("319")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(14))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("320")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(14))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("321")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(14))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("322")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(14))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("323")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph(dt(0)(3))
+                tRow(3).AddParagraph(dt(0)(14))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("")
+                tRow(1).AddParagraph(dt(0)(17))
+                tRow(2).AddParagraph(dt(0)(0))
+                tRow(3).AddParagraph(dt(0)(0))
+
+
+
+                page.Add(currentTable)
+
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                page.AddParagraph(" " & Environment.NewLine & " ")
+
+
+                currentTable = New Table()
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                currentTable.AddColumn(Unit.FromInch(0.75))
+                currentTable.AddColumn(Unit.FromInch(2.5))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.Columns(1).Format.Alignment =
+ParagraphAlignment.Center
+
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("Total de gasto corriente")
+                tRow(1).AddParagraph("")
+                tRow(2).AddParagraph("")
+                tRow(0).MergeRight = 1
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("113")
+                tRow(1).AddParagraph("OBRA PÚBLICA DIRECTA")
+                tRow(2).AddParagraph(dt(0)(6))
+                tRow(3).AddParagraph(dt(0)(7))
+
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("114")
+                tRow(1).AddParagraph("ACTIVO FIJO")
+                tRow(2).AddParagraph(dt(0)(6))
+                tRow(3).AddParagraph(dt(0)(7))
+
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("115")
+                tRow(1).AddParagraph("AMORTIZACIÓN DE LA DEUDA")
+                tRow(2).AddParagraph(dt(0)(6))
+                tRow(3).AddParagraph(dt(0)(7))
+
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("116")
+                tRow(1).AddParagraph("RAMO 33")
+                tRow(2).AddParagraph(dt(0)(6))
+                tRow(3).AddParagraph(dt(0)(7))
+
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("117")
+                tRow(1).AddParagraph("OTROS EGRESOS")
+                tRow(2).AddParagraph(dt(0)(6))
+                tRow(3).AddParagraph(dt(0)(7))
+
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("TOTAL PRESUPUESTO AUTORIZADO")
+                tRow(1).AddParagraph("")
+                tRow(2).AddParagraph("")
+                tRow(0).MergeRight = 1
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                page.Add(currentTable)
+
+                ' Empty space
+                page.AddParagraph(" " & Environment.NewLine & " ")
+
 
             Case "A.5"
                 page.PageSetup.Orientation = Orientation.Landscape
-                'Header
-                page.AddParagraph("Secretaría " & secretaria & ", Dirección " & direccion)
                 'Headings
-                Paragraph = page.AddParagraph("RELACIÓN DE CUENTAS BANCARIAS, INVERSIONES, ETC.", "Heading1")
+                paragraph = page.AddParagraph("RELACIÓN DE CUENTAS BANCARIAS, INVERSIONES, ETC.", "Heading1")
                 Paragraph.Format.Borders.Width = 2.5
                 Paragraph.Format.Borders.Color = Colors.Black
                 paragraph.Format.Borders.Distance = 3
