@@ -1425,6 +1425,136 @@ ParagraphAlignment.Center
 
                 page.Add(currentTable)
 
+            Case "A.7.1"
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'Headings
+                paragraph = page.AddParagraph("RELACIÓN DE SALDOS CON PROVEEDORES Y CONTRATISTAS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+                'Create first table
+                currentTable = New Table()
+
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns Suma 10.8
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1.3))
+
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("SECRETARÍA")
+                tRow(1).AddParagraph("DIRECCIÓN")
+                tRow(2).AddParagraph("PROVEEDOR")
+                tRow(3).AddParagraph("SALDO")
+                tRow(4).AddParagraph("CLAVE EJERCICIO")
+                tRow(5).AddParagraph("ELABORÓ")
+                tRow(6).AddParagraph("REVISÓ")
+                tRow(7).AddParagraph("AUTORIZÓ")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                page.Add(currentTable)
+
+            Case "A.7.2"
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'Headings
+                paragraph = page.AddParagraph("RELACIÓN DE SALDOS CON ACREEDORES DIVERSOS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+                'Create first table
+                currentTable = New Table()
+
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns Suma 10.8
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1.3))
+
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("SECRETARÍA")
+                tRow(1).AddParagraph("DIRECCIÓN")
+                tRow(2).AddParagraph("ACREEDOR")
+                tRow(3).AddParagraph("SALDO")
+                tRow(4).AddParagraph("CLAVE CORTE")
+                tRow(5).AddParagraph("ELABORÓ")
+                tRow(6).AddParagraph("REVISÓ")
+                tRow(7).AddParagraph("AUTORIZÓ")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                page.Add(currentTable)
+
+            Case "A.7.3"
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'Headings
+                paragraph = page.AddParagraph("RELACIÓN DE DOCUMENTOS POR PAGAR", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+                'Create first table
+                currentTable = New Table()
+
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2.8))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2))
+
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("No. DE DOCUMENTO")
+                tRow(1).AddParagraph("NOMBRE DEL ACREEDOR")
+                tRow(2).AddParagraph("FECHA")
+                tRow(3).AddParagraph("SALDO")
+                tRow(4).AddParagraph("VENCIMIENTO")
+                tRow(5).AddParagraph("CONCEPTO")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                page.Add(currentTable)
 
         End Select
         Return page
