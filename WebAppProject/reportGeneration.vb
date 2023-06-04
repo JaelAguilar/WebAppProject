@@ -1556,6 +1556,141 @@ ParagraphAlignment.Center
 
                 page.Add(currentTable)
 
+            Case "A.8"
+                page.PageSetup.Orientation = Orientation.Landscape
+                'Headings
+                paragraph = page.AddParagraph("RELACIÓN DE CHEQUES PENDIENTES DE ENTREGAR.", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(3.8))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("FECHA")
+                tRow(1).AddParagraph("No DE CUENTA BANCARIA")
+                tRow(2).AddParagraph("INSTITUCION")
+                tRow(3).AddParagraph("No DE CHEQUE")
+                tRow(4).AddParagraph("NOMBRE DEL BENEFICIARIO")
+                tRow(5).AddParagraph("IMPORTE")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                    tRow.Cells(5).AddParagraph(dt(index)(7))
+                Next
+                page.Add(currentTable)
+
+            Case "A.9"
+                page.PageSetup.Orientation = Orientation.Landscape
+                'Headings
+                paragraph = page.AddParagraph("RELACIÓN DE  POLIZAS DE FIANZA QUE GARANTIZAN UN CREDITO FISCAL.", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(3.8))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("No. de Poliza")
+                tRow(1).AddParagraph("Nombre la compañia afianzadora")
+                tRow(2).AddParagraph("Nombre de la compañia afianzadora")
+                tRow(3).AddParagraph("Nombre del deudor")
+                tRow(4).AddParagraph("Monto")
+                tRow(5).AddParagraph("Concepto")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                    tRow.Cells(5).AddParagraph(dt(index)(7))
+                Next
+                page.Add(currentTable)
+
+            Case "A.10"
+                page.PageSetup.Orientation = Orientation.Landscape
+                'Headings
+                paragraph = page.AddParagraph("ESTADO DE GUARDA LA CUENTA PUBLICA.", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(3.8))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("No.")
+                tRow(1).AddParagraph("EJERCICIO FISCAL")
+                tRow(2).AddParagraph("ACTA DE ENTREGA LA ASENL")
+                tRow(3).AddParagraph("NUMERO DE LEGAJOS")
+                tRow(4).AddParagraph("NUMERO DE DISCOS")
+                tRow(5).AddParagraph("ESTATUS")
+                tRow(6).AddParagraph("OBSERVACIONES O REQUERIMENTOS DE LA ASENL")
+                tRow(6).AddParagraph("RESPONSABLE")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                    tRow.Cells(5).AddParagraph(dt(index)(7))
+                    tRow.Cells(6).AddParagraph(dt(index)(8))
+                    tRow.Cells(7).AddParagraph(dt(index)(9))
+                Next
+                page.Add(currentTable)
         End Select
         Return page
 
