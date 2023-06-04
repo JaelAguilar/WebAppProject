@@ -455,6 +455,80 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@rev ", r(12))
                     .Parameters.AddWithValue("@aut ", r(13))
                 End With
+
+            Case "B.1"
+                initialQuery &= "INSERT INTO B.1 (Secretaria,Dirección,No_Nomina,Puesto,NombreCompleto,Sueldo,Vigencia,Sindicalizado,RegimenEmpleado,CveCorteEjer,Elaboró,Revisó,Autorizó)"
+                initialQuery &= "VALUES (@sec,@dir,@No_Nomina,@Puesto,@NombreCompleto,@Sueldo,@Vigencia,@Sindicalizado,@RegimenEmpleado,@CveCorteEjer,@elab,@rev,@aut)"
+                With sql
+                    .CommandText = initialQuery
+                    .Parameters.AddWithValue("@sec", r(0))
+                    .Parameters.AddWithValue("@dir", r(1))
+                    .Parameters.AddWithValue("@No_Nomina", r(2))
+                    .Parameters.AddWithValue("@Puesto", r(3))
+                    .Parameters.AddWithValue("@NombreCompleto", r(4))
+                    .Parameters.AddWithValue("@Sueldo", r(5))
+                    .Parameters.AddWithValue("@Vigencia", r(6))
+                    .Parameters.AddWithValue("@Sindicalizado", r(7))
+                    .Parameters.AddWithValue("@RegimenEmpleado", r(8))
+                    .Parameters.AddWithValue("@CveCorteEjer", r(9))
+                    .Parameters.AddWithValue("@elab", r(10))
+                    .Parameters.AddWithValue("@rev", r(11))
+                    .Parameters.AddWithValue("@aut", r(12))
+                End With
+
+            Case "B.2"
+                initialQuery &= "INSERT INTO B.2 (Secretaria,Dirección,No_Nomina,Situación,LugarComisión,DíasComicionado,Observaciones,CveCorteEjer,Elaboró,Revisó,Autorizó)"
+                initialQuery &= "VALUES (@sec,@dir,@No_Nomina,@Situacion,@LugarComision,@DiasComicionado,@Observaciones,@CveCorteEjer,@elab,@rev,@aut)"
+                With sql
+                    .CommandText = initialQuery
+                    .Parameters.AddWithValue("@sec", r(0))
+                    .Parameters.AddWithValue("@dir", r(1))
+                    .Parameters.AddWithValue("@No_Nomina", r(2))
+                    .Parameters.AddWithValue("@Situacion", r(3))
+                    .Parameters.AddWithValue("@LugarComision", r(4))
+                    .Parameters.AddWithValue("@DiasComicionado", r(5))
+                    .Parameters.AddWithValue("@Observaciones", r(6))
+                    .Parameters.AddWithValue("@Sindicalizado ", r(7))
+                    .Parameters.AddWithValue("@CveCorteEjer ", r(8))
+                    .Parameters.AddWithValue("@elab", r(9))
+                    .Parameters.AddWithValue("@rev", r(10))
+                    .Parameters.AddWithValue("@aut", r(11))
+                End With
+
+            Case "B.3"
+                initialQuery &= "INSERT INTO B.3 (Secretaria,Dirección,Turno,NúmerodeEmpleado,CveCorteEjer,Elaboró,Revisó,Autorizó)"
+                initialQuery &= "VALUES (@sec,@dir,@Turno,@NumerodeEmp,@CveCorteEjer,@elab,@rev,@aut)"
+                With sql
+                    .CommandText = initialQuery
+                    .Parameters.AddWithValue("@sec", r(0))
+                    .Parameters.AddWithValue("@dir", r(1))
+                    .Parameters.AddWithValue("@Turno", r(2))
+                    .Parameters.AddWithValue("@NumerodeEmp", r(3))
+                    .Parameters.AddWithValue("@CveCorteEjer ", r(4))
+                    .Parameters.AddWithValue("@elab", r(5))
+                    .Parameters.AddWithValue("@rev", r(6))
+                    .Parameters.AddWithValue("@aut", r(7))
+                End With
+
+            Case "B.4"
+                initialQuery &= "INSERT INTO B.4 
+(Secretaria,Dirección,No_Nomina,NombreCompleto,Clasificación,PersepciónMensual,CveCorteEjer,Elaboró,Revisó,Autorizó)"
+                initialQuery &= "VALUES 
+(@sec,@dir,@No_Nom,@Nom_Comp,@Clasf,@Pers_Men,@Cve_Corte,@elab,@rev,@aut)"
+                With sql
+                    .CommandText = initialQuery
+                    .Parameters.AddWithValue("@sec", r(0))
+                    .Parameters.AddWithValue("@dir", r(1))
+                    .Parameters.AddWithValue("@No_Nom", r(2))
+                    .Parameters.AddWithValue("@Nom_Comp", r(3))
+                    .Parameters.AddWithValue("@Clasf", r(4))
+                    .Parameters.AddWithValue("@Pers_Men", r(5))
+                    .Parameters.AddWithValue("@Cve_Corte", r(6))
+                    .Parameters.AddWithValue("@elab", r(7))
+                    .Parameters.AddWithValue("@rev", r(8))
+                    .Parameters.AddWithValue("@aut", r(9))
+                End With
+
         End Select
     End Function
 
