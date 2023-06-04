@@ -620,6 +620,97 @@ ParagraphAlignment.Center
                 ' Empty space
                 page.AddParagraph(" " & Environment.NewLine & " ")
 
+            Case "A.1.4"
+                paragraph = page.AddParagraph("PRESUPUESTO DE EGRESOS POR SECRETARÍA",
+"Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                page.AddParagraph("SE ANEXA INFORMACIÓN" &
+                Environment.NewLine & "PRESUPUESTO DE EGRESOS POR SECRETARIA",
+               "Heading2")
+                page.AddParagraph(" ")
+                page.AddParagraph("(MILES DE PESOS)", "Heading3")
+                page.AddParagraph(" ")
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2.5))
+                currentTable.AddColumn(Unit.FromInch(1.4))
+                currentTable.AddColumn(Unit.FromInch(2))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("CONCEPTO:")
+                tRow(1).AddParagraph("")
+                tRow(2).AddParagraph("CLAVE:")
+                tRow(3).AddParagraph("")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Left
+                page.Add(currentTable)
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 1
+                currentTable.TopPadding = 6
+                currentTable.BottomPadding = 6
+                currentTable.LeftPadding = 4
+                currentTable.AddColumn(Unit.FromInch(3.7))
+                currentTable.AddColumn(Unit.FromInch(3.7))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("PRESUPUESTO DE EGRESOS 2023")
+                tRow(0).MergeRight = 1
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("CONCEPTO")
+                tRow(1).AddParagraph("IMPORTE")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("PRESUPUESTO ORIGINAL APROBADO")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("1ER AMPLIACIÓN PRESUPUESTAL (SE ANEXA DOC)")
+                tRow(1).AddParagraph(dt(0)(3))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("2DA AMPLIACIÓN PRESUPUESTAL (SE ANEXA DOC)")
+                tRow(1).AddParagraph(dt(0)(4))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("3RA AMPLIACIÓN PRESUPUESTAL (SE ANEXA DOC)")
+                tRow(1).AddParagraph(dt(0)(5))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("TOTAL AMPLIACIÓN (2+3+4)")
+                tRow(1).AddParagraph(dt(0)(6))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("PRESUPUESTO MODIFICADO (SE ANEXA DOC)")
+                tRow(1).AddParagraph(dt(0)(7))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("PRESUPUESTO COMPROMETIDO (SE ANEXA DOC)")
+                tRow(1).AddParagraph(dt(0)(8))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("PRESUPUESTO DEVENGADO (SE ANEXA DOC)")
+                tRow(1).AddParagraph(dt(0)(9))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("PRESUPUESTO EJERCIDO (SE ANEXA DOC)")
+                tRow(1).AddParagraph(dt(0)(10))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("PRESUPUESTO EROGADO (SE ANEXA DOC)")
+                tRow(1).AddParagraph(dt(0)(11))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("PRESUPUESTO CONSUMIDO (SE ANEXA DOC)(7+8+9+10)")
+                tRow(1).AddParagraph(dt(0)(12))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("PRESUPUESTO POR EJERCER (SE ANEXA DOC) (6-11)")
+                tRow(1).AddParagraph(dt(0)(13))
+                page.Add(currentTable)
+
             Case "A.4"
                 'Headings
                 paragraph = page.AddParagraph("ASIGNACIÓN DEL FONDO ÚNICO DE OPERACIÓN", "Heading1")
@@ -903,6 +994,8 @@ ParagraphAlignment.Center
                 tRow(0).AddParagraph(dt(0)(23))
                 page.Add(currentTable)
 
+
+
             Case "A.5"
                 page.PageSetup.Orientation = Orientation.Landscape
                 'Headings
@@ -951,11 +1044,255 @@ ParagraphAlignment.Center
                     tRow.Cells(3).AddParagraph(dt(index)(5))
                     tRow.Cells(4).AddParagraph(dt(index)(6))
                 Next
+                page.Add(currentTable)
 
-
-
-
-
+            Case "A.5.1"
+                paragraph = page.AddParagraph("DETALLE DE LAS CUENTAS DE CHEQUE", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                page.AddParagraph("SE ANEXA INFORMACIÓN", "Heading2")
+                page.AddParagraph(" ")
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                currentTable.AddColumn(Unit.FromInch(3.7))
+                currentTable.AddColumn(Unit.FromInch(0.925))
+                currentTable.AddColumn(Unit.FromInch(0.925))
+                currentTable.AddColumn(Unit.FromInch(0.925))
+                currentTable.AddColumn(Unit.FromInch(0.925))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("NOMBRE DE LA INSTITUCIÓN")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(1).MergeRight = 3
+                tRow(0).Format.Font.Bold = True
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("NUMERO DE LA CUENTA DE CHEQUES")
+                tRow(1).AddParagraph(dt(0)(3))
+                tRow(1).MergeRight = 3
+                tRow(0).Format.Font.Bold = True
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("CUENTA CONTABLE")
+                tRow(1).AddParagraph(dt(0)(4))
+                tRow(1).MergeRight = 3
+                tRow(0).Format.Font.Bold = True
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("SALDO SEGÚN LIBROS")
+                tRow(1).AddParagraph(dt(0)(5))
+                tRow(1).MergeRight = 3
+                tRow(0).Format.Font.Bold = True
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("SALDO SEGÚN ESTADOS DE CUENTA BANCARIO")
+                tRow(1).AddParagraph(dt(0)(6))
+                tRow(1).MergeRight = 3
+                tRow(0).Format.Font.Bold = True
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("SALDO SEGÚN ESTADOS DE CUENTA BANCARIO")
+                tRow(1).AddParagraph("DEL NO.")
+                tRow(2).AddParagraph(dt(0)(7))
+                tRow(3).AddParagraph("AL NO.")
+                tRow(4).AddParagraph(dt(0)(8))
+                tRow(0).Format.Font.Bold = True
+                tRow(1).Format.Font.Bold = True
+                tRow(3).Format.Font.Bold = True
+                page.Add(currentTable)
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                page.AddParagraph("RELACIÓN DE ÚLTIMOS (5) CHEQUES EXPEDIDOS:",
+               "Heading2")
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                currentTable.AddColumn(Unit.FromInch(1.4))
+                currentTable.AddColumn(Unit.FromInch(1.2))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(1.2))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("FECHA")
+                tRow(1).AddParagraph("NO.DE CHEQUE")
+                tRow(2).AddParagraph("BENEFICIARIO")
+                tRow(3).AddParagraph("CONCEPTO")
+                tRow(4).AddParagraph("IMPORTE")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("")
+                tRow(1).AddParagraph("")
+                tRow(2).AddParagraph("")
+                tRow(3).AddParagraph("")
+                tRow(4).AddParagraph("")
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("")
+                tRow(1).AddParagraph("")
+                tRow(2).AddParagraph("")
+                tRow(3).AddParagraph("")
+                tRow(4).AddParagraph("")
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("")
+                tRow(1).AddParagraph("")
+                tRow(2).AddParagraph("")
+                tRow(3).AddParagraph("")
+                tRow(4).AddParagraph("")
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("")
+                tRow(1).AddParagraph("")
+                tRow(2).AddParagraph("")
+                tRow(3).AddParagraph("")
+                tRow(4).AddParagraph("")
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("")
+                tRow(1).AddParagraph("")
+                tRow(2).AddParagraph("")
+                tRow(3).AddParagraph("")
+                tRow(4).AddParagraph("")
+                page.Add(currentTable)
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.Borders.Bottom.Color = Colors.White
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                currentTable.AddColumn(Unit.FromInch(3.7))
+                currentTable.AddColumn(Unit.FromInch(3.7))
+                page.AddParagraph("FIRMAS REGISTRADAS", "Heading2")
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("FIRMA")
+                tRow.Cells(0).Borders.Top.Color = Colors.White
+                tRow.Cells(0).Borders.Bottom.Color = Colors.White
+                tRow.Cells(0).Borders.Left.Color = Colors.White
+                tRow.Cells(0).Borders.Right.Color = Colors.White
+                tRow(1).AddParagraph("FIRMA")
+                tRow.Cells(1).Borders.Top.Color = Colors.White
+                tRow.Cells(1).Borders.Bottom.Color = Colors.White
+                tRow.Cells(1).Borders.Right.Color = Colors.White
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph(dt(0)(9))
+                tRow(0).AddParagraph("______________")
+                tRow.Cells(0).Borders.Bottom.Color = Colors.White
+                tRow(1).AddParagraph(dt(0)(10))
+                tRow(1).AddParagraph("______________")
+                tRow.Cells(1).Borders.Bottom.Color = Colors.White
+                tRow.Format.Font.Bold = True
+                tRow.Cells(0).Borders.Left.Color = Colors.White
+                tRow.Cells(0).Borders.Right.Color = Colors.White
+                tRow.Cells(1).Borders.Right.Color = Colors.White
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("NOMBRE")
+                tRow.Cells(0).Borders.Bottom.Color = Colors.White
+                tRow(1).AddParagraph("NOMBRE")
+                tRow.Cells(1).Borders.Bottom.Color = Colors.White
+                tRow.Format.Font.Bold = True
+                tRow.Cells(0).Borders.Left.Color = Colors.White
+                tRow.Cells(0).Borders.Right.Color = Colors.White
+                tRow.Cells(1).Borders.Right.Color = Colors.White
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("CARGO")
+                tRow.Cells(0).Borders.Bottom.Color = Colors.White
+                tRow(1).AddParagraph("CARGO")
+                tRow.Cells(1).Borders.Bottom.Color = Colors.White
+                tRow.Cells(0).Borders.Left.Color = Colors.White
+                tRow.Cells(0).Borders.Right.Color = Colors.White
+                tRow.Cells(1).Borders.Right.Color = Colors.White
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("")
+                tRow.Cells(0).Borders.Bottom.Color = Colors.White
+                tRow(1).AddParagraph("")
+                tRow.Cells(1).Borders.Bottom.Color = Colors.White
+                tRow.Cells(0).Borders.Left.Color = Colors.White
+                tRow.Cells(0).Borders.Right.Color = Colors.White
+                tRow.Cells(1).Borders.Right.Color = Colors.White
+                '2
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("FIRMA")
+                tRow.Cells(0).Borders.Bottom.Color = Colors.White
+                tRow(1).AddParagraph("FIRMA")
+                tRow.Cells(1).Borders.Bottom.Color = Colors.White
+                tRow.Format.Font.Bold = True
+                tRow.Cells(0).Borders.Left.Color = Colors.White
+                tRow.Cells(0).Borders.Right.Color = Colors.White
+                tRow.Cells(1).Borders.Right.Color = Colors.White
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph(dt(0)(11))
+                tRow(0).AddParagraph("______________")
+                tRow.Cells(0).Borders.Bottom.Color = Colors.White
+                tRow(1).AddParagraph(dt(0)(12))
+                tRow(1).AddParagraph("______________")
+                tRow.Cells(1).Borders.Bottom.Color = Colors.White
+                tRow.Format.Font.Bold = True
+                tRow.Cells(0).Borders.Left.Color = Colors.White
+                tRow.Cells(0).Borders.Right.Color = Colors.White
+                tRow.Cells(1).Borders.Right.Color = Colors.White
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("NOMBRE")
+                tRow.Cells(0).Borders.Bottom.Color = Colors.White
+                tRow(1).AddParagraph("NOMBRE")
+                tRow.Cells(1).Borders.Bottom.Color = Colors.White
+                tRow.Format.Font.Bold = True
+                tRow.Cells(0).Borders.Left.Color = Colors.White
+                tRow.Cells(0).Borders.Right.Color = Colors.White
+                tRow.Cells(1).Borders.Right.Color = Colors.White
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("CARGO")
+                tRow.Cells(0).Borders.Bottom.Color = Colors.White
+                tRow(1).AddParagraph("CARGO")
+                tRow.Cells(1).Borders.Bottom.Color = Colors.White
+                tRow.Cells(0).Borders.Left.Color = Colors.White
+                tRow.Cells(0).Borders.Right.Color = Colors.White
+                tRow.Cells(1).Borders.Right.Color = Colors.White
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                page.Add(currentTable)
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                currentTable.AddColumn(Unit.FromInch(0.8))
+                currentTable.AddColumn(Unit.FromInch(1.66))
+                currentTable.AddColumn(Unit.FromInch(0.8))
+                currentTable.AddColumn(Unit.FromInch(1.66))
+                currentTable.AddColumn(Unit.FromInch(0.8))
+                currentTable.AddColumn(Unit.FromInch(1.66))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph(dt(0)(13))
+                tRow(1).AddParagraph("INDIVIDUAL")
+                tRow(2).AddParagraph(dt(0)(14))
+                tRow(3).AddParagraph("MANCOMUNADA")
+                tRow(4).AddParagraph(dt(0)(15))
+                tRow(5).AddParagraph("INDISTINTA")
+                tRow.Format.Font.Bold = True
+                tRow.Cells(1).Borders.Top.Color = Colors.White
+                tRow.Cells(1).Borders.Bottom.Color = Colors.White
+                tRow.Cells(3).Borders.Top.Color = Colors.White
+                tRow.Cells(3).Borders.Bottom.Color = Colors.White
+                tRow.Cells(5).Borders.Top.Color = Colors.White
+                tRow.Cells(5).Borders.Bottom.Color = Colors.White
+                tRow.Cells(5).Borders.Right.Color = Colors.White
+                tRow.Format.Alignment = ParagraphAlignment.Center
                 page.Add(currentTable)
         End Select
         Return page
