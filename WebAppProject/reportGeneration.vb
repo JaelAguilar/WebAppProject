@@ -2652,6 +2652,199 @@ ParagraphAlignment.Center
                 Next
                 page.Add(currentTable)
 
+            Case "E.1"
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'Headings
+                paragraph = page.AddParagraph("RELACIÓN DE AMPAROS , JUICIOS CONTENCIOSOS, ASUNTOS PENALES, ASUNTOS CIVILES Y LABORALES", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(1.2))
+                currentTable.AddColumn(Unit.FromInch(1.2))
+                currentTable.AddColumn(Unit.FromInch(1.2))
+                currentTable.AddColumn(Unit.FromInch(1.2))
+                currentTable.AddColumn(Unit.FromInch(1.2))
+                currentTable.AddColumn(Unit.FromInch(1.2))
+                currentTable.AddColumn(Unit.FromInch(1.6))
+                currentTable.AddColumn(Unit.FromInch(2))
+
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("NÚMERO DE EXPEDIENTE")
+                tRow(1).AddParagraph("No. DE JUZGADO O AGENCIA")
+                tRow(2).AddParagraph("QUEJOSO, PROMOVENTE Y/O DEMANDANTE")
+                tRow(3).AddParagraph("AUTORIDAD RESPONSABLE")
+                tRow(4).AddParagraph("DEMANDADO")
+                tRow(5).AddParagraph("ESTADO PROCESAL")
+                tRow(6).AddParagraph("CONCEPTO DE LA DEMANDA Y/O IMPUGNACIÓN")
+                tRow(7).AddParagraph("OBSERVACIONES")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                    tRow.Cells(5).AddParagraph(dt(index)(7))
+                    tRow.Cells(6).AddParagraph(dt(index)(8))
+                    tRow.Cells(7).AddParagraph(dt(index)(9))
+                Next
+
+                page.Add(currentTable)
+
+            Case "E.2"
+                'Headings
+                paragraph = page.AddParagraph("ACUERDOS, CONTRATOS Y CONVENIOS VIGENTES", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                currentTable.Borders.Visible = False
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(1.6))
+                currentTable.AddColumn(Unit.FromInch(2.1))
+                currentTable.AddColumn(Unit.FromInch(1.6))
+                currentTable.AddColumn(Unit.FromInch(2.1))
+
+                '1 row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("TIPO: ")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph("FECHA  DE SUSCRIPCIÓN: ")
+                tRow(3).AddParagraph(dt(0)(3))
+                tRow(0).Format.Font.Bold = True
+                tRow(2).Format.Font.Bold = True
+                '2 row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("DURACIÓN: ")
+                tRow(1).AddParagraph(dt(0)(4))
+                tRow(2).AddParagraph("ENTIDAD: ")
+                tRow(3).AddParagraph(dt(0)(5))
+                tRow(0).Format.Font.Bold = True
+                tRow(2).Format.Font.Bold = True
+                '3 row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("DESCRIPCIÓN: ")
+                tRow(0).MergeRight = 3
+                tRow(0).Format.Font.Bold = True
+                '4 row respuesta
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph(dt(0)(6))
+                tRow(0).MergeRight = 3
+                '5 row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("OBJETO: ")
+                tRow(0).MergeRight = 3
+                tRow(0).Format.Font.Bold = True
+                '6 row respuesta
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph(dt(0)(7))
+                tRow(0).MergeRight = 3
+                '7 row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("SITUACIÓN: ")
+                tRow(0).MergeRight = 3
+                tRow(0).Format.Font.Bold = True
+                '8 row respuesta
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph(dt(0)(8))
+                tRow(0).MergeRight = 3
+
+                page.Add(currentTable)
+
+            Case "E.3"
+                'Headings
+                paragraph = page.AddParagraph("CONSEJOS, COMITÉS, FIDEICOMISOS, PATRONATOS, ASOCIACIONES Y HERMANAMIENTOS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                currentTable.Borders.Visible = False
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(1.3))
+                currentTable.AddColumn(Unit.FromInch(1.7))
+                currentTable.AddColumn(Unit.FromInch(1.9))
+                currentTable.AddColumn(Unit.FromInch(2.5))
+
+                '1 row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("TIPO: ")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow(2).AddParagraph("PERSONAS QUE LO FORMAN: ")
+                tRow(3).AddParagraph(dt(0)(3))
+                tRow(0).Format.Font.Bold = True
+                tRow(2).Format.Font.Bold = True
+                '2 row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("DURACIÓN: ")
+                tRow(1).AddParagraph(dt(0)(4))
+                tRow(2).AddParagraph("FECHA DE SUSCRIPCIÓN: ")
+                tRow(3).AddParagraph(dt(0)(5))
+                tRow(0).Format.Font.Bold = True
+                tRow(2).Format.Font.Bold = True
+                '3 row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("DESCRIPCIÓN: ")
+                tRow(0).MergeRight = 3
+                tRow(0).Format.Font.Bold = True
+                '4 row respuesta
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph(dt(0)(6))
+                tRow(0).MergeRight = 3
+                '5 row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("OBJETO: ")
+                tRow(0).MergeRight = 3
+                tRow(0).Format.Font.Bold = True
+                '6 row respuesta
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph(dt(0)(7))
+                tRow(0).MergeRight = 3
+                '7 row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("SITUACIÓN: ")
+                tRow(0).MergeRight = 3
+                tRow(0).Format.Font.Bold = True
+                '8 row respuesta
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph(dt(0)(8))
+                tRow(0).MergeRight = 3
+
+                page.Add(currentTable)
+
         End Select
         Return page
 
