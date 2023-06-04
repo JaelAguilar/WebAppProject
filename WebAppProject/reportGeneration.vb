@@ -620,6 +620,288 @@ ParagraphAlignment.Center
                 ' Empty space
                 page.AddParagraph(" " & Environment.NewLine & " ")
 
+            Case "A.4"
+                'Headings
+                paragraph = page.AddParagraph("ASIGNACIÓN DEL FONDO ÚNICO DE OPERACIÓN", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+                'Create first table
+                currentTable = New Table()
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(2.45))
+                currentTable.AddColumn(Unit.FromInch(2.45))
+                currentTable.AddColumn(Unit.FromInch(2.45))
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("SECRETARIA")
+                tRow(1).AddParagraph("TITULAR")
+                tRow(2).AddParagraph("MONTO")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                Next
+                page.Add(currentTable)
+
+            Case "A.4.1"
+                'Agrega aquí tu código
+                paragraph = page.AddParagraph("ARQUEO DEL FONDO ÚNICO DE OPERACIONES",
+               "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.5
+                currentTable.TopPadding = 2
+                currentTable.BottomPadding = 2
+                currentTable.LeftPadding = 2
+                currentTable.AddColumn(Unit.FromInch(3.7))
+                currentTable.AddColumn(Unit.FromInch(3.7))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("FECHA")
+                tRow(1).AddParagraph(dt(0)(2))
+                tRow.Format.Alignment = ParagraphAlignment.Left
+                tRow(0).Format.Font.Bold = True
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("RESPONSABLE DEL FONDO")
+                tRow(1).AddParagraph(dt(0)(3))
+                tRow.Format.Alignment = ParagraphAlignment.Left
+                tRow(0).Format.Font.Bold = True
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("ENCARGADO DEL FONDO")
+                tRow(1).AddParagraph(dt(0)(4))
+                tRow.Format.Alignment = ParagraphAlignment.Left
+                tRow(0).Format.Font.Bold = True
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("MONTO AUTORIZADO")
+                tRow(1).AddParagraph(dt(0)(5))
+                tRow(0).Format.Alignment = ParagraphAlignment.Center
+                tRow(0).Format.Font.Bold = True
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("TOTAL EFECTIVO")
+                tRow(1).AddParagraph(dt(0)(6))
+                tRow(0).Format.Alignment = ParagraphAlignment.Center
+                tRow(0).Format.Font.Bold = True
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("TOTAL DE DOCUMENTOS")
+                tRow(1).AddParagraph(dt(0)(7))
+                tRow(0).Format.Alignment = ParagraphAlignment.Center
+                tRow(0).Format.Font.Bold = True
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("TOTAL DE ARQUEO")
+                tRow(1).AddParagraph(dt(0)(8))
+                tRow(0).Format.Alignment = ParagraphAlignment.Center
+                tRow(0).Format.Font.Bold = True
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("VARIACIÓN")
+                tRow(1).AddParagraph(dt(0)(9))
+                tRow(0).Format.Alignment = ParagraphAlignment.Center
+                tRow(0).Format.Font.Bold = True
+                page.Add(currentTable)
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                'TABLA 2
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.5
+                currentTable.TopPadding = 2
+                currentTable.BottomPadding = 2
+                currentTable.LeftPadding = 2
+                currentTable.AddColumn(Unit.FromInch(1.3))
+                currentTable.AddColumn(Unit.FromInch(1.1))
+                currentTable.AddColumn(Unit.FromInch(1.1))
+                currentTable.AddColumn(Unit.FromInch(0.4)).Borders.Bottom.Color = Colors.White
+                currentTable.AddColumn(Unit.FromInch(1.3))
+                currentTable.AddColumn(Unit.FromInch(1.1))
+                currentTable.AddColumn(Unit.FromInch(1.1))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("BILLETE")
+                tRow(4).AddParagraph("MONEDA")
+                tRow(0).MergeRight = 2
+                tRow(4).MergeRight = 2
+                tRow.Cells(3).Borders.Bottom.Color = Colors.White
+                tRow.Cells(3).Borders.Top.Color = Colors.White
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("DENOMINACIÓN")
+                tRow(1).AddParagraph("BILLETES")
+                tRow(2).AddParagraph("CANTIDAD")
+                tRow(3).AddParagraph("")
+                tRow.Cells(3).Borders.Bottom.Color = Colors.White
+                tRow.Cells(3).Borders.Top.Color = Colors.White
+                tRow(4).AddParagraph("DENOMINACIÓN")
+                tRow(5).AddParagraph("MONEDAS")
+                tRow(6).AddParagraph("CANTIDAD")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                'FILA 1
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("$1000")
+                tRow(1).AddParagraph(dt(0)(10))
+                tRow(2).AddParagraph(dt(0)(10))
+                tRow(3).AddParagraph("")
+                tRow(4).AddParagraph("$20")
+                tRow(5).AddParagraph(dt(0)(15))
+                tRow(6).AddParagraph(dt(0)(15))
+                'FILA 2
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("$500")
+                tRow(1).AddParagraph(dt(0)(11))
+                tRow(2).AddParagraph(dt(0)(11))
+                tRow(3).AddParagraph("")
+                tRow(4).AddParagraph("$10")
+                tRow(5).AddParagraph(dt(0)(16))
+                tRow(6).AddParagraph(dt(0)(16))
+                'FILA 3
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("$200")
+                tRow(1).AddParagraph(dt(0)(12))
+                tRow(2).AddParagraph(dt(0)(12))
+                tRow(3).AddParagraph("")
+                tRow(4).AddParagraph("$5")
+                tRow(5).AddParagraph(dt(0)(17))
+                tRow(6).AddParagraph(dt(0)(17))
+                'FILA 4
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("$100")
+                tRow(1).AddParagraph(dt(0)(13))
+                tRow(2).AddParagraph(dt(0)(13))
+                tRow(3).AddParagraph("")
+                tRow(4).AddParagraph("$2")
+                tRow(5).AddParagraph(dt(0)(18))
+                tRow(6).AddParagraph(dt(0)(18))
+                'FILA 5
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("$50")
+                tRow(1).AddParagraph(dt(0)(14))
+                tRow(2).AddParagraph(dt(0)(14))
+                tRow(3).AddParagraph("")
+                tRow(4).AddParagraph("$1")
+                tRow(5).AddParagraph(dt(0)(19))
+                tRow(6).AddParagraph(dt(0)(19))
+                'FILA 6
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("")
+                tRow(1).AddParagraph("")
+                tRow(2).AddParagraph("")
+                tRow(3).AddParagraph("")
+                tRow(4).AddParagraph("$50C")
+                tRow(5).AddParagraph(dt(0)(20))
+                tRow(6).AddParagraph(dt(0)(20))
+                'FILA 7
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("")
+                tRow(1).AddParagraph("")
+                tRow(2).AddParagraph("")
+                tRow(3).AddParagraph("")
+                tRow(4).AddParagraph("$20C")
+                tRow(5).AddParagraph(dt(0)(21))
+                tRow(6).AddParagraph(dt(0)(21))
+                'FILA 8
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("")
+                tRow(1).AddParagraph("")
+                tRow(2).AddParagraph("")
+                tRow(3).AddParagraph("")
+                tRow(4).AddParagraph("$10C")
+                tRow(5).AddParagraph(dt(0)(22))
+                tRow(6).AddParagraph(dt(0)(22))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("SUBTOTAL")
+                tRow(0).Format.Font.Bold = True
+                tRow(0).MergeRight = 2
+                tRow(4).MergeRight = 2
+                tRow(3).AddParagraph("")
+                tRow(4).AddParagraph("SUBTOTAL")
+                tRow(4).Format.Font.Bold = True
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("TOTAL")
+                tRow(0).Format.Font.Bold = True
+                tRow(0).MergeRight = 6
+                page.Add(currentTable)
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                'TABLA 3
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 3
+                currentTable.BottomPadding = 3
+                currentTable.LeftPadding = 3
+                currentTable.AddColumn(Unit.FromInch(1.8))
+                currentTable.AddColumn(Unit.FromInch(1.4))
+                currentTable.AddColumn(Unit.FromInch(1.4))
+                currentTable.AddColumn(Unit.FromInch(1.4))
+                currentTable.AddColumn(Unit.FromInch(1.4))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("NUMERO DE FACTURAS Y/O REMISIONES")
+                tRow(1).AddParagraph("FECHA")
+                tRow(2).AddParagraph("PROVEEDOR")
+                tRow(3).AddParagraph("CONCEPTO")
+                tRow(4).AddParagraph("IMPORTE")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("")
+                tRow(1).AddParagraph("")
+                tRow(2).AddParagraph("")
+                tRow(3).AddParagraph("")
+                tRow(4).AddParagraph("")
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("")
+                tRow(1).AddParagraph("")
+                tRow(2).AddParagraph("")
+                tRow(3).AddParagraph("")
+                tRow(4).AddParagraph("")
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("")
+                tRow(1).AddParagraph("")
+                tRow(2).AddParagraph("")
+                tRow(3).AddParagraph("")
+                tRow(4).AddParagraph("")
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("")
+                tRow(1).AddParagraph("")
+                tRow(2).AddParagraph("")
+                tRow(3).AddParagraph("")
+                tRow(4).AddParagraph("")
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("TOTAL")
+                tRow(0).Format.Font.Bold = True
+                tRow(0).MergeRight = 4
+                page.Add(currentTable)
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                page.AddParagraph(" " & Environment.NewLine & " ")
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 8
+                currentTable.BottomPadding = 8
+                currentTable.LeftPadding = 8
+                currentTable.AddColumn(Unit.FromInch(7.4))
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("OBSERVACIONES")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Left
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph(dt(0)(23))
+                page.Add(currentTable)
 
             Case "A.5"
                 page.PageSetup.Orientation = Orientation.Landscape
