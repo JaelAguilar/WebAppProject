@@ -2481,6 +2481,177 @@ ParagraphAlignment.Center
                     tRow.Cells(4).AddParagraph(dt(index)(6))
                 Next
                 page.Add(currentTable)
+
+            Case "D.4"
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'Headings 
+                paragraph = page.AddParagraph("RELACIÓN DE CONTRATOS  FINANCIADOS CON RECURSOS ESTATALES", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+                'Create first table 
+                currentTable = New Table()
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns 
+                currentTable.AddColumn(Unit.FromInch(0.8))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1.75))
+                currentTable.AddColumn(Unit.FromInch(1.75))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1.75))
+                currentTable.AddColumn(Unit.FromInch(1.25))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+
+                'Heading row 
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("No.")
+                tRow(1).AddParagraph("No.DE CONTRATO")
+                tRow(2).AddParagraph("CONTRATACIÓN (ADQUISIONES, OBRAS, SERVICIOS, OTROS")
+                tRow(3).AddParagraph("MODALIDAD DE CONTRATACIÓN")
+                tRow(4).AddParagraph("MONTO")
+                tRow(5).AddParagraph("FUENTES DE FINANCIAMIENTO")
+                tRow(6).AddParagraph("FECHA DE CONCLUSIÓN")
+                tRow(7).AddParagraph("OBSERVACIONES")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                    tRow.Cells(5).AddParagraph(dt(index)(7))
+                    tRow.Cells(6).AddParagraph(dt(index)(8))
+                    tRow.Cells(7).AddParagraph(dt(index)(9))
+
+                Next
+                page.Add(currentTable)
+            Case "D.5"
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'Headings 
+                paragraph = page.AddParagraph("RELACIÓN DE CONTRATOS  FINANCIADOS CON RECURSOS FEDERALES", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+                'Create first table 
+                currentTable = New Table()
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns 
+                currentTable.AddColumn(Unit.FromInch(0.8))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1.75))
+                currentTable.AddColumn(Unit.FromInch(1.75))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1.75))
+                currentTable.AddColumn(Unit.FromInch(1.25))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+
+                'Heading row 
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("No.")
+                tRow(1).AddParagraph("No.DE CONTRATO")
+                tRow(2).AddParagraph("CONTRATACIÓN (ADQUISIONES, OBRAS, SERVICIOS, OTROS")
+                tRow(3).AddParagraph("MODALIDAD DE CONTRATACIÓN")
+                tRow(4).AddParagraph("MONTO")
+                tRow(5).AddParagraph("FUENTES DE FINANCIAMIENTO")
+                tRow(6).AddParagraph("FECHA DE CONCLUSIÓN")
+                tRow(7).AddParagraph("OBSERVACIONES")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                    tRow.Cells(5).AddParagraph(dt(index)(7))
+                    tRow.Cells(6).AddParagraph(dt(index)(8))
+                    tRow.Cells(7).AddParagraph(dt(index)(9))
+
+                Next
+                page.Add(currentTable)
+
+            Case "D.6"
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'Headings 
+                paragraph = page.AddParagraph("RELACIÓN DE CONTRATOS  FINANCIADOS CON RECURSOS PROPIOS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+                'Create first table 
+                currentTable = New Table()
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns 
+                currentTable.AddColumn(Unit.FromInch(0.8))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1.75))
+                currentTable.AddColumn(Unit.FromInch(1.75))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1.75))
+                currentTable.AddColumn(Unit.FromInch(1.25))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+
+                'Heading row 
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("No.")
+                tRow(1).AddParagraph("No.DE CONTRATO")
+                tRow(2).AddParagraph("CONTRATACIÓN (ADQUISIONES, OBRAS, SERVICIOS, OTROS")
+                tRow(3).AddParagraph("MODALIDAD DE CONTRATACIÓN")
+                tRow(4).AddParagraph("MONTO")
+                tRow(5).AddParagraph("FUENTES DE FINANCIAMIENTO")
+                tRow(6).AddParagraph("FECHA DE CONCLUSIÓN")
+                tRow(7).AddParagraph("OBSERVACIONES")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                    tRow.Cells(5).AddParagraph(dt(index)(7))
+                    tRow.Cells(6).AddParagraph(dt(index)(8))
+                    tRow.Cells(7).AddParagraph(dt(index)(9))
+
+                Next
+                page.Add(currentTable)
+
         End Select
         Return page
 
