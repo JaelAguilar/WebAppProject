@@ -230,6 +230,7 @@ Partial Public Class WebForm1
                 tRow(1).AddParagraph("$")
                 tRow(2).AddParagraph(dt(0)(17))
                 page.Add(currentTable)
+            Case "A.1.1"
 
             Case "A.5"
                 page.PageSetup.Orientation = Orientation.Landscape
