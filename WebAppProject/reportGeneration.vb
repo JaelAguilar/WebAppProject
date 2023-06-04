@@ -1,11 +1,20 @@
-﻿Imports MigraDoc.DocumentObjectModel
+﻿Imports System.Data.SqlClient
+Imports MigraDoc.DocumentObjectModel
 Imports MigraDoc.DocumentObjectModel.Tables
+Imports TheArtOfDev.HtmlRenderer.Core
 
 Partial Public Class WebForm1
-    Public Function CreatePDF(r As List(Of Integer), databaseName As String) As Document
+    Public Function CreatePDF() As Document
+
+
+        Dim databaseName = exportTableSelector.SelectedValue
 
         Dim doc As New Document()
+        doc.Info.Title = "Reporte"
         'Defining styles
+
+
+
         Dim styles As Style = doc.Styles.Item(StyleNames.Normal)
         styles.Font.Name = "Segoe UI"
 
@@ -26,9 +35,33 @@ Partial Public Class WebForm1
         styles.ParagraphFormat.Alignment = ParagraphAlignment.Center
 
 
+        doc.Add(CreateSection("A.1"))
 
 
-        Dim page = doc.AddSection()
+        Return doc
+    End Function
+
+    Private Function CreateSection(databaseName As String)
+        Dim secretaryName = exportSecretarySelector.SelectedValue
+        Dim directoryName = exportDirectorySelector.SelectedValue
+
+        'obtain Data from the database
+        Dim conn As New SqlConnection
+        conn.Open()
+        Dim command As New SqlCommand()
+        With command
+            .CommandText = "select * from @table where secretaría=@secretaria and direccion=@direccion"
+            .Parameters.AddWithValue("@table", databaseName)
+            .Parameters.AddWithValue("@secretaria", secretaryName)
+            .Parameters.AddWithValue("@direccion", directoryName)
+        End With
+        Dim reader As SqlDataReader = command.ExecuteReader
+        Dim dt As New DataTable
+        dt.Load(reader)
+        Dim paragraph As Paragraph
+        Dim page As New Section
+
+
         page.PageSetup.LeftMargin = Unit.FromInch(0.5)
         page.PageSetup.RightMargin = Unit.FromInch(0.5)
         page.PageSetup.TopMargin = Unit.FromInch(0.5)
@@ -36,46 +69,38 @@ Partial Public Class WebForm1
         Dim tRow As Row
         Dim currentTable As Table
 
+
+
+
+        ''Aquí voy a crear un ejemplo de cómo se verán los datos una vez se recuperen de la tabla de sql, esto es porque ustedes no tienen la base de datos, y se me hizo más sencillo que tuvieran ustedes mismos la tabla.
+        ''Aquí pondrán los nombres de cada una de sus columnas de su tabla
+        'Dim columns As New List(Of String)({"Secretaria", "Direccion", "I_PreEst", "I_PreMod", "I_PreDev", "I_PreRec", "E_PreOrigApro", "E_1A_AmPres", "E_2A_AmpPres", "E_3A_AmpPres", "E_Tot_Amp", "E_PreModif", "E_PreComp", "E_PreDev", "E_PreEjer", "E_PreErog", "E_PreCons", "E_PrePorEjer", "FechaCorte", "Elaboró", "Revisó", "Autorizó"})
+        'Dim dbTest As New DataTable()
+
+        'For index = 0 To columns.Count - 1
+        '    dbTest.Columns.Add(columns(index))
+        'Next
+        ''Aquí pondrán sus datos de prueba para asegurarse que los datos correctos se muestran en el reporte,no importa mucho cuáles sean son sólo de prueba. Cada instrucción de dbTestRows.Add() Agrega una nueva fila
+        'dbTest.Rows.Add("s1", "d1", "ipe1", "ipm1", "ipd1", "ipr1", "epoa1", "e1mp1", "e2mp1", "e3mp1", "eta1", "epm1", "epc1", "epd1", "epej1", "eper1", "epco1", "eppe1", "fc1", "e1", "r1", "a1")
+        'dbTest.Rows.Add("s2", "d2", "ipe2", "ipm2", "ipd2", "ipr2", "epoa2", "e1mp2", "e2mp2", "e3mp2", "eta2", "epm2", "epc2", "epd2", "epej2", "eper2", "epco2", "eppe2", "fc2", "e2", "r2", "a2")
+        Dim direccion = "D1"
+        Dim secretaria = "S1"
+
         Select Case databaseName
             Case "A.1"
-                'Credits
-                doc.Info.Author = "Jael Aguilar"
-                doc.Info.Title = "A.1 Recursos Financieros"
-                'Header
-                Dim headerTable As New Table()
-                headerTable.Borders.Width = 0.75
-                headerTable.AddColumn(Unit.FromInch(4))
-                headerTable.AddColumn(Unit.FromInch(1.4))
-                headerTable.AddColumn(Unit.FromInch(2))
-                headerTable.TopPadding = 4
-                headerTable.BottomPadding = 4
-                headerTable.LeftPadding = 4
-                headerTable.RightPadding = 4
-
-                Dim headerRow = headerTable.AddRow()
-                headerRow.Shading.Color = Colors.LightGray
-                headerRow.Cells(0).AddParagraph("GOBIERNO MUNICPAL DE SAN NICOLÁS DE LOS GARZA" & Environment.NewLine & " ADMINISTRACIÓN 2021 - 2024" & Environment.NewLine & "PROGRAMA DE ENTREGA-RECEPCIÓN PARA LA ADMINSITRACIÓN PÚBLICA MUNICIPAL" & Environment.NewLine & "RECURSOS FINANCIEROS" & Environment.NewLine & "ANEXO A.1")
-                headerRow.Cells(0).Format.Alignment = ParagraphAlignment.Center
-                headerRow.Cells(1).Shading.Color = Colors.White
-                headerRow.Cells(1).Format.Alignment = ParagraphAlignment.Center
-                Dim NLlogo = headerRow.Cells(1).AddParagraph.AddImage(AppDomain.CurrentDomain.BaseDirectory & "bin\Logo_NuevoLeon.png")
-                NLlogo.Width = 64
-                NLlogo.Height = 80
-                'NLlogo.
-                headerRow.Cells(2).AddParagraph("SECRETARÍA " & r(0) & Environment.NewLine & "DIRECCIÓN " & r(1))
-
-                doc.LastSection.Add(headerTable)
+                page.AddParagraph("Secretaría " & secretaria & ", Dirección " & direccion)
 
                 'Headings
-                Dim paragraph = doc.LastSection.AddParagraph("PRESUPUESTO GLOBAL 2023", "Heading1")
+                paragraph = page.AddParagraph("PRESUPUESTO GLOBAL 2023", "Heading1")
                 paragraph.Format.Borders.Width = 2.5
                 paragraph.Format.Borders.Color = Colors.Black
                 paragraph.Format.Borders.Distance = 3
                 paragraph.Format.Shading.Color = Colors.Gray
 
-                doc.LastSection.AddParagraph("SE ANEXA INFORMACIÓN" & Environment.NewLine & "PRESUPUESTO DE INGRESOS Y EGRESOS GLOBALES" & Environment.NewLine & "(MILES DE PESOS)" & Environment.NewLine, "Heading2")
 
-                doc.LastSection.AddParagraph(" ")
+                page.AddParagraph("SE ANEXA INFORMACIÓN" & Environment.NewLine & "PRESUPUESTO DE INGRESOS Y EGRESOS GLOBALES" & Environment.NewLine & "(MILES DE PESOS)" & Environment.NewLine, "Heading2")
+
+                page.AddParagraph(" ")
 
                 'Create first table
                 currentTable = New Table()
@@ -111,24 +136,24 @@ Partial Public Class WebForm1
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("PRESUPUESTO ESTIMADO")
                 tRow(1).AddParagraph("$")
-                tRow(2).AddParagraph(r(2))
+                tRow(2).AddParagraph(dt(0)(2))
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("PRESUPUESTO MODIFICADO")
                 tRow(1).AddParagraph("$")
-                tRow(2).AddParagraph(r(3))
+                tRow(2).AddParagraph(dt(0)(3))
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("PRESUPUESTO DEVENGADO")
                 tRow(1).AddParagraph("$")
-                tRow(2).AddParagraph(r(4))
+                tRow(2).AddParagraph(dt(0)(4))
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("PRESUPUESTO RECAUDADO")
                 tRow(1).AddParagraph("$")
-                tRow(2).AddParagraph(r(5))
+                tRow(2).AddParagraph(dt(0)(5))
 
 
-                doc.LastSection.Add(currentTable)
+                page.Add(currentTable)
                 'Empty space
-                doc.LastSection.AddParagraph(" " & Environment.NewLine & " ")
+                page.AddParagraph(" " & Environment.NewLine & " ")
 
                 'Create second table
                 currentTable = New Table()
@@ -159,90 +184,65 @@ Partial Public Class WebForm1
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("PRESUPUESTO ORIGINAL APROBADO")
                 tRow(1).AddParagraph("$")
-                tRow(2).AddParagraph(r(6))
+                tRow(2).AddParagraph(dt(0)(6))
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("1ER. AMPLIACIÓN PRESUPUESTAL (SE ANEXA DOC.)")
                 tRow(1).AddParagraph("$")
-                tRow(2).AddParagraph(r(7))
+                tRow(2).AddParagraph(dt(0)(7))
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("2DA. AMPLIACIÓN PRESUPUESTAL (SE ANEXA DOC.)")
                 tRow(1).AddParagraph("$")
-                tRow(2).AddParagraph(r(8))
+                tRow(2).AddParagraph(dt(0)(8))
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("3ER. AMPLIACIÓN PRESUPUESTAL (SE ANEXA DOC.)")
                 tRow(1).AddParagraph("$")
-                tRow(2).AddParagraph(r(9))
+                tRow(2).AddParagraph(dt(0)(9))
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("TOTAL AMPLIACIONES (2 + 3 + 4)")
                 tRow(1).AddParagraph("$")
-                tRow(2).AddParagraph(r(10))
+                tRow(2).AddParagraph(dt(0)(10))
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("PRESUPUESTO MODIFICADO (SE ANEXA DOC.)")
                 tRow(1).AddParagraph("$")
-                tRow(2).AddParagraph(r(11))
+                tRow(2).AddParagraph(dt(0)(11))
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("PRESUPUESTO COMPROMETIDO (SE ANEXA DOC.)")
                 tRow(1).AddParagraph("$")
-                tRow(2).AddParagraph(r(12))
+                tRow(2).AddParagraph(dt(0)(12))
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("PRESUPUESTO DEVENGADO (SE ANEXA DOC.)")
                 tRow(1).AddParagraph("$")
-                tRow(2).AddParagraph(r(13))
+                tRow(2).AddParagraph(dt(0)(13))
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("PRESUPUESTO EJERCIDO (SE ANEXA DOC.)")
                 tRow(1).AddParagraph("$")
-                tRow(2).AddParagraph(r(14))
+                tRow(2).AddParagraph(dt(0)(14))
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("PRESUPUESTO EROGADO (SE ANEXA DOC.)")
                 tRow(1).AddParagraph("$")
-                tRow(2).AddParagraph(r(15))
+                tRow(2).AddParagraph(dt(0)(15))
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("PRESUPUESTO CONSUMIDO (SE ANEXA DOC.) (7+8+9+10)")
                 tRow(1).AddParagraph("$")
-                tRow(2).AddParagraph(r(16))
+                tRow(2).AddParagraph(dt(0)(16))
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("PRESUPUESTO POR EJERCER OFICIAL (SE ANEXA DOC.) (6 -11)")
                 tRow(1).AddParagraph("$")
-                tRow(2).AddParagraph(r(17))
-
-                doc.LastSection.Add(currentTable)
+                tRow(2).AddParagraph(dt(0)(17))
+                page.Add(currentTable)
 
             Case "A.5"
                 page.PageSetup.Orientation = Orientation.Landscape
-                doc.Info.Author = "Jael Aguilar"
-                doc.Info.Title = "A.5 Rel. de Ctas. Bancarias, Inversiones, etc."
                 'Header
-                Dim headerTable As New Table()
-                headerTable.Borders.Width = 0.75
-                headerTable.AddColumn(Unit.FromInch(7.4))
-                headerTable.AddColumn(Unit.FromInch(1.4))
-                headerTable.AddColumn(Unit.FromInch(2))
-                headerTable.TopPadding = 4
-                headerTable.BottomPadding = 4
-                headerTable.LeftPadding = 4
-                headerTable.RightPadding = 4
-
-                Dim headerRow = headerTable.AddRow()
-                headerRow.Shading.Color = Colors.LightGray
-                headerRow.Cells(0).AddParagraph("GOBIERNO MUNICPAL DE SAN NICOLÁS DE LOS GARZA" & Environment.NewLine & " ADMINISTRACIÓN 2021 - 2024" & Environment.NewLine & "PROGRAMA DE ENTREGA-RECEPCIÓN PARA LA ADMINSITRACIÓN PÚBLICA MUNICIPAL" & Environment.NewLine & "RECURSOS FINANCIEROS" & Environment.NewLine & "ANEXO A.5")
-                headerRow.Cells(0).Format.Alignment = ParagraphAlignment.Center
-                headerRow.Cells(1).Shading.Color = Colors.White
-                headerRow.Cells(1).Format.Alignment = ParagraphAlignment.Center
-                Dim NLlogo = headerRow.Cells(1).AddParagraph.AddImage(AppDomain.CurrentDomain.BaseDirectory & "bin\Logo_NuevoLeon.png")
-                NLlogo.Width = 48
-                NLlogo.Height = 60
-                'NLlogo.
-                headerRow.Cells(2).AddParagraph("SECRETARÍA " & r(0) & Environment.NewLine & "DIRECCIÓN " & r(1))
-
-                doc.LastSection.Add(headerTable)
+                page.AddParagraph("Secretaría " & secretaria & ", Dirección " & direccion)
                 'Headings
-                Dim paragraph = doc.LastSection.AddParagraph("RELACIÓN DE CUENTAS BANCARIAS, INVERSIONES, ETC.", "Heading1")
-                paragraph.Format.Borders.Width = 2.5
-                paragraph.Format.Borders.Color = Colors.Black
+                Paragraph = page.AddParagraph("RELACIÓN DE CUENTAS BANCARIAS, INVERSIONES, ETC.", "Heading1")
+                Paragraph.Format.Borders.Width = 2.5
+                Paragraph.Format.Borders.Color = Colors.Black
                 paragraph.Format.Borders.Distance = 3
                 paragraph.Format.Shading.Color = Colors.Gray
 
-                doc.LastSection.AddParagraph(" ")
+                page.AddParagraph(" ")
 
                 'Create first table
                 currentTable = New Table()
@@ -273,30 +273,22 @@ Partial Public Class WebForm1
 
 
                 'Data
-                tRow = currentTable.AddRow()
-                tRow.Cells(0).AddParagraph(r(2))
-                tRow.Cells(1).AddParagraph(r(3))
-                tRow.Cells(2).AddParagraph(r(4))
-                tRow.Cells(3).AddParagraph(r(5))
-                tRow.Cells(4).AddParagraph(r(6))
-
-                currentTable.AddRow()
-                currentTable.AddRow()
-                currentTable.AddRow()
-                currentTable.AddRow()
-                currentTable.AddRow()
-                currentTable.AddRow()
-                currentTable.AddRow()
-                currentTable.AddRow()
-                currentTable.AddRow()
-                currentTable.AddRow()
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                Next
 
 
 
-                doc.LastSection.Add(currentTable)
+
+
+                page.Add(currentTable)
         End Select
+        Return page
 
-
-        Return doc
     End Function
 End Class
