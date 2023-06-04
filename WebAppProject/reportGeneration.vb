@@ -1294,6 +1294,138 @@ ParagraphAlignment.Center
                 tRow.Cells(5).Borders.Right.Color = Colors.White
                 tRow.Format.Alignment = ParagraphAlignment.Center
                 page.Add(currentTable)
+
+            Case "A.6"
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'Headings
+                paragraph = page.AddParagraph("RELACION DE CUENTAS POR COBRAR", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+
+                page.AddParagraph(" ")
+
+                'Create first table
+                currentTable = New Table()
+
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(4.8))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2))
+
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("No. DE DOCUMENTO")
+                tRow(1).AddParagraph("NOMBRE DEL DEUDOR")
+                tRow(2).AddParagraph("FECHA DE ADEUDO")
+                tRow(3).AddParagraph("SALDO")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                Next
+
+                page.Add(currentTable)
+
+            Case "A.6.2"
+                paragraph = page.AddParagraph("REPORTE DE SALDOS DEL SISTEMA DE INGRESOS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+
+                'Create first table
+                currentTable = New Table()
+
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(1.4))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(4))
+
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("NÚMERO")
+                tRow(1).AddParagraph("TIPO DE CUENTA")
+                tRow(2).AddParagraph("SALDO A LA FECHA")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                Next
+
+                page.Add(currentTable)
+
+            Case "A.7"
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'Headings
+                paragraph = page.AddParagraph("RELACION DE CUENTAS POR PAGAR", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+
+                page.AddParagraph(" ")
+
+                'Create first table
+                currentTable = New Table()
+
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(2.9))
+                currentTable.AddColumn(Unit.FromInch(5))
+                currentTable.AddColumn(Unit.FromInch(2.9))
+
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("No. DE DOCUMENTO")
+                tRow(1).AddParagraph("NOMBRE DEL ACREEDOR")
+                tRow(2).AddParagraph("SALDO")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                Next
+
+                page.Add(currentTable)
+
+
         End Select
         Return page
 
