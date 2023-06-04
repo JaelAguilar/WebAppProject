@@ -2845,6 +2845,136 @@ ParagraphAlignment.Center
 
                 page.Add(currentTable)
 
+            Case "E.4"
+                page.PageSetup.Orientation = Orientation.Landscape
+                'Headings
+                paragraph = page.AddParagraph("RELACIÓN DE DELEGADOS MUNICIPALES", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(3.8))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("SECCIÓN Y/O CLAVE")
+                tRow(1).AddParagraph("NOMBRE")
+                tRow(2).AddParagraph("DOMICILIO")
+                tRow(3).AddParagraph("FECHA DE NOMBRAMIENTO")
+                tRow(4).AddParagraph("OBSERVACIONES")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                Next
+                page.Add(currentTable)
+
+
+            Case "E.5"
+                page.PageSetup.Orientation = Orientation.Landscape
+                'Headings
+                paragraph = page.AddParagraph("RELACIÓN DE BIENES EMBARGADOS Y DECOMISADOS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(3.8))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("NOMBRE DEL CONTRIBUYENTE")
+                tRow(1).AddParagraph("CANTIDAD")
+                tRow(2).AddParagraph("DESCRIPCIÓN DEL BIEN")
+                tRow(3).AddParagraph("CLASIFICACIÓN")
+                tRow(4).AddParagraph("MOTIVO")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                Next
+                page.Add(currentTable)
+
+            Case "E.6"
+                page.PageSetup.Orientation = Orientation.Landscape
+                'Headings
+                paragraph = page.AddParagraph("RELACIÓN DE INMUEBLES DESAFECTADOS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(3.8))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("No. DE EXPEDIENTE")
+                tRow(1).AddParagraph("NOMBRE DE POSTOR")
+                tRow(2).AddParagraph("SUPERFICIE DESAFECTADA")
+                tRow(3).AddParagraph("AUTORIZO CABILDO")
+                tRow(4).AddParagraph("AUTORIZO CONGRESO")
+                tRow(5).AddParagraph("TIPO ENAJENACIÓN")
+                tRow(6).AddParagraph("No. DE DECRETO Y FECHA")
+                tRow(7).AddParagraph("OBSERVACIONES")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                Next
+                page.Add(currentTable)
+
         End Select
         Return page
 
