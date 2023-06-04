@@ -596,6 +596,7 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@aut", r(7))
                 End With
 
+
             Case "C.7"
                 initialQuery &= "INSERT INTO C.7
 (Secretaria,Dirección,NominaResgardante,NombreRresguardante,TipoArma,Calibre,NúmeroSerie,Origen,CveCorteEjer,Elaboró,Revisó,Autorizó)"
@@ -883,6 +884,99 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@reviso", r(11))
                     .Parameters.AddWithValue("@autorizo", r(12))
                 End With
+
+            Case "F.1"
+                initialQuery = "INSERT INTO F.1
+(Secretaria, Dirección,  NombreExp,Período,TipoClasif,Ubicación,CveCorteEjer,Elaboró, Revisó, Autorizó) "
+                initialQuery &= "VALUES
+ (@Secretaria,@Dirección,@NombreExp,@Período,@TipoClasif,@Ubicación,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
+                With sql
+                    .CommandText = initialQuery
+                    .Parameters.AddWithValue("@Secretaria", r(0))
+                    .Parameters.AddWithValue("@Dirección", r(1))
+                    .Parameters.AddWithValue("@NombreExp", r(2))
+                    .Parameters.AddWithValue("@Período", r(3))
+                    .Parameters.AddWithValue("@TipoClasif", r(4))
+                    .Parameters.AddWithValue("@Ubicación", r(5))
+                    .Parameters.AddWithValue("@CveCorteEjer", r(6))
+                    .Parameters.AddWithValue("@Elaboró", r(7))
+                    .Parameters.AddWithValue("@Revisó", r(8))
+                    .Parameters.AddWithValue("@Autorizó", r(9))
+                End With
+
+            Case "F.1.1"
+                initialQuery = "INSERT INTO F.1.1
+(Secretaria, Dirección,  Código,NombreExp,Período,Ubicación,CveCorteEjer,Elaboró, Revisó, Autorizó) "
+                initialQuery &= "VALUES
+ (@Secretaria,@Dirección,@Código,@NombreExp,@Período,@Ubicación,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
+                With sql
+                    .CommandText = initialQuery
+                    .Parameters.AddWithValue("@Secretaria", r(0))
+                    .Parameters.AddWithValue("@Dirección", r(1))
+                    .Parameters.AddWithValue("@Código", r(2))
+                    .Parameters.AddWithValue("@NombreExp", r(3))
+                    .Parameters.AddWithValue("@Período", r(4))
+                    .Parameters.AddWithValue("@Ubicación", r(5))
+                    .Parameters.AddWithValue("@CveCorteEjer", r(6))
+                    .Parameters.AddWithValue("@Elaboró", r(7))
+                    .Parameters.AddWithValue("@Revisó", r(8))
+                    .Parameters.AddWithValue("@Autorizó", r(9))
+                End With
+
+            Case "F.2"
+                initialQuery = "INSERT INTO F.2
+(Secretaria, Dirección, Descipción,Fecha,Ubicación,CveCorteEjer, Elaboró, Revisó, Autorizó) "
+                initialQuery &= "VALUES
+ (@Secretaria,@Dirección,@Descipción,@Fecha,@Ubicación,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
+                With sql
+                    .CommandText = initialQuery
+                    .Parameters.AddWithValue("@Secretaria", r(0))
+                    .Parameters.AddWithValue("@Dirección", r(1))
+                    .Parameters.AddWithValue("@Descipción", r(2))
+                    .Parameters.AddWithValue("@Fecha", r(3))
+                    .Parameters.AddWithValue("@Ubicación", r(4))
+                    .Parameters.AddWithValue("@CveCorteEjer", r(5))
+                    .Parameters.AddWithValue("@Elaboró", r(6))
+                    .Parameters.AddWithValue("@Revisó", r(7))
+                    .Parameters.AddWithValue("@Autorizó", r(8))
+                End With
+
+            Case "F.3"
+                initialQuery = "INSERT INTO F.3
+(Secretaria, Dirección,  Nombre,Fecha,Justificación,Observaciones,Elaboró, Revisó, Autorizó) "
+                initialQuery &= "VALUES
+ (@Secretaria,@Dirección,@Nombre,@Fecha,@Justificación,@Observaciones,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
+                With sql
+                    .CommandText = initialQuery
+                    .Parameters.AddWithValue("@Secretaria", r(0))
+                    .Parameters.AddWithValue("@Dirección", r(1))
+                    .Parameters.AddWithValue("@Nombre", r(2))
+                    .Parameters.AddWithValue("@Fecha", r(3))
+                    .Parameters.AddWithValue("@Justificación", r(4))
+                    .Parameters.AddWithValue("@Observaciones", r(5))
+                    .Parameters.AddWithValue("@CveCorteEjer", r(6))
+                    .Parameters.AddWithValue("@Elaboró", r(7))
+                    .Parameters.AddWithValue("@Revisó", r(8))
+                    .Parameters.AddWithValue("@Autorizó", r(9))
+                End With
+
+            Case "F.4"
+                initialQuery = "INSERT INTO F.4
+(Secretaria, Dirección,  Descripción,Sello,Elaboró, Revisó, Autorizó) "
+                initialQuery &= "VALUES
+ (@Secretaria,@Dirección,@Descripción,@Sello,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
+                With sql
+                    .CommandText = initialQuery
+                    .Parameters.AddWithValue("@Secretaria", r(0))
+                    .Parameters.AddWithValue("@Dirección", r(1))
+                    .Parameters.AddWithValue("@Descripción", r(2))
+                    .Parameters.AddWithValue("@Sello", r(3))
+                    .Parameters.AddWithValue("@CveCorteEjer", r(4))
+                    .Parameters.AddWithValue("@Elaboró", r(5))
+                    .Parameters.AddWithValue("@Revisó", r(6))
+                    .Parameters.AddWithValue("@Autorizó", r(7))
+                End With
+
 
         End Select
     End Function
