@@ -1000,8 +1000,8 @@ ParagraphAlignment.Center
                 page.PageSetup.Orientation = Orientation.Landscape
                 'Headings
                 paragraph = page.AddParagraph("RELACIÓN DE CUENTAS BANCARIAS, INVERSIONES, ETC.", "Heading1")
-                Paragraph.Format.Borders.Width = 2.5
-                Paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
                 paragraph.Format.Borders.Distance = 3
                 paragraph.Format.Shading.Color = Colors.Gray
 
@@ -1840,6 +1840,417 @@ ParagraphAlignment.Center
                     tRow.Cells(1).AddParagraph(dt(index)(3))
                 Next
                 page.Add(currentTable)
+
+            Case "B.4"
+                'Agrega aquí tu código
+
+                'ENCABEZADO
+                paragraph = page.AddParagraph("RELACIÓN DE PERSONAL PENSIONADO Y JUBILADO", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+                'TABLA
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns (7.4in PARA VERTICAL)
+                currentTable.AddColumn(Unit.FromInch(1.6))
+                currentTable.AddColumn(Unit.FromInch(2.4))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(1.4))
+
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("NÚMERO DE NÓMINA")
+                tRow(1).AddParagraph("NOMBRE COMPLETO")
+                tRow(2).AddParagraph("CLASIFICACIÓN")
+                tRow(3).AddParagraph("PERCEPCIÓN MENSUAL")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                Next
+
+                page.Add(currentTable)
+
+
+
+                'PIE DE PAGINA
+                page.AddParagraph("TOTAL DE PENSIONADOS:" &
+                          Environment.NewLine & "TOTAL DE JUBILADOS:" &
+                          Environment.NewLine, "Heading2")
+                page.AddParagraph(" ")
+
+            Case "C.1"
+                'ORIENTACION 
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'ENCABEZADO
+                paragraph = page.AddParagraph("RELACIÓN DE MOBILIARIO, EQUIPO, HERRAMIENTAS, ACCESORIOS Y/O LISTADO DE PATRIMONIO", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+                'TABLA
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns (10.8in PARA HORIZONTAL)
+                currentTable.AddColumn(Unit.FromInch(3))
+                currentTable.AddColumn(Unit.FromInch(5))
+                currentTable.AddColumn(Unit.FromInch(2.8))
+
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("NÚMERO DE INVENTARIO")
+                tRow(1).AddParagraph("DESCRIPCIÓN")
+                tRow(2).AddParagraph("No NOMINA DEL RESGUARDANTE")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                Next
+
+                page.Add(currentTable)
+
+
+
+                'PIE DE PAGINA
+                page.AddParagraph("TOTAL DE BIENES:" &
+                                  Environment.NewLine, "Heading2")
+                page.AddParagraph(" ")
+
+            Case "C.2"
+                'ORIENTACION 
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'ENCABEZADO
+                paragraph = page.AddParagraph("RELACIÓN DE EQUIPO DE TRANSPORTE, MAQUINARIA Y COMBUSTIBLE ASIGNADO A VEHÍCULOS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+                'TABLA
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns (10.8in PARA HORIZONTAL)
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(0.7))
+                currentTable.AddColumn(Unit.FromInch(0.7))
+                currentTable.AddColumn(Unit.FromInch(0.7))
+                currentTable.AddColumn(Unit.FromInch(0.6))
+                currentTable.AddColumn(Unit.FromInch(1.2))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(0.8))
+                currentTable.AddColumn(Unit.FromInch(0.8))
+                currentTable.AddColumn(Unit.FromInch(0.9))
+                currentTable.AddColumn(Unit.FromInch(0.7))
+                currentTable.AddColumn(Unit.FromInch(0.7))
+
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("No. INVENTARIO")
+                tRow(1).AddParagraph("DESCRIPCIÓN")
+                tRow(2).AddParagraph("MARCA")
+                tRow(3).AddParagraph("MODELO")
+                tRow(4).AddParagraph("No. PLACA")
+                tRow(5).AddParagraph("No. SERIE")
+                tRow(6).AddParagraph("No. NÓMINA RESGUARDANTE")
+                tRow(7).AddParagraph("CONDICIONES")
+                tRow(8).AddParagraph("TIPO Y CANT. COMBUSTIBLE")
+                tRow(8).MergeRight = 1
+                tRow(9).AddParagraph(" ")
+                tRow(10).AddParagraph("ESTACIÓN ASIGNADA")
+                tRow(11).AddParagraph("No. POLIZA Y COBERTURA")
+                tRow(11).MergeRight = 1
+                tRow(12).AddParagraph(" ")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                    tRow.Cells(5).AddParagraph(dt(index)(7))
+                    tRow.Cells(6).AddParagraph(dt(index)(8))
+                    tRow.Cells(7).AddParagraph(dt(index)(9))
+                    tRow.Cells(8).AddParagraph(dt(index)(10))
+                    tRow.Cells(9).AddParagraph(dt(index)(11))
+                    tRow.Cells(10).AddParagraph(dt(index)(12))
+                    tRow.Cells(11).AddParagraph(dt(index)(13))
+                    tRow.Cells(12).AddParagraph(dt(index)(14))
+                Next
+
+                page.Add(currentTable)
+
+
+
+                'PIE DE PAGINA
+                page.AddParagraph("TOTAL DE BIENES:" &
+                                  Environment.NewLine & "CLAVES PARA TIPO DE COBERTURA DE LA PÓLIZA: CA.  COBERTURA AMPLIA o RC.  RESPONSABILIDAD CIVIL" &
+                                  Environment.NewLine, "Heading2")
+                page.AddParagraph(" ")
+
+            Case "C.3"
+                'ENCABEZADO
+                paragraph = page.AddParagraph("RELACIÓN DE LEYES, REGLAMENTOS, MANUALES, LIBROS Y PUBLICACIONES", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+                'TABLA
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns (7.4in PARA VERTICAL)
+                currentTable.AddColumn(Unit.FromInch(4))
+                currentTable.AddColumn(Unit.FromInch(3.4))
+
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("TÍTULO Y/O CLASIFICACIÓN")
+                tRow(1).AddParagraph("NÚMERO DE EJEMPLARES")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                Next
+
+                page.Add(currentTable)
+
+
+
+                'PIE DE PAGINA
+                page.AddParagraph("TOTAL DE BIENES:" &
+                                  Environment.NewLine, "Heading2")
+                page.AddParagraph(" ")
+
+            Case "C.4"
+                'ENCABEZADO
+                paragraph = page.AddParagraph("RELACIÓN DE PAPELERÍA OFICIAL EN STOCK", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+                'TABLA
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns (7.4in PARA VERTICAL)
+                currentTable.AddColumn(Unit.FromInch(1.1))
+                currentTable.AddColumn(Unit.FromInch(1.7))
+                currentTable.AddColumn(Unit.FromInch(0.8))
+                currentTable.AddColumn(Unit.FromInch(0.8))
+                currentTable.AddColumn(Unit.FromInch(3))
+
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("CANTIDAD")
+                tRow(1).AddParagraph("NÚMERO DE FORMATO")
+                tRow(2).AddParagraph("NÚMERO DE FOLIO INICIAL / FINAL")
+                tRow(2).MergeRight = 1
+                tRow(3).AddParagraph(" ")
+                tRow(4).AddParagraph("OBSERVACIONES")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                Next
+
+                page.Add(currentTable)
+
+            Case "C.5"
+                'ORIENTACION 
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'ENCABEZADO
+                paragraph = page.AddParagraph("INVENTARIO DE ALMACENES", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+                'TABLA
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns (10.8in PARA HORIZONTAL)
+                currentTable.AddColumn(Unit.FromInch(1.6))
+                currentTable.AddColumn(Unit.FromInch(3.2))
+                currentTable.AddColumn(Unit.FromInch(1.6))
+                currentTable.AddColumn(Unit.FromInch(0.8))
+                currentTable.AddColumn(Unit.FromInch(0.8))
+                currentTable.AddColumn(Unit.FromInch(0.8))
+                currentTable.AddColumn(Unit.FromInch(2))
+
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("CÓDIGO")
+                tRow(1).AddParagraph("DESCRIPCIÓN")
+                tRow(2).AddParagraph("CANTIDAD")
+                tRow(3).AddParagraph("CONDICIONES" + vbCrLf + "BUENO / REGULAR / MALO")
+                tRow(3).MergeRight = 2
+                tRow(4).AddParagraph(" ")
+                tRow(5).AddParagraph(" ")
+                tRow(6).AddParagraph("OBSERVACIONES")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                    tRow.Cells(5).AddParagraph(dt(index)(7))
+                    tRow.Cells(6).AddParagraph(dt(index)(8))
+                Next
+
+                page.Add(currentTable)
+
+            Case "C.1.5"
+                'ORIENTACION 
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'ENCABEZADO
+                paragraph = page.AddParagraph("RELACIÓN DE BIENES INTANGIBLES", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+                'TABLA
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns (10.8in PARA HORIZONTAL)
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1.1))
+                currentTable.AddColumn(Unit.FromInch(1.1))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1.1))
+                currentTable.AddColumn(Unit.FromInch(1.1))
+                currentTable.AddColumn(Unit.FromInch(1.1))
+                currentTable.AddColumn(Unit.FromInch(1.1))
+                currentTable.AddColumn(Unit.FromInch(1.1))
+                currentTable.AddColumn(Unit.FromInch(1.1))
+
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("No. INVENTARIO")
+                tRow(1).AddParagraph("NOMBRE DEL SOFTWARE")
+                tRow(2).AddParagraph("PROVEEDOR")
+                tRow(3).AddParagraph("No. SERIE")
+                tRow(4).AddParagraph("No. LICENCIA")
+                tRow(5).AddParagraph("DISCOS ORIGINALES")
+                tRow(6).AddParagraph("VERSIÓN")
+                tRow(7).AddParagraph("ÁREA RESPONSABLE")
+                tRow(8).AddParagraph("No. RESGUARDANTE")
+                tRow(9).AddParagraph("UBICACIÓN")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                    tRow.Cells(5).AddParagraph(dt(index)(7))
+                    tRow.Cells(6).AddParagraph(dt(index)(8))
+                    tRow.Cells(7).AddParagraph(dt(index)(9))
+                    tRow.Cells(8).AddParagraph(dt(index)(10))
+                    tRow.Cells(9).AddParagraph(dt(index)(11))
+                Next
+
+                page.Add(currentTable)
+
+
+
+                'PIE DE PAGINA
+                page.AddParagraph("TOTAL DE BIENES:" &
+                                  Environment.NewLine, "Heading2")
+                page.AddParagraph(" ")
 
             Case "C.10"
                 'Agrega aquí tu código
