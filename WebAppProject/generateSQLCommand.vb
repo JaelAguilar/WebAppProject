@@ -653,7 +653,90 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@Autorizó", r(7))
                 End With
 
+            Case "D.2"
+                initialQuery &= "INSERT INTO D.2
+(Secretaria,Dirección,No.Contrato,Descripción,ContatistaAsignado,MontoObra,MontoEjercicio,ModalidadContrato,UbicaExpediente,RecursoUtilizado,PorcentajeAvance,Metas,CveCorteEjer,Elaboró,Revisó,Autorizó)"
+                initialQuery &= "VALUES (@sec,@dir,@NoCon,@Desc,@Cont,@ContAsig,@MObra,@MEje,@ModCon,@UbiExp,@RecUt,@PorAvan,@Metas,@CveCortEjer,@elab,@rev,@aut)"
+                With sql
+                    .CommandText = initialQuery
+                    .Parameters.AddWithValue("@sec", r(0))
+                    .Parameters.AddWithValue("@dir", r(1))
+                    .Parameters.AddWithValue("@NoCon ", r(2))
+                    .Parameters.AddWithValue("@Desc", r(3))
+                    .Parameters.AddWithValue("@Cont", r(4))
+                    .Parameters.AddWithValue("@ContAsig", r(5))
+                    .Parameters.AddWithValue("@MObra", r(6))
+                    .Parameters.AddWithValue("@MEje", r(7))
+                    .Parameters.AddWithValue("@ModCon", r(8))
+                    .Parameters.AddWithValue("@UbiExp", r(9))
+                    .Parameters.AddWithValue("@RecUt", r(10))
+                    .Parameters.AddWithValue("@PorAvan", r(11))
+                    .Parameters.AddWithValue("@Metas", r(12))
+                    .Parameters.AddWithValue("@CveCortEjer", r(13))
+                    .Parameters.AddWithValue("@elab", r(14))
+                    .Parameters.AddWithValue("@rev", r(15))
+                    .Parameters.AddWithValue("@aut", r(16))
+                End With
 
+            Case "D.3"
+                initialQuery &= "INSERT INTO D.3
+(Secretaria,Dirección, Indicador, NombreProg, Descripción, PorcentajeCump, CveCorteEjer, Elaboró, Revisó, Autorizó)"
+                initialQuery &= "VALUES (@sec,@dir,@Ind,@NomPro,@Desc,@PorCump,@CveCorteEjer,@elab,@rev,@aut)"
+                With sql
+                    .CommandText = initialQuery
+                    .Parameters.AddWithValue("@sec", r(0))
+                    .Parameters.AddWithValue("@dir", r(1))
+                    .Parameters.AddWithValue("@Ind ", r(2))
+                    .Parameters.AddWithValue("@NomPro", r(3))
+                    .Parameters.AddWithValue("@Desc", r(4))
+                    .Parameters.AddWithValue("@PorCump", r(5))
+                    .Parameters.AddWithValue("@CveCorteEjer", r(6))
+                    .Parameters.AddWithValue("@elab", r(7))
+                    .Parameters.AddWithValue("@rev", r(8))
+                    .Parameters.AddWithValue("@aut", r(9))
+                End With
+
+            Case "D.4"
+                initialQuery &= "INSERT INTO D.4 (Secretaria,Dirección,No,NúmContrato,Contratación,Modalidad,Monto,FuenteFinan,FechaConclusión,Observaciones,CveCorteEjer,Elaboró,Revisó,Autorizó)"
+                initialQuery &= "VALUES (@sec,@dir,@No,@NumCont,@Cont,@Mod,@Mont,@FuenFin,@FechaCon,@Obser,@CveCorteEjer,@elab,@rev,@aut)"
+                With sql
+                    .CommandText = initialQuery
+                    .Parameters.AddWithValue("@sec", r(0))
+                    .Parameters.AddWithValue("@dir", r(1))
+                    .Parameters.AddWithValue("@No", r(2))
+                    .Parameters.AddWithValue("@NumCont", r(3))
+                    .Parameters.AddWithValue("@Cont", r(4))
+                    .Parameters.AddWithValue("@Mod", r(5))
+                    .Parameters.AddWithValue("@Mont", r(6))
+                    .Parameters.AddWithValue("@FuenFin", r(7))
+                    .Parameters.AddWithValue("@FechaCon", r(8))
+                    .Parameters.AddWithValue("@Obser", r(9))
+                    .Parameters.AddWithValue("@CveCorteEjer", r(10))
+                    .Parameters.AddWithValue("@elab", r(11))
+                    .Parameters.AddWithValue("@rev", r(12))
+                    .Parameters.AddWithValue("@aut", r(13))
+                End With
+
+            Case "D.5"
+                initialQuery &= "INSERT INTO D.5 (Secretaria,Dirección,No,NúmContrato,Contratación,Modalidad,Monto,FuenteFinan,FechaConclusión,Observaciones,CveCorteEjer,Elaboró,Revisó,Autorizó)"
+                initialQuery &= "VALUES (@sec,@dir,@No,@NumCont,@Cont,@Mod,@Mont,@FuenFin,@FechaCon,@Obser,@CveCorteEjer,@elab,@rev,@aut)"
+                With sql
+                    .CommandText = initialQuery
+                    .Parameters.AddWithValue("@sec", r(0))
+                    .Parameters.AddWithValue("@dir", r(1))
+                    .Parameters.AddWithValue("@No", r(2))
+                    .Parameters.AddWithValue("@NumCont", r(3))
+                    .Parameters.AddWithValue("@Cont", r(4))
+                    .Parameters.AddWithValue("@Mod", r(5))
+                    .Parameters.AddWithValue("@Mont", r(6))
+                    .Parameters.AddWithValue("@FuenFin", r(7))
+                    .Parameters.AddWithValue("@FechaCon", r(8))
+                    .Parameters.AddWithValue("@Obser", r(9))
+                    .Parameters.AddWithValue("@CveCorteEjer", r(10))
+                    .Parameters.AddWithValue("@elab", r(11))
+                    .Parameters.AddWithValue("@rev", r(12))
+                    .Parameters.AddWithValue("@aut", r(13))
+                End With
 
         End Select
     End Function
