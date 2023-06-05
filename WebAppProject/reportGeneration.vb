@@ -1,7 +1,9 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Windows.Forms
 Imports MigraDoc.DocumentObjectModel
+Imports MigraDoc.DocumentObjectModel.Shapes
 Imports MigraDoc.DocumentObjectModel.Tables
+Imports PdfSharp.Pdf.IO
 Imports TheArtOfDev.HtmlRenderer.Core
 Imports Orientation = MigraDoc.DocumentObjectModel.Orientation
 
@@ -37,13 +39,15 @@ Partial Public Class WebForm1
 
         Dim lItems = ListBox1.GetSelectedIndices()
         For Each it In lItems
-            doc.Add(CreateSection(ListBox1.Items(it).Value))
+            Dim name = ListBox1.Items(it).Value
+            doc.Add(RetrieveOriginalPDF(name))
+            doc.Add(CreateSection(name))
         Next
 
         Return doc
     End Function
 
-    Private Function CreateSection(databaseName As String)
+    Private Function RetrieveData(databaseName As String) As DataTable
         Dim secretaryName = exportSecretary.Text
         Dim directoryName = exportDirectory.Text
 
@@ -64,12 +68,29 @@ Partial Public Class WebForm1
             End With
             Using reader2 = command.ExecuteReader
                 dt.Load(reader2)
+                Return dt
             End Using
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
             conn.Close()
         End Try
+    End Function
+
+    Private Function RetrieveOriginalPDF(databaseName As String)
+        Dim inputDocument = PdfReader.Open(AppDomain.CurrentDomain.BaseDirectory & "reports\" & databaseName & ".pdf")
+        Dim p = New Section
+        Dim cover = p.AddImage(AppDomain.CurrentDomain.BaseDirectory & "reports\" & databaseName & ".pdf#1")
+        cover.RelativeVertical = RelativeVertical.Page
+        cover.RelativeHorizontal = RelativeHorizontal.Page
+        cover.WrapFormat.Style = WrapStyle.Through
+
+        Return p
+    End Function
+
+    Private Function CreateSection(databaseName As String)
+
+        Dim dt = RetrieveData(databaseName)
 
         Dim paragraph As Paragraph
         Dim page As New Section

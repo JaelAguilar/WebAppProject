@@ -18,7 +18,7 @@
         <h1>Generación de reportes</h1>
         <asp:ListBox ID="ListBox1" runat="server" SelectionMode="Multiple">
             <asp:ListItem Value="A.1">A.1 Presupuesto Global</asp:ListItem>
-            <asp:ListItem Value="A.2">A.2 Presupuesto Global</asp:ListItem>
+            <asp:ListItem Value="A.1.1">A.1.1 Presupuesto Global</asp:ListItem>
             <asp:ListItem Value="A.3">A.3 Presupuesto Global</asp:ListItem>
         </asp:ListBox><br />
         <asp:Label ID="Secretary" runat="server" Text="Secretaría: ">
