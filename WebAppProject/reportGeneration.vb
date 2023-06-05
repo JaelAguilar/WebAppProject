@@ -42,8 +42,8 @@ Partial Public Class WebForm1
     End Function
 
     Private Function CreateSection(databaseName As String)
-        Dim secretaryName = exportSecretarySelector.SelectedValue
-        Dim directoryName = exportDirectorySelector.SelectedValue
+        Dim secretaryName = exportSecretary.Text
+        Dim directoryName = exportDirectory.Text
 
         'obtain Data from the database
         Dim conn As New SqlConnection("server=WIN-2VFJL7TQ7Q8\SQLEXPRESS;database=WebDatabase;User ID='externaluser';Password='public12##'")
@@ -55,15 +55,14 @@ Partial Public Class WebForm1
             With command
                 .Connection = conn
                 .CommandType = CommandType.Text
-                .CommandText = "select * from [A.1] where secretaría=@secretaria and direccion=@direccion"
+                .CommandText = "select * from dbo.[" & databaseName & "] where Secretaria=@secretaria and Dirección=@direccion"
                 .Parameters.AddWithValue("@table", databaseName)
                 .Parameters.AddWithValue("@secretaria", secretaryName)
                 .Parameters.AddWithValue("@direccion", directoryName)
             End With
-            Dim reader As SqlDataReader = command.ExecuteReader
-
-            dt.Load(reader)
-
+            Using reader2 = command.ExecuteReader
+                dt.Load(reader2)
+            End Using
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
