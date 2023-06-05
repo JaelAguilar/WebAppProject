@@ -46,18 +46,30 @@ Partial Public Class WebForm1
         Dim directoryName = exportDirectorySelector.SelectedValue
 
         'obtain Data from the database
-        Dim conn As New SqlConnection
-        conn.Open()
-        Dim command As New SqlCommand()
-        With command
-            .CommandText = "select * from @table where secretaría=@secretaria and direccion=@direccion"
-            .Parameters.AddWithValue("@table", databaseName)
-            .Parameters.AddWithValue("@secretaria", secretaryName)
-            .Parameters.AddWithValue("@direccion", directoryName)
-        End With
-        Dim reader As SqlDataReader = command.ExecuteReader
+        Dim conn As New SqlConnection("server=WIN-2VFJL7TQ7Q8\SQLEXPRESS;database=WebDatabase;User ID='externaluser';Password='public12##'")
         Dim dt As New DataTable
-        dt.Load(reader)
+
+        Try
+            conn.Open()
+            Dim command As New SqlCommand()
+            With command
+                .Connection = conn
+                .CommandType = CommandType.Text
+                .CommandText = "select * from [A.1] where secretaría=@secretaria and direccion=@direccion"
+                .Parameters.AddWithValue("@table", databaseName)
+                .Parameters.AddWithValue("@secretaria", secretaryName)
+                .Parameters.AddWithValue("@direccion", directoryName)
+            End With
+            Dim reader As SqlDataReader = command.ExecuteReader
+
+            dt.Load(reader)
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            conn.Close()
+        End Try
+
         Dim paragraph As Paragraph
         Dim page As New Section
 

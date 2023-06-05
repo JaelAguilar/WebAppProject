@@ -22,6 +22,8 @@
         </asp:DropDownList>
         <asp:ListBox ID="ListBox1" runat="server" SelectionMode="Multiple">
             <asp:ListItem Value="A.1">A.1 Presupuesto Global</asp:ListItem>
+            <asp:ListItem Value="A.2">A.2 Presupuesto Global</asp:ListItem>
+            <asp:ListItem Value="A.3">A.3 Presupuesto Global</asp:ListItem>
         </asp:ListBox>
         <asp:DropDownList runat="server" ID="exportSecretarySelector">
             <asp:ListItem  value="1">S1</asp:ListItem>

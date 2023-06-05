@@ -19,14 +19,14 @@ Public Class WebForm1
 
     <Obsolete>
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Dim pdfDoc = CreatePDF()
-        Dim renderer As New PdfDocumentRenderer(True, PdfFontEmbedding.Always) With {
-.Document = pdfDoc
-}
-        renderer.RenderDocument()
-        Dim loc = "C:\Users\admin\Downloads\test.pdf"
-        renderer.PdfDocument.Save(loc)
-        Process.Start(loc)
+        '        Dim pdfDoc = CreatePDF()
+        '        Dim renderer As New PdfDocumentRenderer(True, PdfFontEmbedding.Always) With {
+        '.Document = pdfDoc
+        '}
+        '        renderer.RenderDocument()
+        '        Dim loc = "C:\Users\admin\Downloads\test.pdf"
+        '        renderer.PdfDocument.Save(loc)
+        '        Process.Start(loc)
     End Sub
 
     Protected Sub importExcel_Click(sender As Object, e As EventArgs) Handles importExcel.Click
