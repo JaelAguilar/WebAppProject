@@ -41,15 +41,6 @@ Partial Public Class WebForm1
     Protected WithEvents importExcel As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''exportTableSelector control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents exportTableSelector As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
     '''ListBox1 control.
     '''</summary>
     '''<remarks>

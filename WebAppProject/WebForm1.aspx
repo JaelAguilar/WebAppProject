@@ -14,12 +14,8 @@
             <asp:ListItem>A.1.1</asp:ListItem>
             <asp:ListItem></asp:ListItem>
         </asp:DropDownList>
-<asp:Button ID="importExcel" runat="server" Text="Import" />
+        <asp:Button ID="importExcel" runat="server" Text="Import" />
         <h1>Generación de reportes</h1>
-        <asp:DropDownList ID="exportTableSelector" runat="server">
-            <asp:ListItem Value="A.1">A.1 Presupuesto Global</asp:ListItem>
-            <asp:ListItem Value="A.1.1">A.1.1 Presupuesto Global</asp:ListItem>
-        </asp:DropDownList>
         <asp:ListBox ID="ListBox1" runat="server" SelectionMode="Multiple">
             <asp:ListItem Value="A.1">A.1 Presupuesto Global</asp:ListItem>
             <asp:ListItem Value="A.2">A.2 Presupuesto Global</asp:ListItem>
@@ -28,11 +24,11 @@
         <asp:Label ID="Secretary" runat="server" Text="Secretaría: ">
             <asp:TextBox ID="exportSecretary" runat="server"></asp:TextBox>
         </asp:Label><br />
-        
+
         <asp:Label ID="Directory" runat="server" Text="Dirección: ">
             <asp:TextBox ID="exportDirectory" runat="server"></asp:TextBox>
         </asp:Label>
-        
+
         <asp:Button ID="generateReport" runat="server" Text="Generar Reporte" />
     </form>
 </body>

@@ -1,13 +1,13 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Windows.Forms
 Imports MigraDoc.DocumentObjectModel
 Imports MigraDoc.DocumentObjectModel.Tables
 Imports TheArtOfDev.HtmlRenderer.Core
+Imports Orientation = MigraDoc.DocumentObjectModel.Orientation
 
 Partial Public Class WebForm1
     Public Function CreatePDF() As Document
 
-
-        Dim databaseName = exportTableSelector.SelectedValue
 
         Dim doc As New Document()
         doc.Info.Title = "Reporte"
@@ -35,8 +35,10 @@ Partial Public Class WebForm1
         styles.ParagraphFormat.Alignment = ParagraphAlignment.Center
 
 
-        doc.Add(CreateSection("A.1"))
-
+        Dim lItems = ListBox1.GetSelectedIndices()
+        For Each it In lItems
+            doc.Add(CreateSection(ListBox1.Items(it).Value))
+        Next
 
         Return doc
     End Function
