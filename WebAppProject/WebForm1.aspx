@@ -24,13 +24,15 @@
             <asp:ListItem Value="A.1">A.1 Presupuesto Global</asp:ListItem>
             <asp:ListItem Value="A.2">A.2 Presupuesto Global</asp:ListItem>
             <asp:ListItem Value="A.3">A.3 Presupuesto Global</asp:ListItem>
-        </asp:ListBox>
-        <asp:DropDownList runat="server" ID="exportSecretarySelector">
-            <asp:ListItem  value="1">S1</asp:ListItem>
-        </asp:DropDownList>
-        <asp:DropDownList runat="server" ID="exportDirectorySelector">
-            <asp:ListItem  value="1">D1</asp:ListItem>
-        </asp:DropDownList>
+        </asp:ListBox><br />
+        <asp:Label ID="Secretary" runat="server" Text="Secretaría: ">
+            <asp:TextBox ID="exportSecretary" runat="server"></asp:TextBox>
+        </asp:Label><br />
+        
+        <asp:Label ID="Directory" runat="server" Text="Dirección: ">
+            <asp:TextBox ID="exportDirectory" runat="server"></asp:TextBox>
+        </asp:Label>
+        
         <asp:Button ID="generateReport" runat="server" Text="Generar Reporte" />
     </form>
 </body>

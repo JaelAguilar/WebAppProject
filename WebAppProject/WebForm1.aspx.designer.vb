@@ -59,22 +59,40 @@ Partial Public Class WebForm1
     Protected WithEvents ListBox1 As Global.System.Web.UI.WebControls.ListBox
 
     '''<summary>
-    '''exportSecretarySelector control.
+    '''Secretary control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents exportSecretarySelector As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents Secretary As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''exportDirectorySelector control.
+    '''exportSecretary control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents exportDirectorySelector As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents exportSecretary As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Directory control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Directory As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''exportDirectory control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents exportDirectory As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''generateReport control.
