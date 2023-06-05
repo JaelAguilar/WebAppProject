@@ -38,24 +38,24 @@ Partial Class WebForm1
                 End With
 
             Case "A.1.1"
-                initialQuery &= "INSERT INTO A.1.1
-(Secretaria, Dirección,Impuestos,Cuot_ApSS,Cont_Mej,Derechos,Productos,Aprov,Ing_Vta_Bs,Part_Apor,Tras_Sub_Oayu,Ing_Finan,ClaveEjercicio,Elaboró,Revisó,Autorizó)"
+                initialQuery &= "INSERT INTO dbo.[A.1.1]
+(Secretaria, Dirección,Impuestos,Cuot_ApSS,Cont_Mej,Derechos,Productos,Aprov,Ing_Vta_Bs,Part_Apor,Tras_Sub_Oayu,Ing_Finan,Elaboró,Revisó,Autorizó)"
                 initialQuery &= "VALUES
-(@Direccion,@Impuestos,@Cuot_ApSS,@Cont_Mej,@Derechos,@Productos,@Aprov,@Ing_Vta_Bs,@Part_Apor,@Tras_Sub_Oayu,@Ing_Finan,@ClaveEjercicio,@Elaboró,@Revisó,@Autorizó)"
+(@sec,@Direccion,@Impuestos,@Cuot_ApSS,@Cont_Mej,@Derechos,@Productos,@Aprov,@Ing_Vta_Bs,@Part_Apor,@Tras_Sub_Oayu,@Ing_Finan,@Elaboró,@Revisó,@Autorizó)"
                 With sql
                     .CommandText = initialQuery
-                    .Parameters.AddWithValue("@Direccion", r(0))
-                    .Parameters.AddWithValue("@Impuestos", r(1))
-                    .Parameters.AddWithValue("@Cuot_ApSS", r(2))
-                    .Parameters.AddWithValue("@Cont_Mej", r(3))
-                    .Parameters.AddWithValue("@Derechos", r(4))
-                    .Parameters.AddWithValue("@Producto", r(5))
-                    .Parameters.AddWithValue("@Aprov", r(6))
-                    .Parameters.AddWithValue("@Ing_Vta_Bs", r(7))
-                    .Parameters.AddWithValue("@Part_Apor", r(8))
-                    .Parameters.AddWithValue("@Tras_Sub_Oayu", r(9))
-                    .Parameters.AddWithValue("@Ing_Finan", r(10))
-                    .Parameters.AddWithValue("@ClaveEjercicio", r(11))
+                    .Parameters.AddWithValue("@sec", r(0))
+                    .Parameters.AddWithValue("@Direccion", r(1))
+                    .Parameters.AddWithValue("@Impuestos", r(2))
+                    .Parameters.AddWithValue("@Cuot_ApSS", r(3))
+                    .Parameters.AddWithValue("@Cont_Mej", r(4))
+                    .Parameters.AddWithValue("@Derechos", r(5))
+                    .Parameters.AddWithValue("@Productos", r(6))
+                    .Parameters.AddWithValue("@Aprov", r(7))
+                    .Parameters.AddWithValue("@Ing_Vta_Bs", r(8))
+                    .Parameters.AddWithValue("@Part_Apor", r(9))
+                    .Parameters.AddWithValue("@Tras_Sub_Oayu", r(10))
+                    .Parameters.AddWithValue("@Ing_Finan", r(11))
                     .Parameters.AddWithValue("@Elaboró", r(12))
                     .Parameters.AddWithValue("@Revisó", r(13))
                     .Parameters.AddWithValue("@Autorizó", r(14))
