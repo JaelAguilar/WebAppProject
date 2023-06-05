@@ -9,8 +9,9 @@ Partial Class WebForm1
 
         Select Case databaseName
             Case "A.1"
-                initialQuery &= "INSERT INTO A.1 (Secretaria,Dirección,I_PreEst,I_PreMod,I_PreDev,I_PreRec,EPreOrigApro,E_1A_AmpPres,E_2A_AmpPres,E_3A_AmpPres,E_Tot_Amp,E_PreModif,E_PreComp,E_PreDev,E_PreEjer,E_PreErog,E_PreCons,E_PrePorEjer,FechaCorte,Elaboró,Revisó,Autorizó)"
-                initialQuery &= "VALUES (@sec,@dir,@IpreEst,@IpreMod,@IpreDev,@IpreRec,@EorigApro,@1ampPres,@2ampPres,@3ampPres,@EtotAmp,@EpreModif,@EpreComp,@EpreDev,@EpreEjer,@EpreErog,@EpreCons,@EprePorEjer,@FCorte,@elab,@rev,@aut)"
+                Debug.Write("Case A.1")
+                initialQuery &= "INSERT INTO dbo.[A.1] (Secretaria,Dirección,I_PreEst,I_PreMod,I_PreDev,I_PreRec,E_PreOrigApro,E_1A_AmpPres,E_2A_AmpPres,E_3A_AmpPres,E_Tot_Amp,E_PreModif,E_PreComp,E_PreDev,E_PreEjer,E_PreErog,E_PreCons,E_PrePorEjer,Elaboró,Revisó,Autorizó)"
+                initialQuery &= "VALUES (@sec,@dir,@IpreEst,@IpreMod,@IpreDev,@IpreRec,@EorigApro,@1ampPres,@2ampPres,@3ampPres,@EtotAmp,@EpreModif,@EpreComp,@EpreDev,@EpreEjer,@EpreErog,@EpreCons,@EprePorEjer,@elab,@rev,@aut)"
                 With sql
                     .CommandText = initialQuery
                     .Parameters.AddWithValue("@sec", r(0))
@@ -31,10 +32,9 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@EpreErog", r(15))
                     .Parameters.AddWithValue("@EpreCons", r(16))
                     .Parameters.AddWithValue("@EprePorEjer", r(17))
-                    .Parameters.AddWithValue("@FCorte", r(18))
-                    .Parameters.AddWithValue("@elab", r(19))
-                    .Parameters.AddWithValue("@rev", r(20))
-                    .Parameters.AddWithValue("@aut", r(21))
+                    .Parameters.AddWithValue("@elab", r(18))
+                    .Parameters.AddWithValue("@rev", r(19))
+                    .Parameters.AddWithValue("@aut", r(20))
                 End With
 
             Case "A.1.1"
