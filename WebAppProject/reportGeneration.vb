@@ -1329,6 +1329,142 @@ ParagraphAlignment.Center
                 tRow.Format.Alignment = ParagraphAlignment.Center
                 page.Add(currentTable)
 
+            Case "A.5.1.1"
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(5))
+                currentTable.AddColumn(Unit.FromInch(2.4))
+
+                'Heading row 
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("CONCILIACÍON DE CUENTAS DE CHEQUES")
+                tRow(1).AddParagraph("CLAVE DEL EJERCICIO")
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                Next
+
+                page.Add(currentTable)
+
+            Case "A.5.2"
+                'Headings 
+                paragraph = page.AddParagraph("DETALLE DE LAS CUENTAS DE INVERSIÓN", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(5))
+                currentTable.AddColumn(Unit.FromInch(2.4))
+
+                'Heading row 
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("NOMBRE DE LA INSTITUCIÓN")
+                tRow(1).AddParagraph(dt(0)(2))
+
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("CUENTA DE INVERSIONES")
+                tRow(1).AddParagraph(dt(0)(3))
+
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("CUENTA CONTABLE")
+                tRow(1).AddParagraph(dt(0)(4))
+
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("SALDO SEGÚN LIBROS")
+                tRow(1).AddParagraph(dt(0)(5))
+
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("SALDO SEGÚN ESTADOS DE CUENTA BANCARIO")
+                tRow(1).AddParagraph(dt(0)(6))
+
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("TIPOS DE INVERSIÓN")
+                tRow(1).AddParagraph(dt(0)(7))
+
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("VENCIMIENTO")
+                tRow(1).AddParagraph(dt(0)(8))
+
+                page.Add(currentTable)
+
+            Case "A.5.2.1"
+                'Headings 
+                paragraph = page.AddParagraph("CONCILIACIÓN DE LAS CUENTAS DE INVERSIÓN", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(5))
+                currentTable.AddColumn(Unit.FromInch(2.4))
+
+                'Heading row 
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("CONCILIACÍON DE CUENTAS DE INVERSIÓN")
+                tRow(1).AddParagraph("CLAVE DEL EJERCICIO")
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                Next
+
+                page.Add(currentTable)
+
             Case "A.6"
                 page.PageSetup.Orientation = Orientation.Landscape
 
