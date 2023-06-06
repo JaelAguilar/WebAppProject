@@ -33,7 +33,6 @@
                 <asp:ListItem Value="A.5.2">A.5.2 Detalles de las Cuentas de Inversión</asp:ListItem>
                 <asp:ListItem Value="A.5.2.1">A.5.2.1 Conciliación de Cuentas de Inversión</asp:ListItem>
                 <asp:ListItem Value="A.6">A.6 Rel. de Citas x Cobrar</asp:ListItem>
-                <asp:ListItem Value="A.6.1">A.6.1 Rel. de Doctos. x Cobrar</asp:ListItem>
                 <asp:ListItem Value="A.6.2">A.6.2 Reporte de Saldos del Sistema de Ingresos</asp:ListItem>
                 <asp:ListItem Value="A.7">A.7 Rel. de cuentas x Pagar</asp:ListItem>
                 <asp:ListItem Value="A.7.1">A.7.1 Relación de Saldos con Proveedores y Contratistas</asp:ListItem>
@@ -127,7 +126,6 @@
                 <asp:ListItem Value="A.5.2">A.5.2 Detalles de las Cuentas de Inversión</asp:ListItem>
                 <asp:ListItem Value="A.5.2.1">A.5.2.1 Conciliación de Cuentas de Inversión</asp:ListItem>
                 <asp:ListItem Value="A.6">A.6 Rel. de Citas x Cobrar</asp:ListItem>
-                <asp:ListItem Value="A.6.1">A.6.1 Rel. de Doctos. x Cobrar</asp:ListItem>
                 <asp:ListItem Value="A.6.2">A.6.2 Reporte de Saldos del Sistema de Ingresos</asp:ListItem>
                 <asp:ListItem Value="A.7">A.7 Rel. de cuentas x Pagar</asp:ListItem>
                 <asp:ListItem Value="A.7.1">A.7.1 Relación de Saldos con Proveedores y Contratistas</asp:ListItem>

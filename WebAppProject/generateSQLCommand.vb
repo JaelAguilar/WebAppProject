@@ -356,7 +356,7 @@ Partial Class WebForm1
                 End With
 
             Case "A.6"
-                initialQuery &= "INSERT INTO A.6] (Secretaria,Dirección,Num_Documento,Nom_Deudor,Fech_Adeudo,Importe_Tot,Saldo,Vencimiento,Concepto,ClaveEjercicio, Elaboró,Revisó,Autorizó)"
+                initialQuery &= "INSERT INTO [A.6] (Secretaria,Dirección,Num_Documento,Nom_Deudor,Fech_Adeudo,Importe_Tot,Saldo,Vencimiento,Concepto,ClaveEjercicio, Elaboró,Revisó,Autorizó)"
                 initialQuery &= "VALUES (@sec,@dir,@NumDocumento,@NomDeudor,@FechAdeudo,@ImporteTot,@Saldo,@Vencimiento,@Concepto, @ClaveEjercicio,@elab,@rev,@aut)"
                 With sql
                     .CommandText = initialQuery
