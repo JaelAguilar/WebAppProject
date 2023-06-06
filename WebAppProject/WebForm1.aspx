@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
         <h1>Importar datos de Excel a la página web</h1>
         <asp:DropDownList ID="DropDownList1" runat="server">
-            <asp:ListItem Value="AR">Acta de Entrega y Recepción</asp:ListItem>
+            <asp:ListItem Value="ActaER">Acta de Entrega y Recepción</asp:ListItem>
             <asp:ListItem Value="A.1">A.1 Presupuesto Global</asp:ListItem>
             <asp:ListItem Value="A.1.1">A.1.1 Presupuesto de Ingresos Autorizado Global por Capítulo</asp:ListItem>
             <asp:ListItem Value="A.1.2">A.1.2 Presupuesto de Egresos Autorizado Global por Capítulo</asp:ListItem>
