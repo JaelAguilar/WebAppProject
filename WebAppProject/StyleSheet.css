@@ -1,0 +1,18 @@
+﻿body {
+    background-color: #B0B3FF;
+}
+form{
+    background-color:white;
+}
+
+.flex-center-container{
+    display:flex;
+    justify-content:center;
+}
+
+.reportInputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 0px;
+}
