@@ -1204,7 +1204,7 @@ Partial Class WebForm1
                 End With
 
             Case "F.1"
-                initialQuery = "INSERT INTO F.1
+                initialQuery = "INSERT INTO dbo.[F.1]
 (Secretaria, Dirección,  NombreExp,Período,TipoClasif,Ubicación,CveCorteEjer,Elaboró, Revisó, Autorizó) "
                 initialQuery &= "VALUES
  (@Secretaria,@Dirección,@NombreExp,@Período,@TipoClasif,@Ubicación,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
@@ -1223,7 +1223,7 @@ Partial Class WebForm1
                 End With
 
             Case "F.1.1"
-                initialQuery = "INSERT INTO F.1.1
+                initialQuery = "INSERT INTO dbo.[F.1.1]
 (Secretaria, Dirección,  Código,NombreExp,Período,Ubicación,CveCorteEjer,Elaboró, Revisó, Autorizó) "
                 initialQuery &= "VALUES
  (@Secretaria,@Dirección,@Código,@NombreExp,@Período,@Ubicación,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
@@ -1242,7 +1242,7 @@ Partial Class WebForm1
                 End With
 
             Case "F.2"
-                initialQuery = "INSERT INTO F.2
+                initialQuery = "INSERT INTO dbo.[F.2]
 (Secretaria, Dirección, Descipción,Fecha,Ubicación,CveCorteEjer, Elaboró, Revisó, Autorizó) "
                 initialQuery &= "VALUES
  (@Secretaria,@Dirección,@Descipción,@Fecha,@Ubicación,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
@@ -1260,8 +1260,8 @@ Partial Class WebForm1
                 End With
 
             Case "F.3"
-                initialQuery = "INSERT INTO F.3
-(Secretaria, Dirección,  Nombre,Fecha,Justificación,Observaciones,Elaboró, Revisó, Autorizó) "
+                initialQuery = "INSERT INTO dbo.[F.3]
+(Secretaria, Dirección,  Nombre,Fecha,Justificación,Observaciones,CveCorteEjer,Elaboró, Revisó, Autorizó) "
                 initialQuery &= "VALUES
  (@Secretaria,@Dirección,@Nombre,@Fecha,@Justificación,@Observaciones,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
                 With sql
@@ -1279,8 +1279,8 @@ Partial Class WebForm1
                 End With
 
             Case "F.4"
-                initialQuery = "INSERT INTO F.4
-(Secretaria, Dirección,  Descripción,Sello,Elaboró, Revisó, Autorizó) "
+                initialQuery = "INSERT INTO dbo.[F.4]
+(Secretaria, Dirección,  Descripción,Sello,CveCorteEjer,Elaboró, Revisó, Autorizó) "
                 initialQuery &= "VALUES
  (@Secretaria,@Dirección,@Descripción,@Sello,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
                 With sql
