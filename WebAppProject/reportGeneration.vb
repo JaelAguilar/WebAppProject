@@ -1878,11 +1878,12 @@ ParagraphAlignment.Center
                 currentTable.BottomPadding = 4
                 currentTable.LeftPadding = 4
                 'Creating columns
-                currentTable.AddColumn(Unit.FromInch(3.8))
+                currentTable.AddColumn(Unit.FromInch(1))
                 currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2.5))
                 currentTable.AddColumn(Unit.FromInch(2))
-                currentTable.AddColumn(Unit.FromInch(2))
-                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2.5))
+                currentTable.AddColumn(Unit.FromInch(1.2))
                 'Heading row
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("FECHA")
@@ -1922,11 +1923,12 @@ ParagraphAlignment.Center
                 currentTable.BottomPadding = 4
                 currentTable.LeftPadding = 4
                 'Creating columns
-                currentTable.AddColumn(Unit.FromInch(3.8))
-                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(1.3))
                 currentTable.AddColumn(Unit.FromInch(2))
                 currentTable.AddColumn(Unit.FromInch(2))
-                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(2.5))
                 'Heading row
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("No. de Poliza")
@@ -1966,10 +1968,13 @@ ParagraphAlignment.Center
                 currentTable.BottomPadding = 4
                 currentTable.LeftPadding = 4
                 'Creating columns
-                currentTable.AddColumn(Unit.FromInch(3.8))
+                currentTable.AddColumn(Unit.FromInch(1))
                 currentTable.AddColumn(Unit.FromInch(1.5))
                 currentTable.AddColumn(Unit.FromInch(2))
-                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1.8))
                 currentTable.AddColumn(Unit.FromInch(1.5))
                 'Heading row
                 tRow = currentTable.AddRow()

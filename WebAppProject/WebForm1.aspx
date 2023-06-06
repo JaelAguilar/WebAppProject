@@ -118,8 +118,6 @@
                 <asp:ListItem Value="A.2">A.2 Reporte de Presupuesto Operativo</asp:ListItem>
                 <asp:ListItem Value="A.3">A.3 Estados Financieros</asp:ListItem>
                 <asp:ListItem Value="A.4">A.4 Asignación del Fondo Único de Operación</asp:ListItem>
-                <asp:ListItem Value="A.4.1a">A.4.1a Arqueo del Fondo Técnico de Operación</asp:ListItem>
-                <asp:ListItem Value="A.4.1b">A.4.1b Arqueo del Fondo Técnico de Operación</asp:ListItem>
                 <asp:ListItem Value="A.5">A.5 Rel. de Citas. Bancarias, Inversiones, etc.</asp:ListItem>
                 <asp:ListItem Value="A.5.1">A.5.1 Detalle de las Cuentas de Cheques</asp:ListItem>
                 <asp:ListItem Value="A.5.1.1">A.5.1.1 Conciliación las Cuentas de Cheques</asp:ListItem>
