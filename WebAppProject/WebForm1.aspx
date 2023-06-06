@@ -4,14 +4,19 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Proyecto Integrador</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <button type="button" class="navbar-toggle" data-toggle="collapse",data-target=".navbar-collapse"></button>
+    <form id="form1" runat="server" class="m-xl-4 p-xl-3 border rounded">
+        
         <h1>Importar datos de Excel a la página web</h1>
-        <asp:DropDownList ID="importTableSelector" runat="server">
-
-            <asp:ListItem Value="ActaER">Acta de Entrega y Recepción</asp:ListItem>
+        <p>Escoja la base de datos que desea actualizar, de click en Importar y elija el archivo que desee</p>
+        <div class="form-group">
+            <asp:Label Text="Base de datos" runat="server" AssociatedControlID="importTableSelector"/>
+       
+        <asp:DropDownList ID="importTableSelector" runat="server" class="form-control">
             <asp:ListItem Value="A.1">A.1 Presupuesto Global</asp:ListItem>
             <asp:ListItem Value="A.1.1">A.1.1 Presupuesto de Ingresos Autorizado Global por Capítulo</asp:ListItem>
             <asp:ListItem Value="A.1.2">A.1.2 Presupuesto de Egresos Autorizado Global por Capítulo</asp:ListItem>
@@ -89,23 +94,41 @@
             <asp:ListItem Value="III">III. Funciones Generales</asp:ListItem>
             <asp:ListItem Value="IV">IV. Relación de Anexos Aplicables</asp:ListItem>
             <asp:ListItem Value="V">V. Plan Municipal de Desarrollo</asp:ListItem>
+            <asp:ListItem Value="ActaER">Acta de Entrega y Recepción</asp:ListItem>
         </asp:DropDownList>
-        <asp:Button ID="importExcel" runat="server" Text="Import" />
+             </div>
+        <br />
+       
+        <asp:Button ID="importExcel" runat="server" Text="Importar" type="button" class="btn btn-dark text-center"/>
+    
+
+        <hr />
         <h1>Generación de reportes</h1>
-        <asp:ListBox ID="ListBox1" runat="server" SelectionMode="Multiple">
+        <p>Seleccione el reporte que desea generar. Deje presionado MAYUS mientras selecciona para obtener más de un reporte.</p>
+        <div class="form-group">
+            <asp:Label Text="Reporte" runat="server" associatedControlID="ListBox1"/>
+            <asp:ListBox ID="ListBox1" runat="server" SelectionMode="Multiple" CssClass="form-control">
             <asp:ListItem Value="A.1">A.1 Presupuesto Global</asp:ListItem>
             <asp:ListItem Value="A.1.1">A.1.1 Presupuesto Global</asp:ListItem>
             <asp:ListItem Value="A.3">A.3 Presupuesto Global</asp:ListItem>
-        </asp:ListBox><br />
-        <asp:Label ID="Secretary" runat="server" Text="Secretaría: ">
+        </asp:ListBox>
+        </div><br />
+        
+        <div class="form-group">
+            <asp:Label ID="Secretary" runat="server" Text="Secretaría: " AssociatedControlID="exportSecretary">
             <asp:TextBox ID="exportSecretary" runat="server"></asp:TextBox>
-        </asp:Label><br />
-
-        <asp:Label ID="Directory" runat="server" Text="Dirección: ">
+        </asp:Label>
+        </div>
+        <br />
+        <div class="form-group">
+            <asp:Label ID="Directory" runat="server" Text="Dirección: " AssociatedControlID="exportDirectory">
             <asp:TextBox ID="exportDirectory" runat="server"></asp:TextBox>
         </asp:Label>
+        </div>
 
-        <asp:Button ID="generateReport" runat="server" Text="Generar Reporte" />
+        
+
+        <asp:Button ID="generateReport" runat="server" Text="Generar Reporte" type="button" class="btn btn-dark"/>
     </form>
 </body>
 </html>
