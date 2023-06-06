@@ -65,7 +65,7 @@ Partial Class WebForm1
                 initialQuery &= "INSERT INTO dbo.[A.1.2]
 (Secretaria, Dirección,Serv_Per,Mat_Sum,Serv_Gen,Tras_Sub_Oayu,Bien_Mu_Inm_Inta,Iver_Pub,Inver_Fin_OP,Part_Apor,Dedua_Pub,FechaCorte,Elaboró,Revisó,Autorizó)"
                 initialQuery &= "VALUES
-(@Secretaria,@Dirección,@Serv_Per,@Mat_Sum,@Serv_Gen,@Tras_Sub_Oayu,@Bien_Mu_Inm_Inta,@Iver_Pub,Inver_Fin_OP,@Part_Apor,@Dedua_Pub,@FechaCorte,@Elaboró,@Revisó,@Autorizó)"
+(@Secretaria,@Dirección,@Serv_Per,@Mat_Sum,@Serv_Gen,@Tras_Sub_Oayu,@Bien_Mu_Inm_Inta,@Iver_Pub,@Inver_Fin_OP,@Part_Apor,@Dedua_Pub,@FechaCorte,@Elaboró,@Revisó,@Autorizó)"
                 With sql
                     .CommandText = initialQuery
                     .Parameters.AddWithValue("@Secretaria", r(0))
@@ -75,13 +75,14 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@Serv_Gen", r(4))
                     .Parameters.AddWithValue("@Tras_Sub_Oayu", r(5))
                     .Parameters.AddWithValue("@Bien_Mu_Inm_Inta", r(6))
-                    .Parameters.AddWithValue("@Iver_Pub,Inver_Fin_OP", r(7))
-                    .Parameters.AddWithValue("@Part_Apor", r(8))
-                    .Parameters.AddWithValue("@Dedua_Pub", r(9))
-                    .Parameters.AddWithValue("@FechaCorte", r(10))
-                    .Parameters.AddWithValue("@Elaboró", r(11))
-                    .Parameters.AddWithValue("@Revisó", r(12))
-                    .Parameters.AddWithValue("@Autorizó", r(13))
+                    .Parameters.AddWithValue("@Iver_Pub", r(7))
+                    .Parameters.AddWithValue("@Inver_Fin_OP", r(8))
+                    .Parameters.AddWithValue("@Part_Apor", r(9))
+                    .Parameters.AddWithValue("@Dedua_Pub", r(10))
+                    .Parameters.AddWithValue("@FechaCorte", r(11))
+                    .Parameters.AddWithValue("@Elaboró", r(12))
+                    .Parameters.AddWithValue("@Revisó", r(13))
+                    .Parameters.AddWithValue("@Autorizó", r(14))
                 End With
 
             Case "A.1.3"
