@@ -745,6 +745,136 @@ ParagraphAlignment.Center
                 tRow(1).AddParagraph(dt(0)(13))
                 page.Add(currentTable)
 
+            Case "A.2"
+                'Headings 
+                paragraph = page.AddParagraph("REPORTE DE PRESUPUESTO OPERATIVO", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(5))
+                currentTable.AddColumn(Unit.FromInch(2.4))
+
+                'Heading row 
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("CONCEPTO")
+                tRow(1).AddParagraph("IMPORTE")
+                tRow.Format.Font.Bold = True
+
+
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("PRESUPUESTO ORIGINAL APROBADO")
+                tRow(1).AddParagraph(dt(0)(2))
+
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("AMPLIACIÓN Y/O REDUCCIONES")
+                tRow(1).AddParagraph(dt(0)(3))
+
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("PRESUPUESTO MODIFICADO (SE ANEXA DOC.)")
+                tRow(1).AddParagraph(dt(0)(4))
+
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("PRESUPUESTO COMPROMETIDO (SE ANEXA DOC.)")
+                tRow(1).AddParagraph(dt(0)(5))
+
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("PRESUPUESTO DEVENGADO (SE ANEXA DOC.)")
+                tRow(1).AddParagraph(dt(0)(7))
+
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("PRESUPUESTO EJERCIDO (SE ANEXA DOC)")
+                tRow(1).AddParagraph(dt(0)(8))
+
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("PRESUPUESTO EROGADO (SE ANEXA DOC.)")
+                tRow(1).AddParagraph(dt(0)(9))
+
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("PRESUPUESTO CONSUMIDO (SE ANEXA DOC. SOPORTE) (4 + 5 + 6 + 7)")
+                tRow(1).AddParagraph(dt(0)(10))
+
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("PRESUPUESTO POR EJERCER OFICIAL (3 –8)")
+                tRow(1).AddParagraph(dt(0)(11))
+                page.Add(currentTable)
+
+            Case "A.3"
+                'Headings 
+                paragraph = page.AddParagraph("ESTADOS FINANCIEROS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(5))
+                currentTable.AddColumn(Unit.FromInch(2.4))
+
+                'Heading row 
+
+
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("A. ESTADO DE SITUACIÓN FINANCIERA DE ACTIVIDADES")
+                tRow(1).AddParagraph(dt(0)(2))
+
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("B. CUENTA PÚBLICA DEL EJERCICIO 2020")
+                tRow(1).AddParagraph(dt(0)(4))
+
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("C. DICTAMEN DE AUDITORES EXTERNOS Y NOTAS AL ESTADO FINANCIERO REALIZADOS POR DESPACHO")
+                tRow(1).AddParagraph(dt(0)(5))
+
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("ÚLTIMO PERÍODO DICTAMINADO:")
+                tRow(1).AddParagraph(dt(0)(6))
+
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("D. BALANZA DE COMPROBACIÓN AL ")
+                tRow(1).AddParagraph(dt(0)(7))
+
+                page.Add(currentTable)
+
             Case "A.4"
                 'Headings
                 paragraph = page.AddParagraph("ASIGNACIÓN DEL FONDO ÚNICO DE OPERACIÓN", "Heading1")
@@ -3570,6 +3700,219 @@ ParagraphAlignment.Center
                 Next
 
                 page.Add(currentTable)
+
+            Case "I"
+                'Headings 
+                paragraph = page.AddParagraph("INFORME DE ACTIVIDADES", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(5))
+                currentTable.AddColumn(Unit.FromInch(2.4))
+
+                'Heading row 
+
+                tRow = currentTable.AddRow()
+
+
+                tRow(0).AddParagraph("NÚMERO DE ACTIVIDAD")
+                tRow(1).AddParagraph("INFORME DE ACTIVIDADES")
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                Next
+
+                page.Add(currentTable)
+
+            Case "II"
+                'Headings 
+                paragraph = page.AddParagraph("ORGANIGRAMA", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(7.4))
+
+                'Heading row 
+
+                tRow = currentTable.AddRow()
+
+
+                tRow(0).AddParagraph("ORGANIGRAMA")
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                Next
+
+                page.Add(currentTable)
+
+            Case "III"
+                'Headings 
+                paragraph = page.AddParagraph("FUNCIONES GENERALES", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(7.4))
+
+                'Heading row 
+
+                tRow = currentTable.AddRow()
+
+
+                tRow(0).AddParagraph("FUNCION GENERAL")
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                Next
+
+                page.Add(currentTable)
+
+            Case "IV"
+                'Headings 
+                paragraph = page.AddParagraph("RELACIÓN DE ANEXOS APLICABLES", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(1.7))
+                currentTable.AddColumn(Unit.FromInch(2.4))
+                currentTable.AddColumn(Unit.FromInch(1.7))
+                currentTable.AddColumn(Unit.FromInch(1.7))
+
+                'Heading row 
+
+                tRow = currentTable.AddRow()
+
+
+                tRow(0).AddParagraph("SECCIÓN")
+                tRow(1).AddParagraph("CLAVE DEL ANEXO")
+                tRow(2).AddParagraph("NOMBRE DEL ANEXO")
+                tRow(3).AddParagraph("APLICA")
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(6))
+                Next
+
+                page.Add(currentTable)
+
+            Case "V"
+                'Headings 
+                paragraph = page.AddParagraph("PLAN MUNICIPAL DE DESARROLLO", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(7.4))
+
+                'Heading row 
+
+                tRow = currentTable.AddRow()
+
+
+                tRow(0).AddParagraph("PLAN MUNICIPAL DE DESARROLLO")
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                Next
+
+                page.Add(currentTable)
+
         End Select
         Return page
 
