@@ -186,7 +186,7 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@Dir", r(1))
                     .Parameters.AddWithValue("@NomSec", r(2))
                     .Parameters.AddWithValue("@Titular", r(3))
-                    .Parameters.AddWithValue("@Monte", r(4))
+                    .Parameters.AddWithValue("@Monto", r(4))
                     .Parameters.AddWithValue("@FechaCorte", r(5))
                     .Parameters.AddWithValue("@Elab", r(6))
                     .Parameters.AddWithValue("@Rev", r(7))
@@ -232,7 +232,7 @@ Partial Class WebForm1
 
             Case "A.4.1b"
                 initialQuery &= "INSERT INTO dbo.[A.4.1b]
-(Secretaria,Direccioón,Fecha,Documento,Fecha_Doc,Proveedor,Concepto,Importe,FechaCorte,Elaboró,Revisó,Autorizó)"
+(Secretaria,Dirección,Fecha,Documento,Fecha_Doc,Proveedor,Concepto,Importe,FechaCorte,Elaboró,Revisó,Autorizó)"
                 initialQuery &= "VALUES
 (@Sec,@Dir,@Fec,@Doc,@FechaDoc,@Pro,@Con,@Imp,@FechaCorte,@Elab,@Rev,@Aut)"
                 With sql
@@ -283,8 +283,8 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@NomInst", r(2))
                     .Parameters.AddWithValue("@NumCuenta", r(3))
                     .Parameters.AddWithValue("@CtaContable", r(4))
-                    .Parameters.AddWithValue("@SaldosSL", r(5))
-                    .Parameters.AddWithValue("@SaldosSECB", r(6))
+                    .Parameters.AddWithValue("@SaldoSL", r(5))
+                    .Parameters.AddWithValue("@SaldoSECB", r(6))
                     .Parameters.AddWithValue("@CheqBcoI", r(7))
                     .Parameters.AddWithValue("@CheqBcoF", r(8))
                     .Parameters.AddWithValue("@FirmaR1", r(9))

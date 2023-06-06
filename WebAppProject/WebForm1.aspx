@@ -29,8 +29,7 @@
                 <asp:ListItem Value="A.4.1b">A.4.1b Arqueo del Fondo Técnico de Operación</asp:ListItem>
                 <asp:ListItem Value="A.5">A.5 Rel. de Citas. Bancarias, Inversiones, etc.</asp:ListItem>
                 <asp:ListItem Value="A.5.1">A.5.1 Detalle de las Cuentas de Cheques</asp:ListItem>
-                <asp:ListItem Value="A.5.1a">A.5.1a Detalle de las Cuentas de Cheques</asp:ListItem>
-                <asp:ListItem Value="A.5.1b">A.5.1b Detalle de las Cuentas de Cheques</asp:ListItem>
+                <asp:ListItem Value="A.5.1.1">A.5.1.1 Conciliación las Cuentas de Cheques</asp:ListItem>
                 <asp:ListItem Value="A.5.2">A.5.2 Detalles de las Cuentas de Inversión</asp:ListItem>
                 <asp:ListItem Value="A.5.2.1">A.5.2.1 Conciliación de Cuentas de Inversión</asp:ListItem>
                 <asp:ListItem Value="A.6">A.6 Rel. de Citas x Cobrar</asp:ListItem>
@@ -124,8 +123,7 @@
                 <asp:ListItem Value="A.4.1b">A.4.1b Arqueo del Fondo Técnico de Operación</asp:ListItem>
                 <asp:ListItem Value="A.5">A.5 Rel. de Citas. Bancarias, Inversiones, etc.</asp:ListItem>
                 <asp:ListItem Value="A.5.1">A.5.1 Detalle de las Cuentas de Cheques</asp:ListItem>
-                <asp:ListItem Value="A.5.1a">A.5.1a Detalle de las Cuentas de Cheques</asp:ListItem>
-                <asp:ListItem Value="A.5.1b">A.5.1b Detalle de las Cuentas de Cheques</asp:ListItem>
+                <asp:ListItem Value="A.5.1.1">A.5.1.1 Conciliación las Cuentas de Cheques</asp:ListItem>
                 <asp:ListItem Value="A.5.2">A.5.2 Detalles de las Cuentas de Inversión</asp:ListItem>
                 <asp:ListItem Value="A.5.2.1">A.5.2.1 Conciliación de Cuentas de Inversión</asp:ListItem>
                 <asp:ListItem Value="A.6">A.6 Rel. de Citas x Cobrar</asp:ListItem>
