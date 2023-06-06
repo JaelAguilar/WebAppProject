@@ -3698,11 +3698,14 @@ ParagraphAlignment.Center
                 currentTable.BottomPadding = 4
                 currentTable.LeftPadding = 4
                 'Creating columns
-                currentTable.AddColumn(Unit.FromInch(3.8))
+                currentTable.AddColumn(Unit.FromInch(1))
                 currentTable.AddColumn(Unit.FromInch(1.5))
-                currentTable.AddColumn(Unit.FromInch(2))
-                currentTable.AddColumn(Unit.FromInch(2))
                 currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(1.3))
+                currentTable.AddColumn(Unit.FromInch(2))
                 'Heading row
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("No. DE EXPEDIENTE")
@@ -3723,6 +3726,9 @@ ParagraphAlignment.Center
                     tRow.Cells(2).AddParagraph(dt(index)(4))
                     tRow.Cells(3).AddParagraph(dt(index)(5))
                     tRow.Cells(4).AddParagraph(dt(index)(6))
+                    tRow.Cells(5).AddParagraph(dt(index)(7))
+                    tRow.Cells(6).AddParagraph(dt(index)(8))
+                    tRow.Cells(7).AddParagraph(dt(index)(9))
                 Next
                 page.Add(currentTable)
 
@@ -3743,11 +3749,13 @@ ParagraphAlignment.Center
                 currentTable.BottomPadding = 4
                 currentTable.LeftPadding = 4
                 'Creating columns
-                currentTable.AddColumn(Unit.FromInch(3.8))
                 currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2.3))
                 currentTable.AddColumn(Unit.FromInch(2))
                 currentTable.AddColumn(Unit.FromInch(2))
-                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(0.5))
+                currentTable.AddColumn(Unit.FromInch(0.5))
+                currentTable.AddColumn(Unit.FromInch(2))
                 'Heading row
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("No. DE EXPEDIENTE")
@@ -3768,6 +3776,7 @@ ParagraphAlignment.Center
                     tRow.Cells(3).AddParagraph(dt(index)(5))
                     tRow.Cells(4).AddParagraph(dt(index)(6))
                     tRow.Cells(5).AddParagraph(dt(index)(7))
+                    tRow.Cells(6).AddParagraph(dt(index)(8))
 
                 Next
                 page.Add(currentTable)
@@ -3789,11 +3798,11 @@ ParagraphAlignment.Center
                 currentTable.BottomPadding = 4
                 currentTable.LeftPadding = 4
                 'Creating columns
-                currentTable.AddColumn(Unit.FromInch(3.8))
-                currentTable.AddColumn(Unit.FromInch(1.5))
-                currentTable.AddColumn(Unit.FromInch(2))
-                currentTable.AddColumn(Unit.FromInch(2))
-                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(0.5))
+                currentTable.AddColumn(Unit.FromInch(3.6))
+                currentTable.AddColumn(Unit.FromInch(3.7))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1))
                 'Heading row
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("No.")
