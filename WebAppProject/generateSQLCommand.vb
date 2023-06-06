@@ -4,7 +4,7 @@ Imports System.Security.Cryptography
 Partial Class WebForm1
     Private Function GenerateSQLCommand(sql As SqlCommand, r As DataRow)
         Dim initialQuery As String = String.Empty
-        Dim databaseName = DropDownList1.SelectedValue
+        Dim databaseName = importTableSelector.SelectedValue
         Debug.WriteLine("DATABASE = " + databaseName)
 
         Select Case databaseName
