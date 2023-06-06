@@ -376,7 +376,7 @@ Partial Class WebForm1
                 End With
 
             Case "A.6.2"
-                initialQuery &= "INSERT INTO dbo.[A.6.2] (Secretaria,Dirección,RSS,ClaveEjercicio, Elaboró,Revisó,Autorizó)"
+                initialQuery &= "INSERT INTO dbo.[A.6.2] (Secretaria,Dirección,RSSI,ClaveEjercicio, Elaboró,Revisó,Autorizó)"
                 initialQuery &= "VALUES (@sec,@dir,@rss,@ClaveEjercicio,@elab,@rev,@aut)"
                 With sql
                     .CommandText = initialQuery
@@ -492,8 +492,8 @@ Partial Class WebForm1
                 End With
 
             Case "A.10"
-                initialQuery &= "INSERT INTO dbo.[A.10] (Secretaria,Dirección,No,EjercicioFiscal,ActaEAESNL,NoLegajos,NoDiscos,Estatus,Observaciones,Responsables,CveCorteEjer,Elaboró,Revisó,Autorizo)"
-                initialQuery &= "VALUES (@sec,@dir,@No,@EjercicioFiscal,@ActaEAESNL,@NoLegajos,@NoDiscos,@Estatus,@Observaciones,@Responsables,@CveCorteEjer,@elab,@rev,@aut)"
+                initialQuery &= "INSERT INTO dbo.[A.10] (Secretaria,Dirección,No,EjercicioFiscal,ActaEAESNL,NoLegajos,NoDiscos,Estatus,Observaciones,Responsable,CveCorteEjer,Elaboró,Revisó,Autorizo)"
+                initialQuery &= "VALUES (@sec,@dir,@No,@EjercicioFiscal,@ActaEAESNL,@NoLegajos,@NoDiscos,@Estatus,@Observaciones,@Responsable,@CveCorteEjer,@elab,@rev,@aut)"
                 With sql
                     .CommandText = initialQuery
                     .Parameters.AddWithValue("@sec", r(0))
@@ -505,7 +505,7 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@NoDiscos", r(6))
                     .Parameters.AddWithValue("@Estatus ", r(7))
                     .Parameters.AddWithValue("@Observaciones", r(8))
-                    .Parameters.AddWithValue("@Responsables", r(9))
+                    .Parameters.AddWithValue("@Responsable", r(9))
                     .Parameters.AddWithValue("@CveCorteEjer", r(10))
                     .Parameters.AddWithValue("@elab ", r(11))
                     .Parameters.AddWithValue("@rev ", r(12))
