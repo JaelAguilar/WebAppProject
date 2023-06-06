@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.Buffers.Text
+Imports System.Data.SqlClient
 Imports System.Windows.Forms
 Imports MigraDoc.DocumentObjectModel
 Imports MigraDoc.DocumentObjectModel.Shapes
@@ -2680,6 +2681,49 @@ ParagraphAlignment.Center
                 Next
                 page.Add(currentTable)
 
+            Case "C.6"
+                page.PageSetup.Orientation = Orientation.Landscape
+                'Headings
+                paragraph = page.AddParagraph("RELACIÓN DE BIENES MUEBLES PROPIEDAD DE TERCEROS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(3.8))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("CANTIDAD")
+                tRow(1).AddParagraph("DESCRIPCION BIEN MUEBLE")
+                tRow(2).AddParagraph("NUMERO DE INVENTARIO O NUMERO DE SERIE")
+                tRow(3).AddParagraph("NOMBRE DEL PROPIETARIO")
+                tRow(4).AddParagraph("OBSERVACIONES")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                Next
+                page.Add(currentTable)
+
+
             Case "C.7"
                 'Headings 
                 paragraph = page.AddParagraph("RELACIÓN DE ARMAMENTO MUNICIPAL Y DEL ESTADO", "Heading1")
@@ -3802,7 +3846,7 @@ ParagraphAlignment.Center
                 currentTable.AddColumn(Unit.FromInch(3.6))
                 currentTable.AddColumn(Unit.FromInch(3.7))
                 currentTable.AddColumn(Unit.FromInch(1))
-                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(2))
                 'Heading row
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("No.")
