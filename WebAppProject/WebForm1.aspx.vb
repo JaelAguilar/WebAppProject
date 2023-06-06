@@ -2,15 +2,31 @@
 Imports System.Threading
 Imports System.IO
 Imports System.Windows.Forms
+Imports PdfSharp
+Imports PdfSharp.Drawing
+Imports PdfSharp.Pdf
 Imports ExcelDataReader
-
-
-
+Imports MigraDoc
+Imports MigraDoc.DocumentObjectModel
+Imports MigraDoc.Rendering
+Imports MigraDoc.DocumentObjectModel.Tables
+Imports Microsoft
 
 Public Class WebForm1
     Inherits Page
 
+    Private r As New List(Of Integer)({1000, 2000, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16})
+
+    <Obsolete>
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        '        Dim pdfDoc = CreatePDF()
+        '        Dim renderer As New PdfDocumentRenderer(True, PdfFontEmbedding.Always) With {
+        '.Document = pdfDoc
+        '}
+        '        renderer.RenderDocument()
+        '        Dim loc = "C:\Users\admin\Downloads\test.pdf"
+        '        renderer.PdfDocument.Save(loc)
+        '        Process.Start(loc)
     End Sub
 
     Protected Sub importExcel_Click(sender As Object, e As EventArgs) Handles importExcel.Click
@@ -66,7 +82,7 @@ Public Class WebForm1
 
     Private Function GenerateSQLCommand(sql As SqlCommand, r As DataRow)
         Dim initialQuery As String = String.Empty
-        Dim databaseName = DropDownList1.SelectedValue
+        Dim databaseName = importTableSelector.SelectedValue
         Debug.WriteLine("DATABASE = " + databaseName)
 
         Select Case databaseName
@@ -100,4 +116,38 @@ Public Class WebForm1
                 End With
         End Select
     End Function
+    Private Function ExportPDF()
+
+    End Function
+
+    Protected Sub generateReport_Click(sender As Object, e As EventArgs) Handles generateReport.Click
+        Dim pdfDoc = CreatePDF()
+        Dim renderer As New PdfDocumentRenderer(True) With {
+            .Document = pdfDoc
+        }
+        renderer.RenderDocument()
+
+        ' Saving the pdf
+        Dim saveFileDialog As New SaveFileDialog With {
+            .Filter = "PDF document (*.pdf)|*.pdf",
+            .Title = "Guardar el reporte"
+        }
+        Dim thread As New Thread(
+            Sub()
+                If saveFileDialog.ShowDialog() = DialogResult.OK Then
+                    Dim pdfFilename As String = saveFileDialog.FileName
+                    renderer.Save(pdfFilename)
+                    Process.Start(pdfFilename)
+                Else
+                    MessageBox.Show("Hubo un error, inténtelo de nuevo")
+                End If
+            End Sub
+            )
+        thread.SetApartmentState(ApartmentState.STA)
+        thread.Start()
+
+    End Sub
+
+
+
 End Class
