@@ -4017,6 +4017,142 @@ ParagraphAlignment.Center
 
                 page.Add(currentTable)
 
+            Case "F.2"
+                'Headings 
+                paragraph = page.AddParagraph("ARCHIVO DE PLANOS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns 
+                currentTable.AddColumn(Unit.FromInch(4.4))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+
+                'Heading row 
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("DESCRIPCIÓN DEL PLANO")
+                tRow(1).AddParagraph("FECHA")
+                tRow(2).AddParagraph("UBICACIÓN")
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                Next
+
+                page.Add(currentTable)
+
+            Case "F.3"
+                'Orientación
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'Headings 
+                paragraph = page.AddParagraph("RELACIÓN DE ASUNTOS EN TRÁMITE Y PROYECTOS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns 
+                currentTable.AddColumn(Unit.FromInch(4.3))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2.5))
+                currentTable.AddColumn(Unit.FromInch(2.5))
+
+                'Heading row 
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("NOMBRE Y DESCRIPCIÓN DEL ASUNTO Y/O PROYECTO")
+                tRow(1).AddParagraph("FECHA DE PRESENTACIÓN")
+                tRow(2).AddParagraph("JUSTIFICACIÓN Y/O SITUACIÓN")
+                tRow(3).AddParagraph("OBSERVACIONES")
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                Next
+
+                page.Add(currentTable)
+
+            Case "F.4"
+                'Headings 
+                paragraph = page.AddParagraph("RELACIÓN DE SELLOS AUTORIZADOS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns 
+                currentTable.AddColumn(Unit.FromInch(6))
+                currentTable.AddColumn(Unit.FromInch(1.4))
+
+                'Heading row 
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("DESCRIPCIÓN")
+                tRow(1).AddParagraph("SELLO")
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                Next
+
+                page.Add(currentTable)
+
+
             Case "I"
                 'Headings 
                 paragraph = page.AddParagraph("INFORME DE ACTIVIDADES", "Heading1")
