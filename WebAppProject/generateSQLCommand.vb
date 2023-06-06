@@ -87,12 +87,12 @@ Partial Class WebForm1
 
             Case "A.1.3"
                 initialQuery &= "INSERT INTO dbo.[A.1.3]
-(Secretaria,Dirección,Clave,Nombre,Presup_Auto,Porcentaje,FechaCorte,Elaboró,Revisó)"
+(Secretaria,Dirección,Clave,Nombre,Presup_Auto,Porcentaje,FechaCorte,Elaboró,Revisó,Autorizó)"
                 initialQuery &= "VALUES
-(@Secretaria,@Dirección,@Clave,@Nombre,@Presup_Auto,@Porcentaje,@FechaCorte,@Elaboró,@Revisó,)"
+(@Secretaria,@Dirección,@Clave,@Nombre,@Presup_Auto,@Porcentaje,@FechaCorte,@Elaboró,@Revisó,@Autorizó)"
                 With sql
                     .CommandText = initialQuery
-                    .Parameters.AddWithValue("@ecretaria", r(0))
+                    .Parameters.AddWithValue("@Secretaria", r(0))
                     .Parameters.AddWithValue("@Dirección", r(1))
                     .Parameters.AddWithValue("@Clave", r(2))
                     .Parameters.AddWithValue("@Nombre", r(3))
@@ -101,6 +101,7 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@FechaCorte", r(6))
                     .Parameters.AddWithValue("@Elaboró", r(7))
                     .Parameters.AddWithValue("@Revisó", r(8))
+                    .Parameters.AddWithValue("@Autorizó", r(9))
                 End With
 
             Case "A.1.4"
@@ -110,7 +111,7 @@ Partial Class WebForm1
 (@Secretaria,@Dirección,@Presup_Auto,@1a_AmpPre,@2a_AmpPre,@3a_AmpPre,@Total_Amp,@Pre_Modificado,@Pre_Comprometido,@Pre_Devengado,@Pre_Ejercicio,@Pre_Erogado,@Pre_Consuido,@Pre_PorEjercer,@Elaboró,@Revisó,@Autorizó)"
                 With sql
                     .CommandText = initialQuery
-                    .Parameters.AddWithValue("@Secretaría", r(0))
+                    .Parameters.AddWithValue("@Secretaria", r(0))
                     .Parameters.AddWithValue("@Dirección", r(1))
                     .Parameters.AddWithValue("@Presup_Auto", r(2))
                     .Parameters.AddWithValue("@1a_AmpPre", r(3))
@@ -118,16 +119,15 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@3a_AmpPre", r(5))
                     .Parameters.AddWithValue("@Total_Amp", r(6))
                     .Parameters.AddWithValue("@Pre_Modificado", r(7))
-                    .Parameters.AddWithValue("@Pre_Modificado", r(8))
-                    .Parameters.AddWithValue("@Pre_Comprometido", r(9))
-                    .Parameters.AddWithValue("@Pre_Devengado", r(10))
-                    .Parameters.AddWithValue("@Pre_Ejercicio", r(11))
-                    .Parameters.AddWithValue("@Pre_Erogado", r(12))
-                    .Parameters.AddWithValue("@Pre_Consuido", r(13))
-                    .Parameters.AddWithValue("@Pre_PorEjercer", r(14))
-                    .Parameters.AddWithValue("@Elaboró", r(15))
-                    .Parameters.AddWithValue("@Revisó", r(16))
-                    .Parameters.AddWithValue("@Autorizó", r(17))
+                    .Parameters.AddWithValue("@Pre_Comprometido", r(8))
+                    .Parameters.AddWithValue("@Pre_Devengado", r(9))
+                    .Parameters.AddWithValue("@Pre_Ejercicio", r(10))
+                    .Parameters.AddWithValue("@Pre_Erogado", r(11))
+                    .Parameters.AddWithValue("@Pre_Consuido", r(12))
+                    .Parameters.AddWithValue("@Pre_PorEjercer", r(13))
+                    .Parameters.AddWithValue("@Elaboró", r(14))
+                    .Parameters.AddWithValue("@Revisó", r(15))
+                    .Parameters.AddWithValue("@Autorizó", r(16))
                 End With
 
             Case "A.2"
