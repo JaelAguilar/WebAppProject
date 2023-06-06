@@ -1,2 +1,11 @@
 ﻿body {
+    background-color: #B0B3FF;
+}
+form{
+    background-color:white;
+}
+
+.flex-center-container{
+    display:flex;
+    justify-content:center;
 }

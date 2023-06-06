@@ -6,6 +6,7 @@
 <head runat="server">
     <title>Proyecto Integrador</title>
     <link href="Content/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="StyleSheet.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <button type="button" class="navbar-toggle" data-toggle="collapse",data-target=".navbar-collapse"></button>
@@ -98,9 +99,10 @@
         </asp:DropDownList>
              </div>
         <br />
-       
-        <asp:Button ID="importExcel" runat="server" Text="Importar" type="button" class="btn btn-dark text-center"/>
-    
+        
+        <div class="flex-center-container">
+            <asp:Button ID="importExcel" runat="server" Text="Importar" type="button" class="btn btn-dark text-center"/>
+        </div>
 
         <hr />
         <h1>Generación de reportes</h1>
@@ -126,9 +128,10 @@
         </asp:Label>
         </div>
 
-        
-
-        <asp:Button ID="generateReport" runat="server" Text="Generar Reporte" type="button" class="btn btn-dark"/>
+        <br />
+        <div class="flex-center-container">
+            <asp:Button ID="generateReport" runat="server" Text="Generar Reporte" type="button" class="btn btn-dark"/>
+        </div>
     </form>
 </body>
 </html>
