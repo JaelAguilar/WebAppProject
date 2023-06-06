@@ -9,3 +9,10 @@ form{
     display:flex;
     justify-content:center;
 }
+
+.reportInputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 0px;
+}
