@@ -851,26 +851,31 @@ ParagraphAlignment.Center
                 tRow = currentTable.AddRow()
 
                 tRow(0).AddParagraph("A. ESTADO DE SITUACIÓN FINANCIERA DE ACTIVIDADES")
+                tRow(0).Format.Font.Bold = True
                 tRow(1).AddParagraph(dt(0)(2))
 
                 tRow = currentTable.AddRow()
 
                 tRow(0).AddParagraph("B. CUENTA PÚBLICA DEL EJERCICIO 2020")
+                tRow(0).Format.Font.Bold = True
                 tRow(1).AddParagraph(dt(0)(4))
 
                 tRow = currentTable.AddRow()
 
                 tRow(0).AddParagraph("C. DICTAMEN DE AUDITORES EXTERNOS Y NOTAS AL ESTADO FINANCIERO REALIZADOS POR DESPACHO")
+                tRow(0).Format.Font.Bold = True
                 tRow(1).AddParagraph(dt(0)(5))
 
                 tRow = currentTable.AddRow()
 
                 tRow(0).AddParagraph("ÚLTIMO PERÍODO DICTAMINADO:")
+                tRow(0).Format.Font.Bold = True
                 tRow(1).AddParagraph(dt(0)(6))
 
                 tRow = currentTable.AddRow()
 
                 tRow(0).AddParagraph("D. BALANZA DE COMPROBACIÓN AL ")
+                tRow(0).Format.Font.Bold = True
                 tRow(1).AddParagraph(dt(0)(7))
 
                 page.Add(currentTable)
