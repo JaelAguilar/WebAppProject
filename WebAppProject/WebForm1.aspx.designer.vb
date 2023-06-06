@@ -41,13 +41,13 @@ Partial Public Class WebForm1
     Protected WithEvents importExcel As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''ListBox1 control.
+    '''ListBoxReport control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ListBox1 As Global.System.Web.UI.WebControls.ListBox
+    Protected WithEvents ListBoxReport As Global.System.Web.UI.WebControls.ListBox
 
     '''<summary>
     '''Secretary control.

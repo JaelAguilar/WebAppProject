@@ -37,9 +37,9 @@ Partial Public Class WebForm1
         styles.ParagraphFormat.Alignment = ParagraphAlignment.Center
 
 
-        Dim lItems = ListBox1.GetSelectedIndices()
+        Dim lItems = ListBoxReport.GetSelectedIndices()
         For Each it In lItems
-            Dim name = ListBox1.Items(it).Value
+            Dim name = ListBoxReport.Items(it).Value
             doc.Add(RetrieveOriginalPDF(name))
             doc.Add(CreateSection(name))
         Next
