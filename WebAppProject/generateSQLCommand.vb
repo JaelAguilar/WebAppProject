@@ -663,9 +663,9 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@FolIni", r(4))
                     .Parameters.AddWithValue("@FolFin", r(5))
                     .Parameters.AddWithValue("@CveCortEjer", r(6))
-                    .Parameters.AddWithValue("@elab", r(19))
-                    .Parameters.AddWithValue("@rev", r(20))
-                    .Parameters.AddWithValue("@aut", r(21))
+                    .Parameters.AddWithValue("@elab", r(7))
+                    .Parameters.AddWithValue("@rev", r(8))
+                    .Parameters.AddWithValue("@aut", r(9))
                 End With
 
             Case "C.5"
@@ -681,9 +681,9 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@Cond", r(2))
                     .Parameters.AddWithValue("@Obser", r(5))
                     .Parameters.AddWithValue("@CveCortEjer", r(6))
-                    .Parameters.AddWithValue("@elab", r(19))
-                    .Parameters.AddWithValue("@rev", r(20))
-                    .Parameters.AddWithValue("@aut", r(21))
+                    .Parameters.AddWithValue("@elab", r(7))
+                    .Parameters.AddWithValue("@rev", r(8))
+                    .Parameters.AddWithValue("@aut", r(9))
                 End With
 
             Case "C.6"
@@ -699,9 +699,9 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@NomPro", r(2))
                     .Parameters.AddWithValue("@Obser", r(5))
                     .Parameters.AddWithValue("@CveCortEjer", r(6))
-                    .Parameters.AddWithValue("@elab", r(19))
-                    .Parameters.AddWithValue("@rev", r(20))
-                    .Parameters.AddWithValue("@aut", r(21))
+                    .Parameters.AddWithValue("@elab", r(7))
+                    .Parameters.AddWithValue("@rev", r(8))
+                    .Parameters.AddWithValue("@aut", r(9))
                 End With
 
 
