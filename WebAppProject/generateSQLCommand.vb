@@ -544,11 +544,10 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@LugarComision", r(4))
                     .Parameters.AddWithValue("@DiasComicionado", r(5))
                     .Parameters.AddWithValue("@Observaciones", r(6))
-                    .Parameters.AddWithValue("@Sindicalizado ", r(7))
-                    .Parameters.AddWithValue("@CveCorteEjer ", r(8))
-                    .Parameters.AddWithValue("@elab", r(9))
-                    .Parameters.AddWithValue("@rev", r(10))
-                    .Parameters.AddWithValue("@aut", r(11))
+                    .Parameters.AddWithValue("@CveCorteEjer ", r(7))
+                    .Parameters.AddWithValue("@elab", r(8))
+                    .Parameters.AddWithValue("@rev", r(9))
+                    .Parameters.AddWithValue("@aut", r(10))
                 End With
 
             Case "B.3"
