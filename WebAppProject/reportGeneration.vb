@@ -2421,6 +2421,150 @@ ParagraphAlignment.Center
                 Next
                 page.Add(currentTable)
 
+            Case "C.7"
+                'Headings 
+                paragraph = page.AddParagraph("RELACIÓN DE ARMAMENTO MUNICIPAL Y DEL ESTADO", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns 
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(1.4))
+
+                'Heading row 
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("NOMBRE DEL RESGUARDANTE")
+                tRow(1).AddParagraph("TIPO DE ARMA")
+                tRow(2).AddParagraph("CALIBRE")
+                tRow(3).AddParagraph("NÚMERO DE SERIE O MATRÍCULA")
+                tRow(4).AddParagraph("MUNICIPAL O ESTATAL")
+
+
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(3))
+                    tRow.Cells(1).AddParagraph(dt(index)(4))
+                    tRow.Cells(2).AddParagraph(dt(index)(5))
+                    tRow.Cells(3).AddParagraph(dt(index)(6))
+                    tRow.Cells(4).AddParagraph(dt(index)(7))
+
+                Next
+
+                page.Add(currentTable)
+
+            Case "C.8"
+                'Headings 
+                paragraph = page.AddParagraph("RELACIÓN DE CD'S Y CASETTES DE AUTIO Y VIDEO", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(1.8))
+                currentTable.AddColumn(Unit.FromInch(0.8))
+                currentTable.AddColumn(Unit.FromInch(3))
+                currentTable.AddColumn(Unit.FromInch(1.8))
+
+                'Heading row 
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("TIPO DE FORMATO")
+                tRow(1).AddParagraph("CANTIDAD")
+                tRow(2).AddParagraph("NOMBRE DEL EVENTO")
+                tRow(3).AddParagraph("FECHA DEL EVENTO")
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+
+
+                Next
+
+                page.Add(currentTable)
+
+            Case "C.9"
+                'Headings 
+                paragraph = page.AddParagraph("RELACIÓN DE LIBROS PROPIEDAD DEL GOBIERNO DEL ESTADO", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(4))
+                currentTable.AddColumn(Unit.FromInch(3.4))
+
+                'Heading row 
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("CLASIFICACIÓN Y/O MATERIA")
+                tRow(1).AddParagraph("NÚMERO DE EJEMPLARES")
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                Next
+
+                page.Add(currentTable)
+
+
             Case "C.10"
                 'Agrega aquí tu código
 
