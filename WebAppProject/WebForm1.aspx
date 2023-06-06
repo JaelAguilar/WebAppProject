@@ -9,7 +9,8 @@
 <body>
     <form id="form1" runat="server">
         <h1>Importar datos de Excel a la página web</h1>
-        <asp:DropDownList ID="DropDownList1" runat="server">
+        <asp:DropDownList ID="importTableSelector" runat="server">
+
             <asp:ListItem Value="ActaER">Acta de Entrega y Recepción</asp:ListItem>
             <asp:ListItem Value="A.1">A.1 Presupuesto Global</asp:ListItem>
             <asp:ListItem Value="A.1.1">A.1.1 Presupuesto de Ingresos Autorizado Global por Capítulo</asp:ListItem>
@@ -89,7 +90,22 @@
             <asp:ListItem Value="IV">IV. Relación de Anexos Aplicables</asp:ListItem>
             <asp:ListItem Value="V">V. Plan Municipal de Desarrollo</asp:ListItem>
         </asp:DropDownList>
-<asp:Button ID="importExcel" runat="server" Text="Import" />
+        <asp:Button ID="importExcel" runat="server" Text="Import" />
+        <h1>Generación de reportes</h1>
+        <asp:ListBox ID="ListBox1" runat="server" SelectionMode="Multiple">
+            <asp:ListItem Value="A.1">A.1 Presupuesto Global</asp:ListItem>
+            <asp:ListItem Value="A.1.1">A.1.1 Presupuesto Global</asp:ListItem>
+            <asp:ListItem Value="A.3">A.3 Presupuesto Global</asp:ListItem>
+        </asp:ListBox><br />
+        <asp:Label ID="Secretary" runat="server" Text="Secretaría: ">
+            <asp:TextBox ID="exportSecretary" runat="server"></asp:TextBox>
+        </asp:Label><br />
+
+        <asp:Label ID="Directory" runat="server" Text="Dirección: ">
+            <asp:TextBox ID="exportDirectory" runat="server"></asp:TextBox>
+        </asp:Label>
+
+        <asp:Button ID="generateReport" runat="server" Text="Generar Reporte" />
     </form>
 </body>
 </html>
