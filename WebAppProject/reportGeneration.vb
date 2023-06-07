@@ -3134,6 +3134,63 @@ ParagraphAlignment.Center
 
                 page.Add(currentTable)
 
+            Case "C.11.2"
+                'Orientación
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'Headings 
+                paragraph = page.AddParagraph("RELACIÓN DE BIENES INMUEBLES EN COMODATO", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2.8))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2))
+
+
+                'Heading row 
+
+                tRow = currentTable.AddRow()
+
+
+                tRow(0).AddParagraph("No. DE EXPEDIENTE")
+                tRow(1).AddParagraph("USO")
+                tRow(2).AddParagraph("UBICACIÓN")
+                tRow(3).AddParagraph("NOMBRE DEL COMODATARIO")
+                tRow(4).AddParagraph("VIGENCIA")
+
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                Next
+
+                page.Add(currentTable)
+
             Case "D.1"
                 'Headings 
                 paragraph = page.AddParagraph("PADRÓN DE PROVEEDORES Y CONTRATISTAS", "Heading1")
