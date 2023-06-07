@@ -65,7 +65,7 @@ Partial Class WebForm1
                 initialQuery &= "INSERT INTO dbo.[A.1.2]
 (Secretaria, Dirección,Serv_Per,Mat_Sum,Serv_Gen,Tras_Sub_Oayu,Bien_Mu_Inm_Inta,Iver_Pub,Inver_Fin_OP,Part_Apor,Dedua_Pub,FechaCorte,Elaboró,Revisó,Autorizó)"
                 initialQuery &= "VALUES
-(@Secretaria,@Dirección,@Serv_Per,@Mat_Sum,@Serv_Gen,@Tras_Sub_Oayu,@Bien_Mu_Inm_Inta,@Iver_Pub,Inver_Fin_OP,@Part_Apor,@Dedua_Pub,@FechaCorte,@Elaboró,@Revisó,@Autorizó)"
+(@Secretaria,@Dirección,@Serv_Per,@Mat_Sum,@Serv_Gen,@Tras_Sub_Oayu,@Bien_Mu_Inm_Inta,@Iver_Pub,@Inver_Fin_OP,@Part_Apor,@Dedua_Pub,@FechaCorte,@Elaboró,@Revisó,@Autorizó)"
                 With sql
                     .CommandText = initialQuery
                     .Parameters.AddWithValue("@Secretaria", r(0))
@@ -75,23 +75,24 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@Serv_Gen", r(4))
                     .Parameters.AddWithValue("@Tras_Sub_Oayu", r(5))
                     .Parameters.AddWithValue("@Bien_Mu_Inm_Inta", r(6))
-                    .Parameters.AddWithValue("@Iver_Pub,Inver_Fin_OP", r(7))
-                    .Parameters.AddWithValue("@Part_Apor", r(8))
-                    .Parameters.AddWithValue("@Dedua_Pub", r(9))
-                    .Parameters.AddWithValue("@FechaCorte", r(10))
-                    .Parameters.AddWithValue("@Elaboró", r(11))
-                    .Parameters.AddWithValue("@Revisó", r(12))
-                    .Parameters.AddWithValue("@Autorizó", r(13))
+                    .Parameters.AddWithValue("@Iver_Pub", r(7))
+                    .Parameters.AddWithValue("@Inver_Fin_OP", r(8))
+                    .Parameters.AddWithValue("@Part_Apor", r(9))
+                    .Parameters.AddWithValue("@Dedua_Pub", r(10))
+                    .Parameters.AddWithValue("@FechaCorte", r(11))
+                    .Parameters.AddWithValue("@Elaboró", r(12))
+                    .Parameters.AddWithValue("@Revisó", r(13))
+                    .Parameters.AddWithValue("@Autorizó", r(14))
                 End With
 
             Case "A.1.3"
                 initialQuery &= "INSERT INTO dbo.[A.1.3]
-(Secretaria,Dirección,Clave,Nombre,Presup_Auto,Porcentaje,FechaCorte,Elaboró,Revisó)"
+(Secretaria,Dirección,Clave,Nombre,Presup_Auto,Porcentaje,FechaCorte,Elaboró,Revisó,Autorizó)"
                 initialQuery &= "VALUES
-(@Secretaria,@Dirección,@Clave,@Nombre,@Presup_Auto,@Porcentaje,@FechaCorte,@Elaboró,@Revisó,)"
+(@Secretaria,@Dirección,@Clave,@Nombre,@Presup_Auto,@Porcentaje,@FechaCorte,@Elaboró,@Revisó,@Autorizó)"
                 With sql
                     .CommandText = initialQuery
-                    .Parameters.AddWithValue("@ecretaria", r(0))
+                    .Parameters.AddWithValue("@Secretaria", r(0))
                     .Parameters.AddWithValue("@Dirección", r(1))
                     .Parameters.AddWithValue("@Clave", r(2))
                     .Parameters.AddWithValue("@Nombre", r(3))
@@ -100,6 +101,7 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@FechaCorte", r(6))
                     .Parameters.AddWithValue("@Elaboró", r(7))
                     .Parameters.AddWithValue("@Revisó", r(8))
+                    .Parameters.AddWithValue("@Autorizó", r(9))
                 End With
 
             Case "A.1.4"
@@ -109,7 +111,7 @@ Partial Class WebForm1
 (@Secretaria,@Dirección,@Presup_Auto,@1a_AmpPre,@2a_AmpPre,@3a_AmpPre,@Total_Amp,@Pre_Modificado,@Pre_Comprometido,@Pre_Devengado,@Pre_Ejercicio,@Pre_Erogado,@Pre_Consuido,@Pre_PorEjercer,@Elaboró,@Revisó,@Autorizó)"
                 With sql
                     .CommandText = initialQuery
-                    .Parameters.AddWithValue("@Secretaría", r(0))
+                    .Parameters.AddWithValue("@Secretaria", r(0))
                     .Parameters.AddWithValue("@Dirección", r(1))
                     .Parameters.AddWithValue("@Presup_Auto", r(2))
                     .Parameters.AddWithValue("@1a_AmpPre", r(3))
@@ -117,16 +119,15 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@3a_AmpPre", r(5))
                     .Parameters.AddWithValue("@Total_Amp", r(6))
                     .Parameters.AddWithValue("@Pre_Modificado", r(7))
-                    .Parameters.AddWithValue("@Pre_Modificado", r(8))
-                    .Parameters.AddWithValue("@Pre_Comprometido", r(9))
-                    .Parameters.AddWithValue("@Pre_Devengado", r(10))
-                    .Parameters.AddWithValue("@Pre_Ejercicio", r(11))
-                    .Parameters.AddWithValue("@Pre_Erogado", r(12))
-                    .Parameters.AddWithValue("@Pre_Consuido", r(13))
-                    .Parameters.AddWithValue("@Pre_PorEjercer", r(14))
-                    .Parameters.AddWithValue("@Elaboró", r(15))
-                    .Parameters.AddWithValue("@Revisó", r(16))
-                    .Parameters.AddWithValue("@Autorizó", r(17))
+                    .Parameters.AddWithValue("@Pre_Comprometido", r(8))
+                    .Parameters.AddWithValue("@Pre_Devengado", r(9))
+                    .Parameters.AddWithValue("@Pre_Ejercicio", r(10))
+                    .Parameters.AddWithValue("@Pre_Erogado", r(11))
+                    .Parameters.AddWithValue("@Pre_Consuido", r(12))
+                    .Parameters.AddWithValue("@Pre_PorEjercer", r(13))
+                    .Parameters.AddWithValue("@Elaboró", r(14))
+                    .Parameters.AddWithValue("@Revisó", r(15))
+                    .Parameters.AddWithValue("@Autorizó", r(16))
                 End With
 
             Case "A.2"
@@ -185,7 +186,7 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@Dir", r(1))
                     .Parameters.AddWithValue("@NomSec", r(2))
                     .Parameters.AddWithValue("@Titular", r(3))
-                    .Parameters.AddWithValue("@Monte", r(4))
+                    .Parameters.AddWithValue("@Monto", r(4))
                     .Parameters.AddWithValue("@FechaCorte", r(5))
                     .Parameters.AddWithValue("@Elab", r(6))
                     .Parameters.AddWithValue("@Rev", r(7))
@@ -231,7 +232,7 @@ Partial Class WebForm1
 
             Case "A.4.1b"
                 initialQuery &= "INSERT INTO dbo.[A.4.1b]
-(Secretaria,Direccioón,Fecha,Documento,Fecha_Doc,Proveedor,Concepto,Importe,FechaCorte,Elaboró,Revisó,Autorizó)"
+(Secretaria,Dirección,Fecha,Documento,Fecha_Doc,Proveedor,Concepto,Importe,FechaCorte,Elaboró,Revisó,Autorizó)"
                 initialQuery &= "VALUES
 (@Sec,@Dir,@Fec,@Doc,@FechaDoc,@Pro,@Con,@Imp,@FechaCorte,@Elab,@Rev,@Aut)"
                 With sql
@@ -282,8 +283,8 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@NomInst", r(2))
                     .Parameters.AddWithValue("@NumCuenta", r(3))
                     .Parameters.AddWithValue("@CtaContable", r(4))
-                    .Parameters.AddWithValue("@SaldosSL", r(5))
-                    .Parameters.AddWithValue("@SaldosSECB", r(6))
+                    .Parameters.AddWithValue("@SaldoSL", r(5))
+                    .Parameters.AddWithValue("@SaldoSECB", r(6))
                     .Parameters.AddWithValue("@CheqBcoI", r(7))
                     .Parameters.AddWithValue("@CheqBcoF", r(8))
                     .Parameters.AddWithValue("@FirmaR1", r(9))
@@ -355,7 +356,7 @@ Partial Class WebForm1
                 End With
 
             Case "A.6"
-                initialQuery &= "INSERT INTO A.6] (Secretaria,Dirección,Num_Documento,Nom_Deudor,Fech_Adeudo,Importe_Tot,Saldo,Vencimiento,Concepto,ClaveEjercicio, Elaboró,Revisó,Autorizó)"
+                initialQuery &= "INSERT INTO [A.6] (Secretaria,Dirección,Num_Documento,Nom_Deudor,Fech_Adeudo,Importe_Tot,Saldo,Vencimiento,Concepto,ClaveEjercicio, Elaboró,Revisó,Autorizó)"
                 initialQuery &= "VALUES (@sec,@dir,@NumDocumento,@NomDeudor,@FechAdeudo,@ImporteTot,@Saldo,@Vencimiento,@Concepto, @ClaveEjercicio,@elab,@rev,@aut)"
                 With sql
                     .CommandText = initialQuery
@@ -375,7 +376,7 @@ Partial Class WebForm1
                 End With
 
             Case "A.6.2"
-                initialQuery &= "INSERT INTO dbo.[A.6.2] (Secretaria,Dirección,RSS,ClaveEjercicio, Elaboró,Revisó,Autorizó)"
+                initialQuery &= "INSERT INTO dbo.[A.6.2] (Secretaria,Dirección,RSSI,ClaveEjercicio, Elaboró,Revisó,Autorizó)"
                 initialQuery &= "VALUES (@sec,@dir,@rss,@ClaveEjercicio,@elab,@rev,@aut)"
                 With sql
                     .CommandText = initialQuery
@@ -491,8 +492,8 @@ Partial Class WebForm1
                 End With
 
             Case "A.10"
-                initialQuery &= "INSERT INTO dbo.[A.10] (Secretaria,Dirección,No,EjercicioFiscal,ActaEAESNL,NoLegajos,NoDiscos,Estatus,Observaciones,Responsables,CveCorteEjer,Elaboró,Revisó,Autorizo)"
-                initialQuery &= "VALUES (@sec,@dir,@No,@EjercicioFiscal,@ActaEAESNL,@NoLegajos,@NoDiscos,@Estatus,@Observaciones,@Responsables,@CveCorteEjer,@elab,@rev,@aut)"
+                initialQuery &= "INSERT INTO dbo.[A.10] (Secretaria,Dirección,No,EjercicioFiscal,ActaEAESNL,NoLegajos,NoDiscos,Estatus,Observaciones,Responsable,CveCorteEjer,Elaboró,Revisó,Autorizo)"
+                initialQuery &= "VALUES (@sec,@dir,@No,@EjercicioFiscal,@ActaEAESNL,@NoLegajos,@NoDiscos,@Estatus,@Observaciones,@Responsable,@CveCorteEjer,@elab,@rev,@aut)"
                 With sql
                     .CommandText = initialQuery
                     .Parameters.AddWithValue("@sec", r(0))
@@ -504,7 +505,7 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@NoDiscos", r(6))
                     .Parameters.AddWithValue("@Estatus ", r(7))
                     .Parameters.AddWithValue("@Observaciones", r(8))
-                    .Parameters.AddWithValue("@Responsables", r(9))
+                    .Parameters.AddWithValue("@Responsable", r(9))
                     .Parameters.AddWithValue("@CveCorteEjer", r(10))
                     .Parameters.AddWithValue("@elab ", r(11))
                     .Parameters.AddWithValue("@rev ", r(12))
@@ -543,11 +544,10 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@LugarComision", r(4))
                     .Parameters.AddWithValue("@DiasComicionado", r(5))
                     .Parameters.AddWithValue("@Observaciones", r(6))
-                    .Parameters.AddWithValue("@Sindicalizado ", r(7))
-                    .Parameters.AddWithValue("@CveCorteEjer ", r(8))
-                    .Parameters.AddWithValue("@elab", r(9))
-                    .Parameters.AddWithValue("@rev", r(10))
-                    .Parameters.AddWithValue("@aut", r(11))
+                    .Parameters.AddWithValue("@CveCorteEjer ", r(7))
+                    .Parameters.AddWithValue("@elab", r(8))
+                    .Parameters.AddWithValue("@rev", r(9))
+                    .Parameters.AddWithValue("@aut", r(10))
                 End With
 
             Case "B.3"
@@ -588,26 +588,26 @@ Partial Class WebForm1
 
             Case "C.2"
                 initialQuery &= "INSERT INTO dbo.[C.2]
- (Secretaria, Dirección, No. Inventario, Descripción, Marca, Modelo, Placa, No. Serie, No. Nomina Resguardante, Condiciones, Tipo Combustible, Capacidad Combustible, Estación Asignada, No. Poliza Seguro, Cobertura Poliza, CveCorteEjer, Elaboró, Revisó, Autorizó)"
+ (Secretaria, Dirección, NoInventario, Descripción, Marca, Modelo, Placa, NoSerie, NoNominaResguardante, Condiciones, TipoCombustible, CapacidadCombustible, EstaciónAsignada, NoPolizaSeguro, CoberturaPoliza, CveCorteEjer, Elaboró, Revisó, Autorizó)"
                 initialQuery &= "VALUES
-(@sec,@dir, @No.Inv, @des, @mar, @mod, @pla, @No.Ser, @No.NomRes, @con, @TipCom, @CapCom, @EstAsi, @No.PolSeg, @CobPol, @CveCorEje, @ela, @rev, @aut)"
+(@sec,@dir, @NoInv, @des, @mar, @mod, @pla, @NoSer, @NoNomRes, @con, @TipCom, @CapCom, @EstAsi, @NoPolSeg, @CobPol, @CveCorEje, @ela, @rev, @aut)"
 
                 With sql
                     .CommandText = initialQuery
                     .Parameters.AddWithValue("@sec", r(0))
                     .Parameters.AddWithValue("@dir", r(1))
-                    .Parameters.AddWithValue("@No.Inv", r(2))
+                    .Parameters.AddWithValue("@NoInv", r(2))
                     .Parameters.AddWithValue("@des", r(3))
                     .Parameters.AddWithValue("@mar", r(4))
                     .Parameters.AddWithValue("@mod", r(5))
                     .Parameters.AddWithValue("@pla", r(6))
-                    .Parameters.AddWithValue("@No.Ser", r(7))
-                    .Parameters.AddWithValue("@No.NomRes", r(8))
+                    .Parameters.AddWithValue("@NoSer", r(7))
+                    .Parameters.AddWithValue("@NoNomRes", r(8))
                     .Parameters.AddWithValue("@con", r(9))
                     .Parameters.AddWithValue("@TipCom", r(10))
                     .Parameters.AddWithValue("@CapCom", r(11))
                     .Parameters.AddWithValue("@EstAsi", r(12))
-                    .Parameters.AddWithValue("@No.PolSeg", r(13))
+                    .Parameters.AddWithValue("@NoPolSeg", r(13))
                     .Parameters.AddWithValue("@CobPol", r(14))
                     .Parameters.AddWithValue("@CveCorEje", r(15))
                     .Parameters.AddWithValue("@ela", r(16))
@@ -617,7 +617,7 @@ Partial Class WebForm1
 
             Case "C.3"
                 initialQuery &= "INSERT INTO dbo.[C.3]
- (Secretaria, Dirección, Titulo, Numero Ejemplares, CveCorteEjer, Elaboró, Revisó, Autorizó)"
+ (Secretaria, Dirección, Titulo, NumeroEjemplares, CveCorteEjer, Elaboró, Revisó, Autorizó)"
                 initialQuery &= "VALUES
 (@sec,@dir, @tit,@NumEje, @CveCorEje, @ela, @rev, @aut)"
 
@@ -635,7 +635,7 @@ Partial Class WebForm1
 
             Case "C.3.1"
                 initialQuery &= "INSERT INTO dbo.[C.3.1]
- (Secretaria, Dirección, Titulo, Numero Ejemplares, CveCorteEjer, Elaboró, Revisó, Autorizó)"
+ (Secretaria, Dirección, Titulo, NumeroEjemplares, CveCorteEjer, Elaboró, Revisó, Autorizó)"
                 initialQuery &= "VALUES
 (@sec,@dir, @tit,@NumEje, @CveCorEje, @ela, @rev, @aut)"
 
@@ -687,7 +687,7 @@ Partial Class WebForm1
                 End With
 
             Case "C.6"
-                initialQuery &= "INSERT INTO dbo.[C.6] (Secretaria,Dirección,Código,Descripción,No.Inventario,NombrePropietario,Observaciones,CveCorteEjer,Elaboró,Revisó,Autorizó)"
+                initialQuery &= "INSERT INTO dbo.[C.6] (Secretaria,Dirección,Código,Descripción,NoInventario,NombrePropietario,Observaciones,CveCorteEjer,Elaboró,Revisó,Autorizó)"
                 initialQuery &= "VALUES (@sec,@dir,@Cod,@Desc,@NoInv,@NomPro,@Obser,@CveCortEjer,@elab,@rev,@aut)"
                 With sql
                     .CommandText = initialQuery
@@ -708,9 +708,9 @@ Partial Class WebForm1
 
             Case "C.7"
                 initialQuery &= "INSERT INTO dbo.[C.7]
-(Secretaria,Dirección,NominaResgardante,NombreRresguardante,TipoArma,Calibre,NúmeroSerie,Origen,CveCorteEjer,Elaboró,Revisó,Autorizó)"
+(Secretaria,Dirección,NominaResgardante,NombreResguardante,TipoArma,Calibre,NúmeroSerie,Origen,CveCorteEjer,Elaboró,Revisó,Autorizó)"
                 initialQuery &= "VALUES
-(@Secretaria,Dirección,@NominaResgardante,@NombreRresguardante,@TipoArma,@Calibre,@NúmeroSerie,@Origen,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
+(@Secretaria,@Dirección,@NominaResgardante,@NombreResguardante,@TipoArma,@Calibre,@NúmeroSerie,@Origen,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
                 With sql
                     .CommandText = initialQuery
                     .Parameters.AddWithValue("@Secretaria", r(0))
@@ -731,7 +731,7 @@ Partial Class WebForm1
                 initialQuery &= "INSERT INTO dbo.[C.8]
 (Secretaria,Dirección,TipoFormato,Cantidad,NombreEvento,Fecha,CveCorteEjer,Elaboró,Revisó,Autorizó)"
                 initialQuery &= "VALUES
-(@Secretaria,Dirección,@TipoFormato,@Cantidad,@NombreEvento,@Fecha,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
+(@Secretaria,@Dirección,@TipoFormato,@Cantidad,@NombreEvento,@Fecha,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
                 With sql
                     .CommandText = initialQuery
                     .Parameters.AddWithValue("@Secretaria", r(0))
@@ -747,10 +747,10 @@ Partial Class WebForm1
                 End With
 
             Case "C.9"
-                initialQuery &= "INSERT INTO dbo[C.9]
+                initialQuery &= "INSERT INTO dbo.[C.9]
 (Secretaria,Dirección,Clasificación,NúmeroEjemplares,CveCorteEjer,Elaboró,Revisó,Autorizó)"
                 initialQuery &= "VALUES
-(@Secretaria,Dirección,@Clasificación,@NúmeroEjemplares@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
+(@Secretaria,@Dirección,@Clasificación,@NúmeroEjemplares,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
                 With sql
                     .CommandText = initialQuery
                     .Parameters.AddWithValue("@Secretaria", r(0))
@@ -765,14 +765,14 @@ Partial Class WebForm1
 
             Case "C.10"
                 initialQuery &= "INSERT INTO dbo.[C.10]
-(Secretaria, Dirección,No.Inventario,EqCan,Nombre,FierroChip,Descripción,FechaNacimineto,FcehaAdquisición,CveCorteEjer,Elaboró,Revisó,Autorizó)"
+(Secretaria, Dirección,NoInventario,EqCan,Nombre,FierroChip,Descripción,FechaNacimineto,FcehaAdquisición,CveCorteEjer,Elaboró,Revisó,Autorizó)"
                 initialQuery &= "VALUES
-(@Secretaria,@Dirección,@No.Inventario,@EqCan,@Nombre,@FierroChip,@Descripción,@FechaNacimineto,@FcehaAdquisición,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
+(@Secretaria,@Dirección,@NoInventario,@EqCan,@Nombre,@FierroChip,@Descripción,@FechaNacimineto,@FcehaAdquisición,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
                 With sql
                     .CommandText = initialQuery
                     .Parameters.AddWithValue("@Secretaria", r(0))
                     .Parameters.AddWithValue("@Dirección", r(1))
-                    .Parameters.AddWithValue("@No.Inventario", r(2))
+                    .Parameters.AddWithValue("@NoInventario", r(2))
                     .Parameters.AddWithValue("@EqCan", r(3))
                     .Parameters.AddWithValue("@Nombre", r(4))
                     .Parameters.AddWithValue("@FierroChip", r(5))
@@ -786,31 +786,31 @@ Partial Class WebForm1
                 End With
 
             Case "C.11"
-                initialQuery &= "INSERT INTO dbo.[C.11] (Secretaria, Dirección,No.Expediente,Uso,Ubicación,Superficie,Estatus,CveCorteEjer, Elaboró, Revisó, Autorizó)"
-                initialQuery &= "VALUES (@secretaria,@direccion,@No.Expediente,@Uso,@Ubicación,@Superficie,@Estatus,@CveCorteEjer,@Elaboro,@reviso,@autorizo)"
+                initialQuery &= "INSERT INTO dbo.[C.11] (Secretaria, Dirección,NoExpediente,Uso,Ubicación,Superficie,Estatus,CveCorteEjer, Elaboró, Revisó, Autorizó)"
+                initialQuery &= "VALUES (@secretaria,@direccion,@NoExpediente,@Uso,@Ubicación,@Superficie,@Estatus,@CveCorteEjer,@Elaboro,@reviso,@autorizo)"
                 With sql
                     .CommandText = initialQuery
-                    .Parameters.AddWithValue("secretaria", r(0))
-                    .Parameters.AddWithValue("direccion", r(1))
-                    .Parameters.AddWithValue("No.Expediente", r(2))
-                    .Parameters.AddWithValue("Uso", r(3))
-                    .Parameters.AddWithValue("Ubicación", r(4))
-                    .Parameters.AddWithValue("Superficie", r(5))
-                    .Parameters.AddWithValue("Estatus", r(6))
-                    .Parameters.AddWithValue("CveCorteEjer", r(7))
-                    .Parameters.AddWithValue("Elaboro", r(8))
-                    .Parameters.AddWithValue("reviso", r(9))
-                    .Parameters.AddWithValue("autorizo", r(10))
+                    .Parameters.AddWithValue("@secretaria", r(0))
+                    .Parameters.AddWithValue("@direccion", r(1))
+                    .Parameters.AddWithValue("@NoExpediente", r(2))
+                    .Parameters.AddWithValue("@Uso", r(3))
+                    .Parameters.AddWithValue("@Ubicación", r(4))
+                    .Parameters.AddWithValue("@Superficie", r(5))
+                    .Parameters.AddWithValue("@Estatus", r(6))
+                    .Parameters.AddWithValue("@CveCorteEjer", r(7))
+                    .Parameters.AddWithValue("@Elaboro", r(8))
+                    .Parameters.AddWithValue("@reviso", r(9))
+                    .Parameters.AddWithValue("@autorizo", r(10))
                 End With
 
             Case "C.11.1"
-                initialQuery &= "INSERT INTO dbo.[C.11.1] (Secretaria, Dirección,No.Expediente,Uso,Ubicación,Superficie,Estatus,CveCorteEjer, Elaboró, Revisó, Autorizó)"
-                initialQuery &= "VALUES (@secretaria,@direccion,@No.Expediente,@Uso,@Ubicación,@Superficie,@Estatus,@CveCorteEjer,@Elaboro,@reviso,@autorizo)"
+                initialQuery &= "INSERT INTO dbo.[C.11.1] (Secretaria, Dirección,NoExpediente,Uso,Ubicación,Superficie,Estatus,CveCorteEjer, Elaboró, Revisó, Autorizó)"
+                initialQuery &= "VALUES (@secretaria,@direccion,@NoExpediente,@Uso,@Ubicación,@Superficie,@Estatus,@CveCorteEjer,@Elaboro,@reviso,@autorizo)"
                 With sql
                     .CommandText = initialQuery
                     .Parameters.AddWithValue("@secretaria", r(0))
                     .Parameters.AddWithValue("direccion", r(1))
-                    .Parameters.AddWithValue("No.Expediente", r(2))
+                    .Parameters.AddWithValue("NoExpediente", r(2))
                     .Parameters.AddWithValue("Uso", r(3))
                     .Parameters.AddWithValue("Ubicación", r(4))
                     .Parameters.AddWithValue("Superficie", r(5))
@@ -822,13 +822,13 @@ Partial Class WebForm1
                 End With
 
             Case "C.11.2"
-                initialQuery &= "INSERT INTO dbo.[C.11.2] (Secretaria, Dirección,No.Expediente,Uso,Ubicación,NombreComodatario,Vigencia,CveCorteEjer, Elaboró, Revisó, Autorizó)"
-                initialQuery &= "VALUES (@secretaria,@direccion,@No.Expediente,@Uso,@Ubicación,@NombreComodatario,@Vigencia,@CveCorteEjer,@Elaboro,@reviso,@autorizo)"
+                initialQuery &= "INSERT INTO dbo.[C.11.2] (Secretaria, Dirección,NoExpediente,Uso,Ubicación,NombreComodatario,Vigencia,CveCorteEjer, Elaboró, Revisó, Autorizó)"
+                initialQuery &= "VALUES (@secretaria,@direccion,@NoExpediente,@Uso,@Ubicación,@NombreComodatario,@Vigencia,@CveCorteEjer,@Elaboro,@reviso,@autorizo)"
                 With sql
                     .CommandText = initialQuery
                     .Parameters.AddWithValue("@secretaria", r(0))
                     .Parameters.AddWithValue("direccion", r(1))
-                    .Parameters.AddWithValue("No.Expediente", r(2))
+                    .Parameters.AddWithValue("NoExpediente", r(2))
                     .Parameters.AddWithValue("Uso", r(3))
                     .Parameters.AddWithValue("Ubicación", r(4))
                     .Parameters.AddWithValue("NombreComodatario", r(5))
@@ -841,7 +841,7 @@ Partial Class WebForm1
 
             Case "D.1"
                 initialQuery &= "INSERT INTO dbo.[D.1] (Secretaria, Dirección,NombreProveedor,Especialidad,CveCorteEjer, Elaboró, Revisó, Autorizó)"
-                initialQuery &= "VALUES (@secretaria,@direccion,@NombreProveedor,@Especialidad,@CveCorteEjer,,@Elaboro,@reviso,@autorizo)"
+                initialQuery &= "VALUES (@secretaria,@direccion,@NombreProveedor,@Especialidad,@CveCorteEjer,@Elaboro,@reviso,@autorizo)"
                 With sql
                     .CommandText = initialQuery
                     .Parameters.AddWithValue("@secretaria", r(0))
@@ -856,27 +856,26 @@ Partial Class WebForm1
 
             Case "D.2"
                 initialQuery &= "INSERT INTO dbo.[D.2]
-(Secretaria,Dirección,No.Contrato,Descripción,ContatistaAsignado,MontoObra,MontoEjercicio,ModalidadContrato,UbicaExpediente,RecursoUtilizado,PorcentajeAvance,Metas,CveCorteEjer,Elaboró,Revisó,Autorizó)"
-                initialQuery &= "VALUES (@sec,@dir,@NoCon,@Desc,@Cont,@ContAsig,@MObra,@MEje,@ModCon,@UbiExp,@RecUt,@PorAvan,@Metas,@CveCortEjer,@elab,@rev,@aut)"
+(Secretaria,Dirección,NoContrato,Descripción,ContatistaAsignado,MontoObra,MontoEjercicio,ModalidadContrato,UbicaExpediente,RecursoUtilizado,PorcentajeAvance,Metas,CveCorteEjer,Elaboró,Revisó,Autorizó)"
+                initialQuery &= "VALUES (@sec,@dir,@NoCon,@Desc,@ContAsig,@MObra,@MEje,@ModCon,@UbiExp,@RecUt,@PorAvan,@Metas,@CveCortEjer,@elab,@rev,@aut)"
                 With sql
                     .CommandText = initialQuery
                     .Parameters.AddWithValue("@sec", r(0))
                     .Parameters.AddWithValue("@dir", r(1))
                     .Parameters.AddWithValue("@NoCon ", r(2))
                     .Parameters.AddWithValue("@Desc", r(3))
-                    .Parameters.AddWithValue("@Cont", r(4))
-                    .Parameters.AddWithValue("@ContAsig", r(5))
-                    .Parameters.AddWithValue("@MObra", r(6))
-                    .Parameters.AddWithValue("@MEje", r(7))
-                    .Parameters.AddWithValue("@ModCon", r(8))
-                    .Parameters.AddWithValue("@UbiExp", r(9))
-                    .Parameters.AddWithValue("@RecUt", r(10))
-                    .Parameters.AddWithValue("@PorAvan", r(11))
-                    .Parameters.AddWithValue("@Metas", r(12))
-                    .Parameters.AddWithValue("@CveCortEjer", r(13))
-                    .Parameters.AddWithValue("@elab", r(14))
-                    .Parameters.AddWithValue("@rev", r(15))
-                    .Parameters.AddWithValue("@aut", r(16))
+                    .Parameters.AddWithValue("@ContAsig", r(4))
+                    .Parameters.AddWithValue("@MObra", r(5))
+                    .Parameters.AddWithValue("@MEje", r(6))
+                    .Parameters.AddWithValue("@ModCon", r(7))
+                    .Parameters.AddWithValue("@UbiExp", r(8))
+                    .Parameters.AddWithValue("@RecUt", r(9))
+                    .Parameters.AddWithValue("@PorAvan", r(10))
+                    .Parameters.AddWithValue("@Metas", r(11))
+                    .Parameters.AddWithValue("@CveCortEjer", r(12))
+                    .Parameters.AddWithValue("@elab", r(13))
+                    .Parameters.AddWithValue("@rev", r(14))
+                    .Parameters.AddWithValue("@aut", r(15))
                 End With
 
             Case "D.3"
@@ -978,13 +977,13 @@ Partial Class WebForm1
                 End With
 
             Case "D.8"
-                initialQuery &= "INSERT INTO dbo.[D.8] (Secretaria, Dirección,No.Consecutivo,FechaFormación,NúmeroIntegrantes,NúmeroContrato,CveCorteEjer, Elaboró, Revisó, Autorizó)"
-                initialQuery &= "VALUES (@secretaria,@direccion,@No.Consecutivo,@FechaFormación,@NúmeroIntegrantes,@NúmeroContrato,@CveCorteEjer,@Elaboro,@reviso,@autorizo)"
+                initialQuery &= "INSERT INTO dbo.[D.8] (Secretaria, Dirección,NoConsecutivo,FechaFormación,NúmeroIntegrantes,NúmeroContrato,CveCorteEjer, Elaboró, Revisó, Autorizó)"
+                initialQuery &= "VALUES (@secretaria,@direccion,@NoConsecutivo,@FechaFormación,@NúmeroIntegrantes,@NúmeroContrato,@CveCorteEjer,@Elaboro,@reviso,@autorizo)"
                 With sql
                     .CommandText = initialQuery
                     .Parameters.AddWithValue("@secretaria", r(0))
                     .Parameters.AddWithValue("direccion", r(1))
-                    .Parameters.AddWithValue("No.Consecutivo", r(2))
+                    .Parameters.AddWithValue("NoConsecutivo", r(2))
                     .Parameters.AddWithValue("FechaFormación", r(3))
                     .Parameters.AddWithValue("NúmeroIntegrantes", r(4))
                     .Parameters.AddWithValue("NúmeroContrato", r(5))
@@ -1056,7 +1055,7 @@ Partial Class WebForm1
                 End With
 
             Case "E.4"
-                initialQuery &= "INSERT INTO E.4
+                initialQuery &= "INSERT INTO dbo.[E.4]
 (Secretaria,Dirección,seccion,nombre,Domicilio,FechaNomb,observaciones,CveCorteEjer,Elaboró,Revisó,Autorizó)"
                 initialQuery &= "VALUES
 (@Sec,@Dir,@Secc,@Nom,@Dom,@FechaNomb,@Observ,@CveCorteEjer,@Elab,@Rev,@Aut)"
@@ -1069,13 +1068,14 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@Dom", r(4))
                     .Parameters.AddWithValue("@FechaNomb", r(5))
                     .Parameters.AddWithValue("@Observ", r(6))
-                    .Parameters.AddWithValue("@Elab", r(7))
-                    .Parameters.AddWithValue("@Rev", r(8))
-                    .Parameters.AddWithValue("@Aut", r(9))
+                    .Parameters.AddWithValue("@CveCorteEjer", r(7))
+                    .Parameters.AddWithValue("@Elab", r(8))
+                    .Parameters.AddWithValue("@Rev", r(9))
+                    .Parameters.AddWithValue("@Aut", r(10))
                 End With
 
             Case "E.5"
-                initialQuery &= "INSERT INTO E.5
+                initialQuery &= "INSERT INTO dbo.[E.5]
 (Secretaria,Dirección,NombreContribuyente,Cantidad,Descripcion,Clasificacion,Motivo,CveCorteEjer,Elaboró,Revisó,Autorizó)"
                 initialQuery &= "VALUES
 (@Sec,@Dir,@NomCont,@Cant,@Desc,@Clas,@Mot,@CveCorteEjer,@Elab,@Rev,@Aut)"
@@ -1095,30 +1095,32 @@ Partial Class WebForm1
                 End With
 
             Case "E.6"
-                initialQuery &= "INSERT INTO E.6
-(Secretaria,Dirección,NoExpediente,Ubicacion,Superficie,AutorizóCabildo,AutorizóCongreso,TipoEnajena,NoDecreto,Observaciones,CveCorteEjer,Elaboró,Revisó,Autorizó)"
+                initialQuery &= "INSERT INTO dbo.[E.6]
+(Secretaria,Dirección,NoExpediente,NombrePostor,Ubicacion,Superficie,AutorizóCabildo,AutorizóCongreso,TipoEnajena,NoDecreto,FechaDecreto,Observaciones,CveCorteEjer,Elaboró,Revisó,Autorizó)"
                 initialQuery &= "VALUES
-(@Sec,@Dir,@NoExp,@Ubic,@Super,@AutCab,@AutCon,@TipEna,@NoDec,@Obse,@CveCorteEjer,@Elab,@Rev,@Aut)"
+(@Sec,@Dir,@NoExp,@NoPos,@Ubic,@Super,@AutCab,@AutCon,@TipEna,@NoDec,@FechaDecreto,@Obse,@CveCorteEjer,@Elab,@Rev,@Aut)"
                 With sql
                     .CommandText = initialQuery
                     .Parameters.AddWithValue("@Sec", r(0))
                     .Parameters.AddWithValue("@Dir", r(1))
                     .Parameters.AddWithValue("@NoExp", r(2))
-                    .Parameters.AddWithValue("@Ubic", r(3))
-                    .Parameters.AddWithValue("@Super", r(4))
-                    .Parameters.AddWithValue("@AutCab", r(5))
-                    .Parameters.AddWithValue("@AutCon", r(6))
-                    .Parameters.AddWithValue("@TipEna", r(7))
-                    .Parameters.AddWithValue("@NoDec", r(8))
-                    .Parameters.AddWithValue("@Obse", r(9))
-                    .Parameters.AddWithValue("@CveCorteEjer", r(10))
-                    .Parameters.AddWithValue("@Elab", r(11))
-                    .Parameters.AddWithValue("@Rev", r(12))
-                    .Parameters.AddWithValue("@Aut", r(13))
+                    .Parameters.AddWithValue("@NoPos", r(3))
+                    .Parameters.AddWithValue("@Ubic", r(4))
+                    .Parameters.AddWithValue("@Super", r(5))
+                    .Parameters.AddWithValue("@AutCab", r(6))
+                    .Parameters.AddWithValue("@AutCon", r(7))
+                    .Parameters.AddWithValue("@TipEna", r(8))
+                    .Parameters.AddWithValue("@NoDec", r(9))
+                    .Parameters.AddWithValue("@FechaDecreto", r(10))
+                    .Parameters.AddWithValue("@Obse", r(11))
+                    .Parameters.AddWithValue("@CveCorteEjer", r(12))
+                    .Parameters.AddWithValue("@Elab", r(13))
+                    .Parameters.AddWithValue("@Rev", r(14))
+                    .Parameters.AddWithValue("@Aut", r(15))
                 End With
 
             Case "E.7"
-                initialQuery = “INSERT INTO E.7 
+                initialQuery = “INSERT INTO dbo.[E.7]
 (Secretaria, Dirección, NoExpediente, Colonia, NoDecreto, LotesDesafec, LotesE, LotesSE, Observaciones, CveCorteEjer, Elaboró, Revisó, Autorizó) “
                 initialQuery &= “VALUES
  (@sec, @dir, @noExp, @colonia, @noDecreto, @lotesDesafec, @lotesE, @lotesSE, @observaciones, @cveCorteEjer, @elaboro, @reviso, @autorizo)”
@@ -1140,7 +1142,7 @@ Partial Class WebForm1
                 End With
 
             Case "E.8"
-                initialQuery = "INSERT INTO E.8
+                initialQuery = "INSERT INTO dbo.[E.8]
 (Secretaria, Dirección, No, Libro, Período, Año, Ubicación, CveCorteEjer, Elaboró, Revisó, Autorizó) "
                 initialQuery &= "VALUES
  (@sec, @dir, @no, @libro, @periodo, @anio, @ubicacion, @cveCorteEjer, @elab, @rev, @aut)"
@@ -1160,7 +1162,7 @@ Partial Class WebForm1
                 End With
 
             Case "E.9"
-                initialQuery = "INSERT INTO E.9
+                initialQuery = "INSERT INTO dbo.[E.9]
 (Secretaria, Dirección, No, FechaAcuerdo, AcuerdoPend, UnidadAdmin, FechaReal, CveCorteEjer, Elaboró, Revisó, Autorizó) "
                 initialQuery &= "VALUES
  (@sec, @dir, @no, @fechaAcuerdo, @acuerdoPend, @unidadAdmin, @fechaReal, @cveCorteEjer, @elaboro, @reviso, @autorizo)"
@@ -1180,7 +1182,7 @@ Partial Class WebForm1
                 End With
 
             Case "E.10"
-                initialQuery = "INSERT INTO E.10
+                initialQuery = "INSERT INTO dbo.[E.10]
 (Secretaria, Dirección, No, OrigenProg,NombProg,Periodo,TipoBenef,TotalBenef,Dependencia,CveCorteEjer, Elaboró, Revisó, Autorizó) "
                 initialQuery &= "VALUES
  (@sec, @dir, @no,@OrigenProg,@NombProg,@Periodo,@TipoBenef,@TotalBenef,@Dependencia  ,@cveCorteEjer, @elaboro, @reviso, @autorizo)"
@@ -1202,7 +1204,7 @@ Partial Class WebForm1
                 End With
 
             Case "F.1"
-                initialQuery = "INSERT INTO F.1
+                initialQuery = "INSERT INTO dbo.[F.1]
 (Secretaria, Dirección,  NombreExp,Período,TipoClasif,Ubicación,CveCorteEjer,Elaboró, Revisó, Autorizó) "
                 initialQuery &= "VALUES
  (@Secretaria,@Dirección,@NombreExp,@Período,@TipoClasif,@Ubicación,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
@@ -1221,7 +1223,7 @@ Partial Class WebForm1
                 End With
 
             Case "F.1.1"
-                initialQuery = "INSERT INTO F.1.1
+                initialQuery = "INSERT INTO dbo.[F.1.1]
 (Secretaria, Dirección,  Código,NombreExp,Período,Ubicación,CveCorteEjer,Elaboró, Revisó, Autorizó) "
                 initialQuery &= "VALUES
  (@Secretaria,@Dirección,@Código,@NombreExp,@Período,@Ubicación,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
@@ -1240,7 +1242,7 @@ Partial Class WebForm1
                 End With
 
             Case "F.2"
-                initialQuery = "INSERT INTO F.2
+                initialQuery = "INSERT INTO dbo.[F.2]
 (Secretaria, Dirección, Descipción,Fecha,Ubicación,CveCorteEjer, Elaboró, Revisó, Autorizó) "
                 initialQuery &= "VALUES
  (@Secretaria,@Dirección,@Descipción,@Fecha,@Ubicación,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
@@ -1258,8 +1260,8 @@ Partial Class WebForm1
                 End With
 
             Case "F.3"
-                initialQuery = "INSERT INTO F.3
-(Secretaria, Dirección,  Nombre,Fecha,Justificación,Observaciones,Elaboró, Revisó, Autorizó) "
+                initialQuery = "INSERT INTO dbo.[F.3]
+(Secretaria, Dirección,  Nombre,Fecha,Justificación,Observaciones,CveCorteEjer,Elaboró, Revisó, Autorizó) "
                 initialQuery &= "VALUES
  (@Secretaria,@Dirección,@Nombre,@Fecha,@Justificación,@Observaciones,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
                 With sql
@@ -1277,8 +1279,8 @@ Partial Class WebForm1
                 End With
 
             Case "F.4"
-                initialQuery = "INSERT INTO F.4
-(Secretaria, Dirección,  Descripción,Sello,Elaboró, Revisó, Autorizó) "
+                initialQuery = "INSERT INTO dbo.[F.4]
+(Secretaria, Dirección,  Descripción,Sello,CveCorteEjer,Elaboró, Revisó, Autorizó) "
                 initialQuery &= "VALUES
  (@Secretaria,@Dirección,@Descripción,@Sello,@CveCorteEjer,@Elaboró,@Revisó,@Autorizó)"
                 With sql

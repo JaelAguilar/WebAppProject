@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.Buffers.Text
+Imports System.Data.SqlClient
 Imports System.Windows.Forms
 Imports MigraDoc.DocumentObjectModel
 Imports MigraDoc.DocumentObjectModel.Shapes
@@ -109,7 +110,7 @@ Partial Public Class WebForm1
         ''Aquí voy a crear un ejemplo de cómo se verán los datos una vez se recuperen de la tabla de sql, esto es porque ustedes no tienen la base de datos, y se me hizo más sencillo que tuvieran ustedes mismos la tabla.
         ''Aquí pondrán los nombres de cada una de sus columnas de su tabla
         'Dim columns As New List(Of String)({"Secretaria", "Direccion", "I_PreEst", "I_PreMod", "I_PreDev", "I_PreRec", "E_PreOrigApro", "E_1A_AmPres", "E_2A_AmpPres", "E_3A_AmpPres", "E_Tot_Amp", "E_PreModif", "E_PreComp", "E_PreDev", "E_PreEjer", "E_PreErog", "E_PreCons", "E_PrePorEjer", "FechaCorte", "Elaboró", "Revisó", "Autorizó"})
-        'Dim dbTest As New DataTable()
+        'Dim dt As New DataTable()
 
         'For index = 0 To columns.Count - 1
         '    dbTest.Columns.Add(columns(index))
@@ -851,26 +852,31 @@ ParagraphAlignment.Center
                 tRow = currentTable.AddRow()
 
                 tRow(0).AddParagraph("A. ESTADO DE SITUACIÓN FINANCIERA DE ACTIVIDADES")
+                tRow(0).Format.Font.Bold = True
                 tRow(1).AddParagraph(dt(0)(2))
 
                 tRow = currentTable.AddRow()
 
                 tRow(0).AddParagraph("B. CUENTA PÚBLICA DEL EJERCICIO 2020")
+                tRow(0).Format.Font.Bold = True
                 tRow(1).AddParagraph(dt(0)(4))
 
                 tRow = currentTable.AddRow()
 
                 tRow(0).AddParagraph("C. DICTAMEN DE AUDITORES EXTERNOS Y NOTAS AL ESTADO FINANCIERO REALIZADOS POR DESPACHO")
+                tRow(0).Format.Font.Bold = True
                 tRow(1).AddParagraph(dt(0)(5))
 
                 tRow = currentTable.AddRow()
 
                 tRow(0).AddParagraph("ÚLTIMO PERÍODO DICTAMINADO:")
+                tRow(0).Format.Font.Bold = True
                 tRow(1).AddParagraph(dt(0)(6))
 
                 tRow = currentTable.AddRow()
 
                 tRow(0).AddParagraph("D. BALANZA DE COMPROBACIÓN AL ")
+                tRow(0).Format.Font.Bold = True
                 tRow(1).AddParagraph(dt(0)(7))
 
                 page.Add(currentTable)
@@ -1768,6 +1774,19 @@ ParagraphAlignment.Center
                 tRow.Format.Font.Bold = True
                 tRow.Format.Alignment = ParagraphAlignment.Center
 
+
+
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(0))
+                    tRow.Cells(1).AddParagraph(dt(index)(1))
+                    tRow.Cells(2).AddParagraph(dt(index)(2))
+                    tRow.Cells(3).AddParagraph(dt(index)(3))
+                    tRow.Cells(4).AddParagraph(dt(index)(4))
+                    tRow.Cells(5).AddParagraph(dt(index)(5))
+                    tRow.Cells(6).AddParagraph(dt(index)(6))
+                    tRow.Cells(7).AddParagraph(dt(index)(7))
+                Next
                 page.Add(currentTable)
 
             Case "A.7.2"
@@ -1813,6 +1832,19 @@ ParagraphAlignment.Center
                 tRow.Format.Font.Bold = True
                 tRow.Format.Alignment = ParagraphAlignment.Center
 
+
+
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(0))
+                    tRow.Cells(1).AddParagraph(dt(index)(1))
+                    tRow.Cells(2).AddParagraph(dt(index)(2))
+                    tRow.Cells(3).AddParagraph(dt(index)(3))
+                    tRow.Cells(4).AddParagraph(dt(index)(4))
+                    tRow.Cells(5).AddParagraph(dt(index)(5))
+                    tRow.Cells(6).AddParagraph(dt(index)(6))
+                    tRow.Cells(7).AddParagraph(dt(index)(7))
+                Next
                 page.Add(currentTable)
 
             Case "A.7.3"
@@ -1854,6 +1886,15 @@ ParagraphAlignment.Center
                 tRow.Format.Font.Bold = True
                 tRow.Format.Alignment = ParagraphAlignment.Center
 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                    tRow.Cells(5).AddParagraph(dt(index)(7))
+                Next
                 page.Add(currentTable)
 
             Case "A.8"
@@ -1873,11 +1914,12 @@ ParagraphAlignment.Center
                 currentTable.BottomPadding = 4
                 currentTable.LeftPadding = 4
                 'Creating columns
-                currentTable.AddColumn(Unit.FromInch(3.8))
+                currentTable.AddColumn(Unit.FromInch(1))
                 currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2.5))
                 currentTable.AddColumn(Unit.FromInch(2))
-                currentTable.AddColumn(Unit.FromInch(2))
-                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2.5))
+                currentTable.AddColumn(Unit.FromInch(1.2))
                 'Heading row
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("FECHA")
@@ -1917,11 +1959,12 @@ ParagraphAlignment.Center
                 currentTable.BottomPadding = 4
                 currentTable.LeftPadding = 4
                 'Creating columns
-                currentTable.AddColumn(Unit.FromInch(3.8))
-                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(1.3))
                 currentTable.AddColumn(Unit.FromInch(2))
                 currentTable.AddColumn(Unit.FromInch(2))
-                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(2.5))
                 'Heading row
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("No. de Poliza")
@@ -1961,10 +2004,13 @@ ParagraphAlignment.Center
                 currentTable.BottomPadding = 4
                 currentTable.LeftPadding = 4
                 'Creating columns
-                currentTable.AddColumn(Unit.FromInch(3.8))
+                currentTable.AddColumn(Unit.FromInch(1))
                 currentTable.AddColumn(Unit.FromInch(1.5))
                 currentTable.AddColumn(Unit.FromInch(2))
-                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1.8))
                 currentTable.AddColumn(Unit.FromInch(1.5))
                 'Heading row
                 tRow = currentTable.AddRow()
@@ -2047,7 +2093,7 @@ ParagraphAlignment.Center
                 page.Add(currentTable)
 
             Case "B.2"
-                page.PageSetup.Orientation = Orientation.Landscape
+
                 'Headings
                 paragraph = page.AddParagraph("RELACIÓN DE PERSONAL DE BASE, POR HONORARIOS ASIMILABLES A SUELDO Y/O TEMPORALES", "Heading1")
                 paragraph.Format.Borders.Width = 2.5
@@ -2063,30 +2109,19 @@ ParagraphAlignment.Center
                 currentTable.BottomPadding = 4
                 currentTable.LeftPadding = 4
                 'Creating columns
-                currentTable.AddColumn(Unit.FromInch(0.8))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(0.5))
                 currentTable.AddColumn(Unit.FromInch(1.9))
-                currentTable.AddColumn(Unit.FromInch(0.7))
-                currentTable.AddColumn(Unit.FromInch(0.7))
-                currentTable.AddColumn(Unit.FromInch(0.7))
-                currentTable.AddColumn(Unit.FromInch(0.7))
-                currentTable.AddColumn(Unit.FromInch(0.7))
-                currentTable.AddColumn(Unit.FromInch(0.7))
-                currentTable.AddColumn(Unit.FromInch(1.3))
-                currentTable.AddColumn(Unit.FromInch(1.3))
-                currentTable.AddColumn(Unit.FromInch(1.3))
+
                 'Heading row
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("NÚMERO DE NÓMINA")
-                tRow(1).AddParagraph("NOMBRE COMPLETO")
-                tRow(2).AddParagraph("L")
-                tRow(3).AddParagraph("P")
-                tRow(4).AddParagraph("C")
-                tRow(5).AddParagraph("I")
-                tRow(6).AddParagraph("S")
-                tRow(7).AddParagraph("V")
-                tRow(8).AddParagraph("LUGAR DE LA COMISIÓN")
-                tRow(9).AddParagraph("CANTIDAD DE DÍAS Y/O PERÍODO")
-                tRow(10).AddParagraph("OBSERVACIONES")
+                tRow(1).AddParagraph("SITUACIÓN")
+                tRow(2).AddParagraph("LUGAR DE LA COMISIÓN")
+                tRow(3).AddParagraph("CANTIDAD DE DÍAS Y/O PERÍODO")
+                tRow(4).AddParagraph("OBSERVACIONES")
                 tRow.Format.Font.Bold = True
                 tRow.Format.Alignment = ParagraphAlignment.Center
                 'Data
@@ -2097,12 +2132,6 @@ ParagraphAlignment.Center
                     tRow.Cells(2).AddParagraph(dt(index)(4))
                     tRow.Cells(3).AddParagraph(dt(index)(5))
                     tRow.Cells(4).AddParagraph(dt(index)(6))
-                    tRow.Cells(5).AddParagraph(dt(index)(7))
-                    tRow.Cells(6).AddParagraph(dt(index)(8))
-                    tRow.Cells(7).AddParagraph(dt(index)(9))
-                    tRow.Cells(8).AddParagraph(dt(index)(10))
-                    tRow.Cells(9).AddParagraph(dt(index)(11))
-                    tRow.Cells(10).AddParagraph(dt(index)(12))
                 Next
                 page.Add(currentTable)
 
@@ -2687,6 +2716,128 @@ ParagraphAlignment.Center
                 Next
                 page.Add(currentTable)
 
+            Case "C.4"
+                paragraph = page.AddParagraph("RELACION DE PAPELERIA OFICIAL EN STOCK", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                'Create table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2.2))
+                currentTable.AddColumn(Unit.FromInch(0.5))
+                currentTable.AddColumn(Unit.FromInch(0.5))
+                currentTable.AddColumn(Unit.FromInch(2.2))
+
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("CANTIDAD")
+                tRow(1).AddParagraph("NOMBRE DEL FORMATO")
+                tRow(2).AddParagraph("INICIAL")
+                tRow(3).AddParagraph("FINAL")
+                tRow(4).AddParagraph("OBSERVACIONES")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                page.Add(currentTable)
+
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                Next
+                page.Add(currentTable)
+
+            Case "C.5"
+                paragraph = page.AddParagraph("INVENTARIO DE ALMACENES", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                'Create table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                currentTable.AddColumn(Unit.FromInch(1.4))
+                currentTable.AddColumn(Unit.FromInch(1.4))
+                currentTable.AddColumn(Unit.FromInch(1.4))
+                currentTable.AddColumn(Unit.FromInch(1.4))
+                currentTable.AddColumn(Unit.FromInch(1.4))
+
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("CODIGO")
+                tRow(1).AddParagraph("DESCRIPCION ")
+                tRow(2).AddParagraph("CANTIDAD")
+                tRow(3).AddParagraph("CONDICIONES")
+                tRow(4).AddParagraph("OBSERVACIONES")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                page.Add(currentTable)
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                Next
+                page.Add(currentTable)
+
+
+
+            Case "C.6"
+                page.PageSetup.Orientation = Orientation.Landscape
+                'Headings
+                paragraph = page.AddParagraph("RELACIÓN DE BIENES MUEBLES PROPIEDAD DE TERCEROS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(3.8))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("CANTIDAD")
+                tRow(1).AddParagraph("DESCRIPCION BIEN MUEBLE")
+                tRow(2).AddParagraph("NUMERO DE INVENTARIO O NUMERO DE SERIE")
+                tRow(3).AddParagraph("NOMBRE DEL PROPIETARIO")
+                tRow(4).AddParagraph("OBSERVACIONES")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                Next
+                page.Add(currentTable)
+
+
             Case "C.7"
                 'Headings 
                 paragraph = page.AddParagraph("RELACIÓN DE ARMAMENTO MUNICIPAL Y DEL ESTADO", "Heading1")
@@ -2926,6 +3077,282 @@ ParagraphAlignment.Center
                 Next
                 page.Add(currentTable)
 
+            Case "C.11.1"
+                'Orientación
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'Headings 
+                paragraph = page.AddParagraph("RELACIÓN DE BIENES INMUEBLES PROPIEDAD DEL MUNICIPIO ACREDITADOS Y/O INCORPORADOS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2.8))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2))
+
+
+                'Heading row 
+
+                tRow = currentTable.AddRow()
+
+
+                tRow(0).AddParagraph("No. DE EXPEDIENTE")
+                tRow(1).AddParagraph("USO")
+                tRow(2).AddParagraph("UBICACIÓN")
+                tRow(3).AddParagraph("SUPERFICIE")
+                tRow(4).AddParagraph("DOCUMENTO QUE ACREDITA PROPIEDAD")
+
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                Next
+
+                page.Add(currentTable)
+
+            Case "C.11.2"
+                'Orientación
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'Headings 
+                paragraph = page.AddParagraph("RELACIÓN DE BIENES INMUEBLES EN COMODATO", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2.8))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(2))
+
+
+                'Heading row 
+
+                tRow = currentTable.AddRow()
+
+
+                tRow(0).AddParagraph("No. DE EXPEDIENTE")
+                tRow(1).AddParagraph("USO")
+                tRow(2).AddParagraph("UBICACIÓN")
+                tRow(3).AddParagraph("NOMBRE DEL COMODATARIO")
+                tRow(4).AddParagraph("VIGENCIA")
+
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                Next
+
+                page.Add(currentTable)
+
+            Case "D.1"
+                'Headings 
+                paragraph = page.AddParagraph("PADRÓN DE PROVEEDORES Y CONTRATISTAS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(3.5))
+                currentTable.AddColumn(Unit.FromInch(3.9))
+
+                'Heading row 
+
+                tRow = currentTable.AddRow()
+
+
+                tRow(0).AddParagraph("CONTRATISTA")
+                tRow(1).AddParagraph("ESPECIALIDAD")
+
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+
+                Next
+
+                page.Add(currentTable)
+
+            Case "D.2"
+                'Orientación
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'Headings 
+                paragraph = page.AddParagraph("RELACIÓN DE OBRAS TERMINADAS Y EN PROCESO", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1.8))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1))
+
+                'Heading row 
+
+                tRow = currentTable.AddRow()
+
+
+                tRow(0).AddParagraph("No. DE CONTRATO")
+                tRow(1).AddParagraph("DESCRIPCIÓN DE LA OBRA")
+                tRow(2).AddParagraph("CONTRATISTA ASIGNADO")
+                tRow(3).AddParagraph("MONTO DE LA OBRA")
+                tRow(4).AddParagraph("MONTO DE LO EJERCIDO")
+                tRow(5).AddParagraph("MODALIDAD EN QUE SE CONTRATÓ LA OBRA")
+                tRow(6).AddParagraph("UBICACIÓN DEL EXPEDIENTE")
+                tRow(7).AddParagraph("RECURSOS UTILIZADOS")
+                tRow(8).AddParagraph("% AVANCE")
+                tRow(9).AddParagraph("AMP. DE METAS")
+
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                    tRow.Cells(4).AddParagraph(dt(index)(6))
+                    tRow.Cells(5).AddParagraph(dt(index)(7))
+                    tRow.Cells(6).AddParagraph(dt(index)(8))
+                    tRow.Cells(7).AddParagraph(dt(index)(9))
+                    tRow.Cells(8).AddParagraph(dt(index)(10))
+                    tRow.Cells(9).AddParagraph(dt(index)(11))
+
+                Next
+
+                page.Add(currentTable)
+
+            Case "D.3"
+                'Headings
+                paragraph = page.AddParagraph("RELACIÓN DE PROGRAMAS Y PROYECTOS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(1.6))
+                currentTable.AddColumn(Unit.FromInch(2.2))
+                currentTable.AddColumn(Unit.FromInch(2))
+                currentTable.AddColumn(Unit.FromInch(1.6))
+
+
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("No. DE INDICADOR POA´S Y PBR")
+                tRow(1).AddParagraph("NOMBRE DEL PROGRAMA O PROYECTO")
+                tRow(2).AddParagraph("DESCRIPCIÓN")
+                tRow(3).AddParagraph("PORCENTAJE DE CUMPLIMIENTO")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                Next
+
+                page.Add(currentTable)
+
+
             Case "D.4"
                 page.PageSetup.Orientation = Orientation.Landscape
 
@@ -3095,6 +3522,101 @@ ParagraphAlignment.Center
 
                 Next
                 page.Add(currentTable)
+
+            Case "D.7"
+
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'Headings
+                paragraph = page.AddParagraph("EXPEDIENTES DE OBRAS Y UBICACIÓN", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(4))
+                currentTable.AddColumn(Unit.FromInch(2.2))
+                currentTable.AddColumn(Unit.FromInch(2.2))
+                currentTable.AddColumn(Unit.FromInch(2.4))
+
+
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("No. DE CONTRATO")
+                tRow(1).AddParagraph("VIGENCIA")
+                tRow(2).AddParagraph("UBICACIÓN DE LA OBRA")
+                tRow(3).AddParagraph("UBICACIÓN DEL EXPEDIENTE")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                Next
+
+                page.Add(currentTable)
+
+            Case "D.8"
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'Headings
+                paragraph = page.AddParagraph("RELACIÓN DE COMITÉS DE OBRA PÚBLICA FORMADOS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+                'Create first table
+                currentTable = New Table()
+                'Style
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns
+                currentTable.AddColumn(Unit.FromInch(4))
+                currentTable.AddColumn(Unit.FromInch(2.2))
+                currentTable.AddColumn(Unit.FromInch(2.2))
+                currentTable.AddColumn(Unit.FromInch(2.4))
+
+
+                'Heading row
+                tRow = currentTable.AddRow()
+                tRow(0).AddParagraph("No.")
+                tRow(1).AddParagraph("FECHA DE FORMACIÓN")
+                tRow(2).AddParagraph("NÚMERO DE INTEGRANTES")
+                tRow(3).AddParagraph("NÚMERO DE CONTRATO QUE CORRESPONDE")
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                Next
+
+                page.Add(currentTable)
+
+
 
             Case "E.1"
                 page.PageSetup.Orientation = Orientation.Landscape
@@ -3391,11 +3913,14 @@ ParagraphAlignment.Center
                 currentTable.BottomPadding = 4
                 currentTable.LeftPadding = 4
                 'Creating columns
-                currentTable.AddColumn(Unit.FromInch(3.8))
+                currentTable.AddColumn(Unit.FromInch(1))
                 currentTable.AddColumn(Unit.FromInch(1.5))
-                currentTable.AddColumn(Unit.FromInch(2))
-                currentTable.AddColumn(Unit.FromInch(2))
                 currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(1.3))
+                currentTable.AddColumn(Unit.FromInch(2))
                 'Heading row
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("No. DE EXPEDIENTE")
@@ -3416,6 +3941,9 @@ ParagraphAlignment.Center
                     tRow.Cells(2).AddParagraph(dt(index)(4))
                     tRow.Cells(3).AddParagraph(dt(index)(5))
                     tRow.Cells(4).AddParagraph(dt(index)(6))
+                    tRow.Cells(5).AddParagraph(dt(index)(7))
+                    tRow.Cells(6).AddParagraph(dt(index)(8))
+                    tRow.Cells(7).AddParagraph(dt(index)(9))
                 Next
                 page.Add(currentTable)
 
@@ -3436,11 +3964,13 @@ ParagraphAlignment.Center
                 currentTable.BottomPadding = 4
                 currentTable.LeftPadding = 4
                 'Creating columns
-                currentTable.AddColumn(Unit.FromInch(3.8))
                 currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2.3))
                 currentTable.AddColumn(Unit.FromInch(2))
                 currentTable.AddColumn(Unit.FromInch(2))
-                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(0.5))
+                currentTable.AddColumn(Unit.FromInch(0.5))
+                currentTable.AddColumn(Unit.FromInch(2))
                 'Heading row
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("No. DE EXPEDIENTE")
@@ -3461,6 +3991,7 @@ ParagraphAlignment.Center
                     tRow.Cells(3).AddParagraph(dt(index)(5))
                     tRow.Cells(4).AddParagraph(dt(index)(6))
                     tRow.Cells(5).AddParagraph(dt(index)(7))
+                    tRow.Cells(6).AddParagraph(dt(index)(8))
 
                 Next
                 page.Add(currentTable)
@@ -3482,11 +4013,11 @@ ParagraphAlignment.Center
                 currentTable.BottomPadding = 4
                 currentTable.LeftPadding = 4
                 'Creating columns
-                currentTable.AddColumn(Unit.FromInch(3.8))
-                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(0.5))
+                currentTable.AddColumn(Unit.FromInch(3.6))
+                currentTable.AddColumn(Unit.FromInch(3.7))
+                currentTable.AddColumn(Unit.FromInch(1))
                 currentTable.AddColumn(Unit.FromInch(2))
-                currentTable.AddColumn(Unit.FromInch(2))
-                currentTable.AddColumn(Unit.FromInch(1.5))
                 'Heading row
                 tRow = currentTable.AddRow()
                 tRow(0).AddParagraph("No.")
@@ -3700,6 +4231,142 @@ ParagraphAlignment.Center
                 Next
 
                 page.Add(currentTable)
+
+            Case "F.2"
+                'Headings 
+                paragraph = page.AddParagraph("ARCHIVO DE PLANOS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns 
+                currentTable.AddColumn(Unit.FromInch(4.4))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+
+                'Heading row 
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("DESCRIPCIÓN DEL PLANO")
+                tRow(1).AddParagraph("FECHA")
+                tRow(2).AddParagraph("UBICACIÓN")
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                Next
+
+                page.Add(currentTable)
+
+            Case "F.3"
+                'Orientación
+                page.PageSetup.Orientation = Orientation.Landscape
+
+                'Headings 
+                paragraph = page.AddParagraph("RELACIÓN DE ASUNTOS EN TRÁMITE Y PROYECTOS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns 
+                currentTable.AddColumn(Unit.FromInch(4.3))
+                currentTable.AddColumn(Unit.FromInch(1.5))
+                currentTable.AddColumn(Unit.FromInch(2.5))
+                currentTable.AddColumn(Unit.FromInch(2.5))
+
+                'Heading row 
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("NOMBRE Y DESCRIPCIÓN DEL ASUNTO Y/O PROYECTO")
+                tRow(1).AddParagraph("FECHA DE PRESENTACIÓN")
+                tRow(2).AddParagraph("JUSTIFICACIÓN Y/O SITUACIÓN")
+                tRow(3).AddParagraph("OBSERVACIONES")
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                    tRow.Cells(2).AddParagraph(dt(index)(4))
+                    tRow.Cells(3).AddParagraph(dt(index)(5))
+                Next
+
+                page.Add(currentTable)
+
+            Case "F.4"
+                'Headings 
+                paragraph = page.AddParagraph("RELACIÓN DE SELLOS AUTORIZADOS", "Heading1")
+                paragraph.Format.Borders.Width = 2.5
+                paragraph.Format.Borders.Color = Colors.Black
+                paragraph.Format.Borders.Distance = 3
+                paragraph.Format.Shading.Color = Colors.Gray
+                page.AddParagraph(" ")
+
+
+                'Create first table 
+                currentTable = New Table()
+
+                'Style 
+                currentTable.Borders.Width = 0.75
+                currentTable.TopPadding = 4
+                currentTable.BottomPadding = 4
+                currentTable.LeftPadding = 4
+
+                'Creating columns 
+                currentTable.AddColumn(Unit.FromInch(6))
+                currentTable.AddColumn(Unit.FromInch(1.4))
+
+                'Heading row 
+                tRow = currentTable.AddRow()
+
+                tRow(0).AddParagraph("DESCRIPCIÓN")
+                tRow(1).AddParagraph("SELLO")
+
+                tRow.Format.Font.Bold = True
+                tRow.Format.Alignment = ParagraphAlignment.Center
+
+                'Data 
+                For index = 0 To dt.Rows.Count - 1
+                    tRow = currentTable.AddRow()
+                    tRow.Cells(0).AddParagraph(dt(index)(2))
+                    tRow.Cells(1).AddParagraph(dt(index)(3))
+                Next
+
+                page.Add(currentTable)
+
 
             Case "I"
                 'Headings 
