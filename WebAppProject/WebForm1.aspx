@@ -92,7 +92,7 @@
                 <asp:ListItem Value="III">III. Funciones Generales</asp:ListItem>
                 <asp:ListItem Value="IV">IV. Relación de Anexos Aplicables</asp:ListItem>
                 <asp:ListItem Value="V">V. Plan Municipal de Desarrollo</asp:ListItem>
-                <asp:ListItem Value="ActaER">Acta de Entrega y Recepción</asp:ListItem>
+                <%--<asp:ListItem Value="ActaER">Acta de Entrega y Recepción</asp:ListItem>--%>
             </asp:DropDownList>
         </div>
         <br />
@@ -113,7 +113,7 @@
                 <asp:ListItem Value="A.1">A.1 Presupuesto Global</asp:ListItem>
                 <asp:ListItem Value="A.1.1">A.1.1 Presupuesto de Ingresos Autorizado Global por Capítulo</asp:ListItem>
                 <asp:ListItem Value="A.1.2">A.1.2 Presupuesto de Egresos Autorizado Global por Capítulo</asp:ListItem>
-                <asp:ListItem Value="A.1.3">A.1.3 Presupuesto de Egresos por Secretaría Global</asp:ListItem>
+                <%--<asp:ListItem Value="A.1.3">A.1.3 Presupuesto de Egresos por Secretaría Global</asp:ListItem>--%>
                 <asp:ListItem Value="A.1.4">A.1.4 Presupuesto de Egresos por Segretaría</asp:ListItem>
                 <asp:ListItem Value="A.2">A.2 Reporte de Presupuesto Operativo</asp:ListItem>
                 <asp:ListItem Value="A.3">A.3 Estados Financieros</asp:ListItem>
@@ -183,7 +183,7 @@
                 <asp:ListItem Value="III">III. Funciones Generales</asp:ListItem>
                 <asp:ListItem Value="IV">IV. Relación de Anexos Aplicables</asp:ListItem>
                 <asp:ListItem Value="V">V. Plan Municipal de Desarrollo</asp:ListItem>
-                <asp:ListItem Value="ActaER">Acta de Entrega y Recepción</asp:ListItem>
+                <%--<asp:ListItem Value="ActaER">Acta de Entrega y Recepción</asp:ListItem>--%>
             </asp:ListBox>
         </div>
         <br />
