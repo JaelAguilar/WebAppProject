@@ -588,26 +588,26 @@ Partial Class WebForm1
 
             Case "C.2"
                 initialQuery &= "INSERT INTO dbo.[C.2]
- (Secretaria, Dirección, No. Inventario, Descripción, Marca, Modelo, Placa, NoSerie, NoNominaResguardante, Condiciones, TipoCombustible, CapacidadCombustible, EstaciónAsignada, NoPolizaSeguro, CoberturaPoliza, CveCorteEjer, Elaboró, Revisó, Autorizó)"
+ (Secretaria, Dirección, NoInventario, Descripción, Marca, Modelo, Placa, NoSerie, NoNominaResguardante, Condiciones, TipoCombustible, CapacidadCombustible, EstaciónAsignada, NoPolizaSeguro, CoberturaPoliza, CveCorteEjer, Elaboró, Revisó, Autorizó)"
                 initialQuery &= "VALUES
-(@sec,@dir, @No.Inv, @des, @mar, @mod, @pla, @No.Ser, @No.NomRes, @con, @TipCom, @CapCom, @EstAsi, @No.PolSeg, @CobPol, @CveCorEje, @ela, @rev, @aut)"
+(@sec,@dir, @NoInv, @des, @mar, @mod, @pla, @NoSer, @NoNomRes, @con, @TipCom, @CapCom, @EstAsi, @NoPolSeg, @CobPol, @CveCorEje, @ela, @rev, @aut)"
 
                 With sql
                     .CommandText = initialQuery
                     .Parameters.AddWithValue("@sec", r(0))
                     .Parameters.AddWithValue("@dir", r(1))
-                    .Parameters.AddWithValue("@No.Inv", r(2))
+                    .Parameters.AddWithValue("@NoInv", r(2))
                     .Parameters.AddWithValue("@des", r(3))
                     .Parameters.AddWithValue("@mar", r(4))
                     .Parameters.AddWithValue("@mod", r(5))
                     .Parameters.AddWithValue("@pla", r(6))
-                    .Parameters.AddWithValue("@No.Ser", r(7))
-                    .Parameters.AddWithValue("@No.NomRes", r(8))
+                    .Parameters.AddWithValue("@NoSer", r(7))
+                    .Parameters.AddWithValue("@NoNomRes", r(8))
                     .Parameters.AddWithValue("@con", r(9))
                     .Parameters.AddWithValue("@TipCom", r(10))
                     .Parameters.AddWithValue("@CapCom", r(11))
                     .Parameters.AddWithValue("@EstAsi", r(12))
-                    .Parameters.AddWithValue("@No.PolSeg", r(13))
+                    .Parameters.AddWithValue("@NoPolSeg", r(13))
                     .Parameters.AddWithValue("@CobPol", r(14))
                     .Parameters.AddWithValue("@CveCorEje", r(15))
                     .Parameters.AddWithValue("@ela", r(16))
