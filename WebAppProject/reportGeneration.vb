@@ -72,7 +72,7 @@ Partial Public Class WebForm1
                 Return dt
             End Using
         Catch ex As Exception
-            MsgBox(ex.Message)
+            'MsgBox(ex.Message)
         Finally
             conn.Close()
         End Try

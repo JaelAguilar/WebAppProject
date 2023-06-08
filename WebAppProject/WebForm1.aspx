@@ -11,7 +11,7 @@
 <body>
     <form id="form1" runat="server" class="m-xl-4 p-xl-3 border rounded">
 
-        <h1>Importar datos de Excel a la página web</h1>
+        <h1>Importar datos de Excel</h1>
         <p>Escoja la base de datos que desea actualizar, de click en Importar y elija el archivo que desee</p>
         <div class="form-group">
             <asp:Label Text="Base de datos" runat="server" AssociatedControlID="importTableSelector" />
@@ -21,7 +21,7 @@
                 <asp:ListItem Value="A.1.1">A.1.1 Presupuesto de Ingresos Autorizado Global por Capítulo</asp:ListItem>
                 <asp:ListItem Value="A.1.2">A.1.2 Presupuesto de Egresos Autorizado Global por Capítulo</asp:ListItem>
                 <asp:ListItem Value="A.1.3">A.1.3 Presupuesto de Egresos por Secretaría Global</asp:ListItem>
-                <asp:ListItem Value="A.1.4">A.1.4 Presupuesto de Egresos por Segretaría</asp:ListItem>
+                <%--<asp:ListItem Value="A.1.4">A.1.4 Presupuesto de Egresos por Segretaría</asp:ListItem>--%>
                 <asp:ListItem Value="A.2">A.2 Reporte de Presupuesto Operativo</asp:ListItem>
                 <asp:ListItem Value="A.3">A.3 Estados Financieros</asp:ListItem>
                 <asp:ListItem Value="A.4">A.4 Asignación del Fondo Único de Operación</asp:ListItem>
@@ -114,7 +114,7 @@
                 <asp:ListItem Value="A.1.1">A.1.1 Presupuesto de Ingresos Autorizado Global por Capítulo</asp:ListItem>
                 <asp:ListItem Value="A.1.2">A.1.2 Presupuesto de Egresos Autorizado Global por Capítulo</asp:ListItem>
                 <%--<asp:ListItem Value="A.1.3">A.1.3 Presupuesto de Egresos por Secretaría Global</asp:ListItem>--%>
-                <asp:ListItem Value="A.1.4">A.1.4 Presupuesto de Egresos por Segretaría</asp:ListItem>
+                <%--<asp:ListItem Value="A.1.4">A.1.4 Presupuesto de Egresos por Segretaría</asp:ListItem>--%>
                 <asp:ListItem Value="A.2">A.2 Reporte de Presupuesto Operativo</asp:ListItem>
                 <asp:ListItem Value="A.3">A.3 Estados Financieros</asp:ListItem>
                 <asp:ListItem Value="A.4">A.4 Asignación del Fondo Único de Operación</asp:ListItem>
