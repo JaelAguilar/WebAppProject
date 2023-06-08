@@ -73,7 +73,8 @@ Public Class WebForm1
             GenerateSQLCommand(mysqlCmd, r)
             resul = mysqlCmd.ExecuteNonQuery()
         Catch ex As Exception
-            MsgBox(ex.Message)
+            'MsgBox(ex.Message)
+            'MsgBox(Environment.StackTrace)
         Finally
             mysqlCOn.Close()
         End Try

@@ -130,6 +130,8 @@ Partial Class WebForm1
                     .Parameters.AddWithValue("@Autorizó", r(16))
                 End With
 
+                Debug.Write(sql)
+
             Case "A.2"
                 initialQuery &= "INSERT INTO dbo.[A.2]
 (Secretaria,Dirección,Presup_Auto,AmpRedu,PreModif,PreComp,Total_Amp,Pre_Devengado,Pre_Ejercicio,Pre_Erogado,Pre_Consumido,Pre_PorEjercer,Elaboró,Revisó,Autorizó)"

@@ -11,7 +11,7 @@
 <body>
     <form id="form1" runat="server" class="m-xl-4 p-xl-3 border rounded">
 
-        <h1>Importar datos de Excel a la página web</h1>
+        <h1>Importar datos de Excel</h1>
         <p>Escoja la base de datos que desea actualizar, de click en Importar y elija el archivo que desee</p>
         <div class="form-group">
             <asp:Label Text="Base de datos" runat="server" AssociatedControlID="importTableSelector" />
@@ -21,7 +21,6 @@
                 <asp:ListItem Value="A.1.1">A.1.1 Presupuesto de Ingresos Autorizado Global por Capítulo</asp:ListItem>
                 <asp:ListItem Value="A.1.2">A.1.2 Presupuesto de Egresos Autorizado Global por Capítulo</asp:ListItem>
                 <asp:ListItem Value="A.1.3">A.1.3 Presupuesto de Egresos por Secretaría Global</asp:ListItem>
-                <asp:ListItem Value="A.1.4">A.1.4 Presupuesto de Egresos por Segretaría</asp:ListItem>
                 <asp:ListItem Value="A.2">A.2 Reporte de Presupuesto Operativo</asp:ListItem>
                 <asp:ListItem Value="A.3">A.3 Estados Financieros</asp:ListItem>
                 <asp:ListItem Value="A.4">A.4 Asignación del Fondo Único de Operación</asp:ListItem>
@@ -45,12 +44,6 @@
                 <asp:ListItem Value="B.2">B.2 Relación de Personal con Licencia, Permiso, Comisión, In</asp:ListItem>
                 <asp:ListItem Value="B.3">B.3 Relación de Turnos y Cantidad de Personas Asignadas</asp:ListItem>
                 <asp:ListItem Value="B.4">B.4 Relación de Personal Jubilado y Pensionado</asp:ListItem>
-                <%--<asp:ListItem Value="C.1">C.1 Equipo, Herramienta y Accesorios y-o Listado de Patrimo</asp:ListItem>
-                <asp:ListItem Value="C.1.1">C.1.1 Equipo, Herramienta y Accesorios y Condiciones de Bienes Muebles</asp:ListItem>
-                <asp:ListItem Value="C.1.2">C.1.2 Equipo, Herramienta y Accesorios y-o del Estado</asp:ListItem>
-                <asp:ListItem Value="C.1.3">C.1.3 Relación de Bienes Muebles Enser Menor</asp:ListItem>
-                <asp:ListItem Value="C.1.4">C.1.4 RRelación de Bienes Muebles en Comodato</asp:ListItem>
-                <asp:ListItem Value="C.1.5">C.1.5 Relación de Bienes Intangibles</asp:ListItem>--%>
                 <asp:ListItem Value="C.2">C.2 Relación de Equipo de Transporte, Maquinaria y Combustible</asp:ListItem>
                 <asp:ListItem Value="C.3">C.3 Relación de Leyes, Reglamentos, Manuales, Libros y Publicaciones</asp:ListItem>
                 <asp:ListItem Value="C.3.1">C.3.1 Relación de Manuales de Organización y Proceso</asp:ListItem>
@@ -92,7 +85,6 @@
                 <asp:ListItem Value="III">III. Funciones Generales</asp:ListItem>
                 <asp:ListItem Value="IV">IV. Relación de Anexos Aplicables</asp:ListItem>
                 <asp:ListItem Value="V">V. Plan Municipal de Desarrollo</asp:ListItem>
-                <%--<asp:ListItem Value="ActaER">Acta de Entrega y Recepción</asp:ListItem>--%>
             </asp:DropDownList>
         </div>
         <br />
@@ -113,8 +105,6 @@
                 <asp:ListItem Value="A.1">A.1 Presupuesto Global</asp:ListItem>
                 <asp:ListItem Value="A.1.1">A.1.1 Presupuesto de Ingresos Autorizado Global por Capítulo</asp:ListItem>
                 <asp:ListItem Value="A.1.2">A.1.2 Presupuesto de Egresos Autorizado Global por Capítulo</asp:ListItem>
-                <%--<asp:ListItem Value="A.1.3">A.1.3 Presupuesto de Egresos por Secretaría Global</asp:ListItem>--%>
-                <asp:ListItem Value="A.1.4">A.1.4 Presupuesto de Egresos por Segretaría</asp:ListItem>
                 <asp:ListItem Value="A.2">A.2 Reporte de Presupuesto Operativo</asp:ListItem>
                 <asp:ListItem Value="A.3">A.3 Estados Financieros</asp:ListItem>
                 <asp:ListItem Value="A.4">A.4 Asignación del Fondo Único de Operación</asp:ListItem>
@@ -136,12 +126,6 @@
                 <asp:ListItem Value="B.2">B.2 Relación de Personal con Licencia, Permiso, Comisión, In</asp:ListItem>
                 <asp:ListItem Value="B.3">B.3 Relación de Turnos y Cantidad de Personas Asignadas</asp:ListItem>
                 <asp:ListItem Value="B.4">B.4 Relación de Personal Jubilado y Pensionado</asp:ListItem>
-                <%--<asp:ListItem Value="C.1">C.1 Equipo, Herramienta y Accesorios y-o Listado de Patrimo</asp:ListItem>
-                <asp:ListItem Value="C.1.1">C.1.1 Equipo, Herramienta y Accesorios y Condiciones de Bienes Muebles</asp:ListItem>
-                <asp:ListItem Value="C.1.2">C.1.2 Equipo, Herramienta y Accesorios y-o del Estado</asp:ListItem>
-                <asp:ListItem Value="C.1.3">C.1.3 Relación de Bienes Muebles Enser Menor</asp:ListItem>
-                <asp:ListItem Value="C.1.4">C.1.4 RRelación de Bienes Muebles en Comodato</asp:ListItem>
-                <asp:ListItem Value="C.1.5">C.1.5 Relación de Bienes Intangibles</asp:ListItem>--%>
                 <asp:ListItem Value="C.2">C.2 Relación de Equipo de Transporte, Maquinaria y Combustible</asp:ListItem>
                 <asp:ListItem Value="C.3">C.3 Relación de Leyes, Reglamentos, Manuales, Libros y Publicaciones</asp:ListItem>
                 <asp:ListItem Value="C.3.1">C.3.1 Relación de Manuales de Organización y Proceso</asp:ListItem>
@@ -183,7 +167,6 @@
                 <asp:ListItem Value="III">III. Funciones Generales</asp:ListItem>
                 <asp:ListItem Value="IV">IV. Relación de Anexos Aplicables</asp:ListItem>
                 <asp:ListItem Value="V">V. Plan Municipal de Desarrollo</asp:ListItem>
-                <%--<asp:ListItem Value="ActaER">Acta de Entrega y Recepción</asp:ListItem>--%>
             </asp:ListBox>
         </div>
         <br />
